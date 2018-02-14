@@ -17,6 +17,7 @@ public class Keypad : MonoBehaviour
     private void Awake()
     {
         UpdateDisplay(enteredCode);
+        transform.parent = null;
     }
 
     public void AddKey(string text)
