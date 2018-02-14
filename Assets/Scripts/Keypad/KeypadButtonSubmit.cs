@@ -9,6 +9,7 @@ public class KeypadButtonSubmit : VRTK_InteractableObject
 
     public override void StartUsing(VRTK_InteractUse usingObject)
     {
+        Debug.Log("Pressed");
         base.StartUsing(usingObject);
         SubmitKey();
     }

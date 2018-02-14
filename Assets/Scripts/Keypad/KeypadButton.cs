@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using VRTK;
 
-public class KeypadButton : VRTK_InteractableObject
+public class KeypadButton : VRTK.VRTK_InteractableObject
 {
     [Header("Key Button Options")]
     public string key;
@@ -12,10 +11,11 @@ public class KeypadButton : VRTK_InteractableObject
     private Keypad keypad;
     private Text element;
 
-    public override void StartUsing(VRTK_InteractUse usingObject)
+    public override void StartUsing(VRTK.VRTK_InteractUse usingObject)
     {
         base.StartUsing(usingObject);
         AddKey();
+        Debug.Log("Triggered");
     }
 
     protected override void Awake()
