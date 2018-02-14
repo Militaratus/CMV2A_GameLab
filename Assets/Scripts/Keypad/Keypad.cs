@@ -14,6 +14,11 @@ public class Keypad : MonoBehaviour
     // Component References
     Text guiDisplay;
 
+    private void Awake()
+    {
+        UpdateDisplay(enteredCode);
+    }
+
     public void AddKey(string text)
     {
         if (enteredCode.Length >= keyCode.Length)
@@ -46,7 +51,7 @@ public class Keypad : MonoBehaviour
     {
         if (!guiDisplay)
         {
-            guiDisplay = transform.GetChild(0).GetComponent<Text>();
+            guiDisplay = transform.GetChild(0).GetChild(0).GetComponent<Text>();
         }
 
         guiDisplay.text = text;
