@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
-public class LockedDoor : MonoBehaviour
+public class OpenDoor : VRTK_InteractableObject
 {
     public bool flipped = false;
     public bool rotated = false;
@@ -16,28 +17,32 @@ public class LockedDoor : MonoBehaviour
     private Vector3 defaultRotation;
     private Vector3 openRotation;
 
-    // Use this for initialization
-    private void Start ()
+    public override void StartUsing(VRTK_InteractUse usingObject)
+    {
+        base.StartUsing(usingObject);
+        SetDoorRotation(usingObject.transform.position);
+        SetRotation();
+        open = !open;
+    }
+
+    protected void Start()
     {
         defaultRotation = transform.eulerAngles;
         SetRotation();
         sideFlip = (flipped ? 1 : -1);
     }
 
-    // Update is called once per frame
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (open)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(openRotation), Time.deltaTime * smooth);
         }
-    }
-
-    public void OpenDoor()
-    {
-        SetDoorRotation(transform.position);
-        SetRotation();
-        open = !open;
+        else
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(defaultRotation), Time.deltaTime * smooth);
+        }
     }
 
     private void SetRotation()
@@ -49,6 +54,4 @@ public class LockedDoor : MonoBehaviour
     {
         side = ((rotated == false && interacterPosition.z > transform.position.z) || (rotated == true && interacterPosition.x > transform.position.x) ? -1 : 1);
     }
-
-    
 }
