@@ -32,15 +32,15 @@ public class NoteColor : VRTK_InteractableObject
         }
         if (!element2)
         {
-            element2 = transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            element2 = transform.GetChild(0).GetChild(1).GetComponent<Image>();
         }
         if (!element3)
         {
-            element3 = transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            element3 = transform.GetChild(0).GetChild(2).GetComponent<Image>();
         }
         if (!element4)
         {
-            element4 = transform.GetChild(0).GetChild(0).GetComponent<Image>();
+            element4 = transform.GetChild(0).GetChild(3).GetComponent<Image>();
         }
 
         element1.color = color1;
