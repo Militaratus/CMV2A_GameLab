@@ -347,7 +347,7 @@ Prefab:
     - target: {fileID: 224000012504011746, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 224000012504011746, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -357,7 +357,7 @@ Prefab:
     - target: {fileID: 224000012504011746, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 224000010358937380, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -497,7 +497,7 @@ Prefab:
     - target: {fileID: 224000012484682510, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -25.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -507,7 +507,7 @@ Prefab:
     - target: {fileID: 224000012484682510, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 224000010031187690, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -527,7 +527,7 @@ Prefab:
     - target: {fileID: 224000010031187690, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -82
       objectReference: {fileID: 0}
     - target: {fileID: 224000010031187690, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -537,7 +537,7 @@ Prefab:
     - target: {fileID: 224000010031187690, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 66
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -552,7 +552,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 802
+      value: 1340
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
@@ -612,12 +612,12 @@ Prefab:
     - target: {fileID: 224000012859001416, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 224000012859001416, guid: 66376570f77eaf74eb4476f0ca77627e,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66376570f77eaf74eb4476f0ca77627e, type: 2}
@@ -6391,9 +6391,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1407203219}
   - component: {fileID: 1407203220}
+  - component: {fileID: 1407203221}
   m_Layer: 0
   m_Name: VRSimulatorCameraRig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6460,6 +6461,18 @@ MonoBehaviour:
   startMenuAlias: 102
   touchModifier: 116
   hairTouchModifier: 104
+--- !u!65 &1407203221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1407203218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1421913471
 Prefab:
   m_ObjectHideFlags: 0

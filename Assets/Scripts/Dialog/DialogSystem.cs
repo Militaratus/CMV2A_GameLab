@@ -52,7 +52,8 @@ public class DialogSystem : MonoBehaviour
         // At least have the decency to look at the player when talking to them!!!
 		if (inConversation)
         {
-            transform.LookAt(player);
+
+            transform.LookAt(player.position + player.up);
         }
 	}
 
