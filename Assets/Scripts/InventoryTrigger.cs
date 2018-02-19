@@ -22,7 +22,7 @@ public class InventoryTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     { 
-        if (other.tag == "Item")
+        if (other.gameObject.layer == 8)
         {
             rb = other.GetComponent<Rigidbody>();
             Debug.Log("Inventory");
