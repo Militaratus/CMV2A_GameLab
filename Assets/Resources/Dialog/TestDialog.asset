@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d991de9ca528f478ba4e119988f795, type: 3}
+  m_Name: TestDialog
+  m_EditorClassIdentifier: 
+  openingDialog: Why, hello there officer!
+  availableDialog:
+  - topicAvailable: 1
+    topicName: Bottles
+    topicResponse:
+    - They break!
+    goodCop:
+      choiceResponse:
+      - I knew you'd agree with me!
+      newEvidence: {fileID: 0}
+      newTopics: 
+    badCop:
+      choiceResponse:
+      - You don't believe me? Just throw one!
+      newEvidence: {fileID: 0}
+      newTopics: 
+    accuseCop:
+      choiceResponse:
+      - You call me a liar? Do you want to back that up with something!
+      choiceEvidence: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newTopics: 

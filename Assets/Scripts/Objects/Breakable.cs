@@ -61,7 +61,6 @@ public class Breakable : VRTK_InteractableObject
         if (collision.relativeVelocity.magnitude > 2)
         {
             GetComponent<AudioSource>().Play();
-            Debug.Log("BOOM!");
             GetComponent<MeshRenderer>().enabled = false;
             transform.GetChild(0).gameObject.SetActive(true);
             resetCoroutine = ResetTimer();
