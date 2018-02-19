@@ -558,7 +558,7 @@ namespace VRTK
         {
             if (!IsGrabbed() && !snappedInSnapDropZone)
             {
-                previousParent = transform.parent;
+                previousParent = null;
                 if (!IsSwappable())
                 {
                     previousIsGrabbable = isGrabbable;
@@ -915,7 +915,7 @@ namespace VRTK
         {
             if (gameObject.activeInHierarchy)
             {
-                transform.SetParent(previousParent);
+                transform.SetParent(null);
                 forcedDropped = false;
             }
             if (interactableRigidbody != null)
