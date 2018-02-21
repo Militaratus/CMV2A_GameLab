@@ -9,6 +9,12 @@ public class Keypad : MonoBehaviour
     public string keyCode = "0000";
     private string enteredCode = "";
 
+    public AudioClip audioPress;
+    public AudioClip audioClear;
+    public AudioClip audioInvalid;
+    public AudioClip audioCorrect;
+    private AudioSource audioPlayer;
+
     public UnityEvent unlockedEvents;
 
     // Component References
@@ -17,6 +23,7 @@ public class Keypad : MonoBehaviour
     private void Awake()
     {
         UpdateDisplay(enteredCode);
+        audioPlayer = GetComponent<AudioSource>();
         transform.parent = null;
     }
 
@@ -29,16 +36,19 @@ public class Keypad : MonoBehaviour
 
         enteredCode = enteredCode + text;
         UpdateDisplay(enteredCode);
+        PlaySound(audioPress);
     }
 
     public void SubmitKey()
     {
         if (enteredCode != keyCode)
         {
+            PlaySound(audioInvalid);
             return;
         }
 
         UpdateDisplay("UNLOCKED");
+        PlaySound(audioCorrect);
         unlockedEvents.Invoke();
     }
 
@@ -46,6 +56,7 @@ public class Keypad : MonoBehaviour
     {
         enteredCode = "";
         UpdateDisplay(enteredCode);
+        PlaySound(audioClear);
     }
 
     public void UpdateDisplay(string text)
@@ -56,5 +67,16 @@ public class Keypad : MonoBehaviour
         }
 
         guiDisplay.text = text;
+    }
+
+    void PlaySound(AudioClip chosenAudio)
+    {
+        if (!chosenAudio)
+        {
+            return;
+        }
+
+        audioPlayer.clip = chosenAudio;
+        audioPlayer.Play();
     }
 }

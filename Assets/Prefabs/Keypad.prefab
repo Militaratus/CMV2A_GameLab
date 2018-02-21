@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 65585920584508424}
   - component: {fileID: 23275432385990194}
   - component: {fileID: 114628090883101546}
+  - component: {fileID: 82707635651810404}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Untagged
@@ -701,7 +702,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342787960313932}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.7232, y: 0.944, z: 0.279}
+  m_LocalPosition: {x: -8.95225, y: 1.3083737, z: -10.156009}
   m_LocalScale: {x: 0.36952654, y: 0.5912427, z: 0.073905334}
   m_Children:
   - {fileID: 224228588130065278}
@@ -1701,6 +1702,87 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82707635651810404
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342787960313932}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243504473123914596, guid: 07d0bdd003b240b4282d9e9d63d86444,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114007183196211174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2443,6 +2525,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyCode: 1337
+  audioPress: {fileID: 8300000, guid: f9bda2ffaa10fe04bb90c7e07214be2a, type: 3}
+  audioClear: {fileID: 8300000, guid: 539b1647634f7c1499c2567aa3833641, type: 3}
+  audioInvalid: {fileID: 8300000, guid: ebc715af2002de7429c4bb78859ea623, type: 3}
+  audioCorrect: {fileID: 8300000, guid: a0d136666ab4c7b42b4f0e1bc19f450d, type: 3}
   unlockedEvents:
     m_PersistentCalls:
       m_Calls: []

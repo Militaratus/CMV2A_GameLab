@@ -48,4 +48,12 @@ public class NoteColor : VRTK_InteractableObject
         element3.color = color3;
         element4.color = color4;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.relativeVelocity.magnitude > 2)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+    }
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class OpenDoor : VRTK_InteractableObject
+public class HorizontalDoor : VRTK_InteractableObject
 {
+    [Header("VRTK Door Options")]
     public bool flipped = false;
     public bool rotated = false;
 
@@ -17,12 +18,26 @@ public class OpenDoor : VRTK_InteractableObject
     private Vector3 defaultRotation;
     private Vector3 openRotation;
 
+    [Header("Salty Puppies Door Options")]
+    public bool unlocked = true;
+    public AudioClip doorLocked;
+    public AudioClip doorOpening;
+    private AudioSource audioPlayer;
+
     public override void StartUsing(VRTK_InteractUse usingObject)
     {
         base.StartUsing(usingObject);
-        SetDoorRotation(usingObject.transform.position);
-        SetRotation();
-        open = !open;
+        if (unlocked)
+        {
+            SetDoorRotation(usingObject.transform.position);
+            SetRotation();
+            open = !open;
+            PlaySound(doorOpening);
+        }
+        else
+        {
+            PlaySound(doorLocked);
+        }
     }
 
     protected void Start()
@@ -30,6 +45,7 @@ public class OpenDoor : VRTK_InteractableObject
         defaultRotation = transform.eulerAngles;
         SetRotation();
         sideFlip = (flipped ? 1 : -1);
+        audioPlayer = GetComponent<AudioSource>();
     }
 
     protected override void Update()
@@ -53,5 +69,21 @@ public class OpenDoor : VRTK_InteractableObject
     private void SetDoorRotation(Vector3 interacterPosition)
     {
         side = ((rotated == false && interacterPosition.z > transform.position.z) || (rotated == true && interacterPosition.x > transform.position.x) ? -1 : 1);
+    }
+
+    public void UnlockDoor()
+    {
+        unlocked = true;
+    }
+
+    void PlaySound(AudioClip chosenAudio)
+    {
+        if (!chosenAudio)
+        {
+            return;
+        }
+
+        audioPlayer.clip = chosenAudio;
+        audioPlayer.Play();
     }
 }
