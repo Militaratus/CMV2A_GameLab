@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour
 {
-    int activeTopic;
-    Dialog activeDialog;
+    int activeTopic = -1;
+    Topic activeDialog;
     public DialogMenu testDialog;
 
     Text personName;
@@ -22,6 +22,11 @@ public class DialogSystem : MonoBehaviour
     GameObject dialogPanel;
 
     bool inConversation;
+    bool inDialog;
+    Dialog[] currentDialog;
+    int dialogStage;
+    int dialogStages;
+    AudioSource audioPlayer;
     Transform player;
 
     private void Awake()
@@ -54,15 +59,18 @@ public class DialogSystem : MonoBehaviour
         // Grab Text References
         personName = dialogPanel.transform.GetChild(0).GetComponent<Text>();
         personDialog = dialogPanel.transform.GetChild(1).GetComponent<Text>();
+
+        // Grab Audio Player
+        audioPlayer = GetComponent<AudioSource>();
     }
 
     void UpdateTopics()
     {
-        for (int i = 0; i < testDialog.availableDialog.Length; i++)
+        for (int i = 0; i < testDialog.availableTopics.Length; i++)
         {
-            if (testDialog.availableDialog[i].topicAvailable)
+            if (testDialog.availableTopics[i].topicAvailable)
             {
-                topics[i].transform.GetChild(0).GetComponent<Text>().text = testDialog.availableDialog[i].topicName;
+                topics[i].transform.GetChild(0).GetComponent<Text>().text = testDialog.availableTopics[i].topicName;
                 topics[i].SetActive(true);
             }
         }
@@ -80,19 +88,73 @@ public class DialogSystem : MonoBehaviour
         // At least have the decency to look at the player when talking to them!!!
 		if (inConversation)
         {
-
             transform.LookAt(player.position + player.up);
+
+            if (inDialog)
+            {
+                Debug.Log(audioPlayer.isPlaying);
+                if (audioPlayer.isPlaying == false)
+                {
+                    ContinueTalking();
+                }
+            }
         }
 	}
 
     void StartTalking()
     {
         inConversation = true;
-        topicPanel.SetActive(true);
+        //topicPanel.SetActive(true);
         dialogPanel.SetActive(true);
 
         personName.text = gameObject.name;
-        personDialog.text = testDialog.openingDialog;
+        currentDialog = testDialog.openingDialog;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
+    }
+
+    void ContinueTalking()
+    {
+        dialogStage++;
+        Debug.Log(dialogStage);
+        Debug.Log(dialogStages);
+        if (dialogStage > dialogStages)
+        {
+            inDialog = false;
+
+            if (activeTopic < 0)
+            {
+                topicPanel.SetActive(true);
+                choicePanel.SetActive(false);
+            }
+            else
+            {
+                topicPanel.SetActive(false);
+                choicePanel.SetActive(true);
+            }
+
+            return;
+        }
+
+        UpdateConversation();
+    }
+
+    void UpdateConversation()
+    {
+        inDialog = true;
+        audioPlayer.clip = currentDialog[dialogStage].voice;
+        audioPlayer.Play();
+
+        if (currentDialog[dialogStage].playerIsTalking)
+        {
+            personName.text = "Morgan";
+        }
+        else
+        {
+            personName.text = gameObject.name;
+        }
+
+        personDialog.text = currentDialog[dialogStage].text;
     }
 
     void StopTalking()
@@ -124,52 +186,54 @@ public class DialogSystem : MonoBehaviour
     public void ActivateTopic(int topicID)
     {
         activeTopic = topicID;
-        activeDialog = testDialog.availableDialog[activeTopic];
+        currentDialog = testDialog.availableTopics[activeTopic].topicResponse;
+        dialogStage = 0;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
 
-        if (activeDialog.topicResponse.Length == 1)
-        {
-            personDialog.text = activeDialog.topicResponse[0];
-        }
         topicPanel.SetActive(false);
-        choicePanel.SetActive(true);
+        choicePanel.SetActive(false);
     }
 
     public void ChooseGoodCop()
     {
-        DialogChoice activeRespone = activeDialog.goodCop;
+        DialogChoice activeRespone = testDialog.availableTopics[activeTopic].goodCop;
+        currentDialog = activeRespone.choiceResponse;
+        dialogStage = 0;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
+        //topics[activeTopic].GetComponent<Button>().interactable = false;
+        activeTopic = -1;
 
-        if (activeRespone.choiceResponse.Length == 1)
-        {
-            personDialog.text = activeRespone.choiceResponse[0];
-        }
-        topics[activeTopic].GetComponent<Button>().interactable = false;
-        topicPanel.SetActive(true);
+        topicPanel.SetActive(false);
         choicePanel.SetActive(false);
     }
 
     public void ChooseBadCop()
     {
-        DialogChoice activeRespone = activeDialog.badCop;
+        DialogChoice activeRespone = testDialog.availableTopics[activeTopic].badCop;
+        currentDialog = activeRespone.choiceResponse;
+        dialogStage = 0;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
+        //topics[activeTopic].GetComponent<Button>().interactable = false;
+        activeTopic = -1;
 
-        if (activeRespone.choiceResponse.Length == 1)
-        {
-            personDialog.text = activeRespone.choiceResponse[0];
-        }
-        topics[activeTopic].GetComponent<Button>().interactable = false;
-        topicPanel.SetActive(true);
+        topicPanel.SetActive(false);
         choicePanel.SetActive(false);
     }
 
     public void ChooseAccuseCop()
     {
-        DialogAccuse activeRespone = activeDialog.accuseCop;
+        DialogAccuse activeRespone = testDialog.availableTopics[activeTopic].accuseCop;
+        currentDialog = activeRespone.choiceResponse;
+        dialogStage = 0;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
+        //topics[activeTopic].GetComponent<Button>().interactable = false;
+        activeTopic = -1;
 
-        if (activeRespone.choiceResponse.Length == 1)
-        {
-            personDialog.text = activeRespone.choiceResponse[0];
-        }
-        topics[activeTopic].GetComponent<Button>().interactable = false;
-        topicPanel.SetActive(true);
+        topicPanel.SetActive(false);
         choicePanel.SetActive(false);
     }
 }

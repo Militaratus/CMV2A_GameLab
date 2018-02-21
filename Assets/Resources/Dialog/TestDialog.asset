@@ -11,25 +11,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d991de9ca528f478ba4e119988f795, type: 3}
   m_Name: TestDialog
   m_EditorClassIdentifier: 
-  openingDialog: Why, hello there officer!
-  availableDialog:
+  openingDialog:
+  - playerIsTalking: 0
+    text: Oh hai, Officer!
+    voice: {fileID: 8300000, guid: 99520415be6a7354f922d4a601db7f7f, type: 3}
+  - playerIsTalking: 0
+    text: It looks like I am going to your test subject.
+    voice: {fileID: 8300000, guid: 81eef557044171f4a9c1b6fe8f0e2ebc, type: 3}
+  availableTopics:
   - topicAvailable: 1
     topicName: Bottles
     topicResponse:
-    - They break!
+    - playerIsTalking: 1
+      text: What can you tell me about the bottles?
+      voice: {fileID: 8300000, guid: 6b9638598c8cc12459e4d98ba300b9fd, type: 3}
+    - playerIsTalking: 0
+      text: The bottles? They break when you throw them.
+      voice: {fileID: 8300000, guid: 28420bf42875a2f43bf49cc695aa9618, type: 3}
     goodCop:
       choiceResponse:
-      - I knew you'd agree with me!
+      - playerIsTalking: 1
+        text: They sure do.
+        voice: {fileID: 8300000, guid: 4ddbb8f67efbe6e46a4914036766d4e7, type: 3}
+      - playerIsTalking: 0
+        text: It's awesome smashing them together!
+        voice: {fileID: 8300000, guid: 8863b6c702fc4fa4c9af5b925960042a, type: 3}
       newEvidence: {fileID: 0}
       newTopics: 
     badCop:
       choiceResponse:
-      - You don't believe me? Just throw one!
+      - playerIsTalking: 1
+        text: I doubt the bottles break so easily.
+        voice: {fileID: 8300000, guid: db5bbadf087d6e346aba220c7325fc8b, type: 3}
+      - playerIsTalking: 0
+        text: If you doubt me, why not pick up some bottles and throw them?
+        voice: {fileID: 8300000, guid: 078bf8c4e1188c8479d2b82a4f884afc, type: 3}
       newEvidence: {fileID: 0}
       newTopics: 
     accuseCop:
       choiceResponse:
-      - You call me a liar? Do you want to back that up with something!
-      choiceEvidence: {fileID: 0}
+      - playerIsTalking: 1
+        text: How about I SMASH your BRAIN in with a bottle? What's with the bottles?
+        voice: {fileID: 8300000, guid: 348ba80b13983d544a4ca807970bfc53, type: 3}
+      - playerIsTalking: 0
+        text: Are you accusing me of something? Where's your proof!
+        voice: {fileID: 8300000, guid: 5406dc807cbf0de4a8ffd23ce1261989, type: 3}
+      - playerIsTalking: 1
+        text: Sorry, it seems I have been mistaken.
+        voice: {fileID: 8300000, guid: 6760cbdcf88c5624d8429a2005b5cad8, type: 3}
       newEvidence: {fileID: 0}
       newTopics: 
+      choiceEvidence: {fileID: 0}

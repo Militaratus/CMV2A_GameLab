@@ -5,16 +5,16 @@ using UnityEngine;
 [CreateAssetMenu]
 public class DialogMenu : ScriptableObject
 {
-    public string openingDialog;
-    public Dialog[] availableDialog;
+    public Dialog[] openingDialog;
+    public Topic[] availableTopics;
 }
 
 [System.Serializable]
-public class Dialog
+public class Topic
 {
     public bool topicAvailable = true;
     public string topicName = "";
-    public string[] topicResponse;
+    public Dialog[] topicResponse;
     public DialogChoice goodCop;
     public DialogChoice badCop;
     public DialogAccuse accuseCop;
@@ -23,16 +23,21 @@ public class Dialog
 [System.Serializable]
 public class DialogChoice
 {
-    public string[] choiceResponse;
+    public Dialog[] choiceResponse;
     public Evidence newEvidence;
     public int[] newTopics;
 }
 
 [System.Serializable]
-public class DialogAccuse
+public class DialogAccuse : DialogChoice
 {
-    public string[] choiceResponse;
     public Evidence choiceEvidence;
-    public Evidence newEvidence;
-    public int[] newTopics;
+}
+
+[System.Serializable]
+public class Dialog
+{
+    public bool playerIsTalking = false;
+    public string text = "";
+    public AudioClip voice; 
 }
