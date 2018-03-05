@@ -109,6 +109,7 @@ public class DialogSystem : MonoBehaviour
 
         personName.text = gameObject.name;
         currentDialog = testDialog.openingDialog;
+        dialogStage = 0;
         dialogStages = currentDialog.Length;
         UpdateConversation();
     }
@@ -116,9 +117,9 @@ public class DialogSystem : MonoBehaviour
     void ContinueTalking()
     {
         dialogStage++;
-        Debug.Log(dialogStage);
-        Debug.Log(dialogStages);
-        if (dialogStage > dialogStages)
+        Debug.Log("DIALOGSTAGE:" + dialogStage);
+        Debug.Log("DIALOGSTAGES:" + dialogStages);
+        if (dialogStage >= dialogStages)
         {
             inDialog = false;
 
@@ -142,8 +143,15 @@ public class DialogSystem : MonoBehaviour
     void UpdateConversation()
     {
         inDialog = true;
-        audioPlayer.clip = currentDialog[dialogStage].voice;
-        audioPlayer.Play();
+        if (currentDialog[dialogStage] != null)
+        {
+            audioPlayer.clip = currentDialog[dialogStage].voice;
+            audioPlayer.Play();
+        }
+        else
+        {
+            Debug.LogError("ERROR: Voice of Dialog Stage " + dialogStage + " is missing!");
+        }
 
         if (currentDialog[dialogStage].playerIsTalking)
         {
