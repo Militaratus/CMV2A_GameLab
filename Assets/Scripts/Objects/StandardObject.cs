@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 
-public class Breakable : VRTK_InteractableObject
+public class StandardObject : VRTK_InteractableObject
 {
     [Header("Evidence", order = 1)]
     public Evidence evidence;
@@ -22,10 +22,6 @@ public class Breakable : VRTK_InteractableObject
     private Vector3 resetPosition;
     private Quaternion resetRotation;
 
-    private int shardCount;
-    private Vector3[] shardPositions;
-    private Quaternion[] shardRotations;
-
     private IEnumerator resetCoroutine;
 
     protected override void Awake()
@@ -34,25 +30,25 @@ public class Breakable : VRTK_InteractableObject
         SetReset();
         ResetObject();
 
-        // Set up
-        managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
-        amAnalyzed = managerGame.CheckAddedEvidence(evidence);
+        if (evidence)
+        {
+            // Set up
+            managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+            amAnalyzed = managerGame.CheckAddedEvidence(evidence);
+        }
 
-        objectCanvas = transform.GetChild(1).gameObject;
+        objectCanvas = transform.GetChild(0).gameObject;
         objectCanvas.SetActive(false);
 
         objectName = objectCanvas.transform.GetChild(0).GetComponent<Text>();
-        objectName.text = evidence.evidenceName;
-
         objectText = objectCanvas.transform.GetChild(1).GetComponent<Text>();
-        objectText.text = evidence.evidenceDescription;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (IsGrabbed() && Time.time > analyzeCooldown)
+        if (IsGrabbed() && Time.time > analyzeCooldown && evidence)
         {
             if (amAnalyzed)
             {
@@ -80,7 +76,7 @@ public class Breakable : VRTK_InteractableObject
 
             analyzeCooldown = Time.time + 1;
         }
-        
+
         if (!IsGrabbed() && objectCanvas.activeSelf)
         {
             objectCanvas.SetActive(false);
@@ -92,15 +88,25 @@ public class Breakable : VRTK_InteractableObject
     {
         resetPosition = transform.position;
         resetRotation = transform.rotation;
+    }
 
-        shardCount = transform.GetChild(0).childCount;
-        shardPositions = new Vector3[shardCount];
-        shardRotations = new Quaternion[shardCount];
-        for (int i = 0; i < shardCount; i++)
+    public override void Grabbed(VRTK_InteractGrab currentGrabbingObject = null)
+    {
+        base.Grabbed(currentGrabbingObject);
+
+        if (resetCoroutine != null)
         {
-            shardPositions[i] = transform.GetChild(0).GetChild(i).localPosition;
-            shardRotations[i] = transform.GetChild(0).GetChild(i).localRotation;
+            StopCoroutine(resetCoroutine);
+            resetCoroutine = null;
         }
+    }
+
+    public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject = null)
+    {
+        base.Ungrabbed(previousGrabbingObject);
+
+        resetCoroutine = ResetTimer();
+        StartCoroutine(resetCoroutine);
     }
 
     void ResetObject()
@@ -113,26 +119,6 @@ public class Breakable : VRTK_InteractableObject
 
         transform.position = resetPosition;
         transform.rotation = resetRotation;
-        for (int i = 0; i < shardCount; i++)
-        {
-            transform.GetChild(0).GetChild(i).localPosition = shardPositions[i];
-            transform.GetChild(0).GetChild(i).localRotation = shardRotations[i];
-        }
-        GetComponent<MeshRenderer>().enabled = true;
-        transform.GetChild(0).gameObject.SetActive(false);
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.relativeVelocity.magnitude > 2)
-        {
-            GetComponent<AudioSource>().Play();
-            GetComponent<MeshRenderer>().enabled = false;
-            transform.GetChild(0).gameObject.SetActive(true);
-            resetCoroutine = ResetTimer();
-            StartCoroutine(resetCoroutine);
-        }
-
     }
 
     public IEnumerator ResetTimer()

@@ -32,6 +32,8 @@ public class DialogChoice
 public class DialogAccuse : DialogChoice
 {
     public Evidence choiceEvidence;
+    public Dialog[] choiceSuccess;
+    public Dialog[] choiceFail;
 }
 
 [System.Serializable]
