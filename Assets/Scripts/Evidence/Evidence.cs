@@ -7,4 +7,5 @@ public class Evidence : ScriptableObject
 {
     public string evidenceName;
     public string evidenceDescription;
+    public Sprite evidenceImage;
 }

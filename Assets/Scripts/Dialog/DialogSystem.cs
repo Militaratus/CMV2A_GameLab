@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogSystem : MonoBehaviour
 {
     int activeTopic = -1;
+    bool amAccusing = false;
     Topic activeDialog;
     public DialogMenu testDialog;
 
@@ -16,11 +17,15 @@ public class DialogSystem : MonoBehaviour
     GameObject choice1;
     GameObject choice2;
     GameObject choice3;
+    GameObject[] evidences;
+    Evidence[] availableEvidence;
 
     GameObject topicPanel;
     GameObject choicePanel;
     GameObject dialogPanel;
+    GameObject evidencePanel;
 
+    float conversationCooldown = 0;
     bool inConversation;
     bool inDialog;
     Dialog[] currentDialog;
@@ -28,6 +33,9 @@ public class DialogSystem : MonoBehaviour
     int dialogStages;
     AudioSource audioPlayer;
     Transform player;
+
+    // GameManager reference
+    GameManager managerGame;
 
     private void Awake()
     {
@@ -41,7 +49,8 @@ public class DialogSystem : MonoBehaviour
         // Grab Panels
         topicPanel = transform.GetChild(0).gameObject;
         choicePanel = transform.GetChild(1).gameObject;
-        dialogPanel = transform.GetChild(2).gameObject;
+        evidencePanel = transform.GetChild(2).gameObject;
+        dialogPanel = transform.GetChild(3).gameObject;
 
         // Grab Topics
         topics = new GameObject[topicPanel.transform.childCount];
@@ -60,8 +69,19 @@ public class DialogSystem : MonoBehaviour
         personName = dialogPanel.transform.GetChild(0).GetComponent<Text>();
         personDialog = dialogPanel.transform.GetChild(1).GetComponent<Text>();
 
+        // Grab Evidence
+        evidences = new GameObject[evidencePanel.transform.childCount];
+        for (int i = 0; i < evidences.Length; i++)
+        {
+            evidences[i] = evidencePanel.transform.GetChild(i).gameObject;
+            evidences[i].SetActive(false);
+        }
+
         // Grab Audio Player
         audioPlayer = GetComponent<AudioSource>();
+
+        // Grab Game Manager
+        managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void UpdateTopics()
@@ -72,6 +92,19 @@ public class DialogSystem : MonoBehaviour
             {
                 topics[i].transform.GetChild(0).GetComponent<Text>().text = testDialog.availableTopics[i].topicName;
                 topics[i].SetActive(true);
+            }
+        }
+    }
+
+    void UpdateEvidences()
+    {
+        availableEvidence = managerGame.GetEvidence(1);
+        for (int i = 0; i < availableEvidence.Length; i++)
+        {
+            if (availableEvidence[i])
+            {
+                evidences[i].transform.GetChild(0).GetComponent<Text>().text = availableEvidence[i].evidenceName;
+                evidences[i].SetActive(true);
             }
         }
     }
@@ -90,9 +123,9 @@ public class DialogSystem : MonoBehaviour
         {
             transform.LookAt(player.position + player.up);
 
-            if (inDialog)
+            if (inDialog && Time.time > conversationCooldown)
             {
-                Debug.Log(audioPlayer.isPlaying);
+                conversationCooldown = Time.time + 1;
                 if (audioPlayer.isPlaying == false)
                 {
                     ContinueTalking();
@@ -103,6 +136,10 @@ public class DialogSystem : MonoBehaviour
 
     void StartTalking()
     {
+        // Refresh the amount of evidence
+        UpdateTopics();
+        UpdateEvidences();
+
         inConversation = true;
         //topicPanel.SetActive(true);
         dialogPanel.SetActive(true);
@@ -123,15 +160,33 @@ public class DialogSystem : MonoBehaviour
         {
             inDialog = false;
 
+            // Refresh the amount of evidence & topics
+            UpdateTopics();
+            UpdateEvidences();
+
             if (activeTopic < 0)
             {
                 topicPanel.SetActive(true);
                 choicePanel.SetActive(false);
+                evidencePanel.SetActive(false);
+            }
+            else if (amAccusing)
+            {
+                topicPanel.SetActive(false);
+                choicePanel.SetActive(false);
+                evidencePanel.SetActive(true);
+
+                // Do I even have any evidence?
+                if (availableEvidence[0] == null)
+                {
+                    ChooseEvidence(0);
+                }
             }
             else
             {
                 topicPanel.SetActive(false);
                 choicePanel.SetActive(true);
+                evidencePanel.SetActive(false);
             }
 
             return;
@@ -171,6 +226,7 @@ public class DialogSystem : MonoBehaviour
         topicPanel.SetActive(false);
         choicePanel.SetActive(false);
         dialogPanel.SetActive(false);
+        evidencePanel.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -201,6 +257,7 @@ public class DialogSystem : MonoBehaviour
 
         topicPanel.SetActive(false);
         choicePanel.SetActive(false);
+        evidencePanel.SetActive(false);
     }
 
     public void ChooseGoodCop()
@@ -239,9 +296,32 @@ public class DialogSystem : MonoBehaviour
         dialogStages = currentDialog.Length;
         UpdateConversation();
         //topics[activeTopic].GetComponent<Button>().interactable = false;
-        activeTopic = -1;
+        amAccusing = true;
 
         topicPanel.SetActive(false);
         choicePanel.SetActive(false);
+    }
+
+    public void ChooseEvidence(int chosenEvidence)
+    {
+        DialogAccuse activeRespone = testDialog.availableTopics[activeTopic].accuseCop;
+        if (availableEvidence[0] != null && availableEvidence[chosenEvidence].evidenceName == activeRespone.choiceEvidence.evidenceName)
+        {
+            currentDialog = activeRespone.choiceSuccess;
+        }
+        else
+        {
+            currentDialog = activeRespone.choiceFail;
+        }
+        dialogStage = 0;
+        dialogStages = currentDialog.Length;
+        UpdateConversation();
+        //topics[activeTopic].GetComponent<Button>().interactable = false;
+        activeTopic = -1;
+        amAccusing = false;
+
+        topicPanel.SetActive(false);
+        choicePanel.SetActive(false);
+        evidencePanel.SetActive(false);
     }
 }
