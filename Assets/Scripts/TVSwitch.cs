@@ -7,6 +7,9 @@ using UnityEngine.Video;
 public class TVSwitch : VRTK_InteractableObject
 {
 
+    public AudioClip Bleep;
+    private AudioSource audioPlayer;
+
     private VideoPlayer videoPlayer;
 
     GameObject tv;
@@ -16,12 +19,17 @@ public class TVSwitch : VRTK_InteractableObject
         base.StartUsing(usingObject);
         Debug.Log("Using");
         videoPlayer.Play();
-
-    }
+        if (!audioPlayer.isPlaying)
+        {
+            audioPlayer.clip = Bleep;
+            audioPlayer.Play();
+        }
+     }
 
     protected void Start()
     {
-       tv = transform.GetChild(0).gameObject;
+        tv = transform.GetChild(0).gameObject;
+        audioPlayer = GetComponent<AudioSource>();
         videoPlayer = tv.GetComponent<VideoPlayer>();
     }
 }
