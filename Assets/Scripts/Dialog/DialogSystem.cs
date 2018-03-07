@@ -66,8 +66,8 @@ public class DialogSystem : MonoBehaviour
         choice3 = choicePanel.transform.GetChild(2).gameObject;
 
         // Grab Text References
-        personName = dialogPanel.transform.GetChild(0).GetComponent<Text>();
-        personDialog = dialogPanel.transform.GetChild(1).GetComponent<Text>();
+        personName = dialogPanel.transform.GetChild(1).GetComponent<Text>();
+        personDialog = dialogPanel.transform.GetChild(2).GetComponent<Text>();
 
         // Grab Evidence
         evidences = new GameObject[evidencePanel.transform.childCount];
