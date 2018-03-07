@@ -121,7 +121,7 @@ public class DialogSystem : MonoBehaviour
         // At least have the decency to look at the player when talking to them!!!
 		if (inConversation)
         {
-            transform.LookAt(player.position + player.up);
+            transform.LookAt(player.position);
 
             if (inDialog && Time.time > conversationCooldown)
             {
@@ -214,7 +214,15 @@ public class DialogSystem : MonoBehaviour
         }
         else
         {
-            personName.text = gameObject.name;
+            // [OLDCODE] Bartender fix
+            if (!transform.parent)
+            {
+                personName.text = gameObject.name;
+            }
+            else
+            {
+                personName.text = transform.parent.name;
+            }
         }
 
         personDialog.text = currentDialog[dialogStage].text;
