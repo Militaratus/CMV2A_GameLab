@@ -10,19 +10,22 @@ public class StandardObject : VRTK_InteractableObject
     public Evidence evidence;
 
     // GameManager Reference
-    private GameManager managerGame;
+    internal GameManager managerGame;
 
-    private bool amAnalyzed;
-    private int analyzePercentage = 0;
-    private float analyzeCooldown = 0;
-    private GameObject objectCanvas;
-    private Text objectName;
-    private Text objectText;
+    internal Transform playerHead;
+    internal Transform tooltipHead;
 
-    private Vector3 resetPosition;
-    private Quaternion resetRotation;
+    internal bool amAnalyzed;
+    internal int analyzePercentage = 0;
+    internal float analyzeCooldown = 0;
+    internal GameObject objectCanvas;
+    internal Text objectName;
+    internal Text objectText;
 
-    private IEnumerator resetCoroutine;
+    internal Vector3 resetPosition;
+    internal Quaternion resetRotation;
+
+    internal IEnumerator resetCoroutine;
 
     protected override void Awake()
     {
@@ -30,61 +33,70 @@ public class StandardObject : VRTK_InteractableObject
         SetReset();
         ResetObject();
 
-        if (evidence)
-        {
-            // Set up
-            managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
-            amAnalyzed = managerGame.CheckAddedEvidence(evidence);
-        }
+        // Set up
+        managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+        amAnalyzed = managerGame.CheckAddedEvidence(evidence);
 
-        objectCanvas = transform.GetChild(0).gameObject;
+        playerHead = GameObject.FindGameObjectWithTag("Player").transform;
+        tooltipHead = transform.GetChild(0);
+
+        objectCanvas = tooltipHead.GetChild(0).gameObject;
         objectCanvas.SetActive(false);
 
-        objectName = objectCanvas.transform.GetChild(0).GetComponent<Text>();
-        objectText = objectCanvas.transform.GetChild(1).GetComponent<Text>();
+        if (evidence)
+        {
+            objectName = objectCanvas.transform.GetChild(1).GetComponent<Text>();
+            objectName.text = evidence.evidenceName;
+
+            objectText = objectCanvas.transform.GetChild(2).GetComponent<Text>();
+            objectText.text = evidence.evidenceDescription;
+        }
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (IsGrabbed() && Time.time > analyzeCooldown && evidence)
+        if (evidence)
         {
-            if (amAnalyzed)
+            if (IsGrabbed() && Time.time > analyzeCooldown && evidence)
             {
-                objectName.text = evidence.evidenceName;
-                objectText.text = evidence.evidenceDescription;
-            }
-            else
-            {
-                analyzePercentage = analyzePercentage + Random.Range(1, 25);
-                if (analyzePercentage > 100.00f)
+                if (amAnalyzed)
                 {
-                    amAnalyzed = true;
-                    analyzePercentage = 100;
-                    managerGame.AddEvidence(evidence);
+                    objectName.text = evidence.evidenceName;
+                    objectText.text = evidence.evidenceDescription;
+                }
+                else
+                {
+                    analyzePercentage = analyzePercentage + Random.Range(1, 25);
+                    if (analyzePercentage > 100.00f)
+                    {
+                        amAnalyzed = true;
+                        analyzePercentage = 100;
+                        managerGame.AddEvidence(evidence);
+                    }
+
+                    objectName.text = "Analyzing...";
+                    objectText.text = analyzePercentage + "%";
                 }
 
-                objectName.text = "Analyzing...";
-                objectText.text = analyzePercentage + "%";
+                if (!objectCanvas.activeSelf)
+                {
+                    objectCanvas.SetActive(true);
+                }
+
+                analyzeCooldown = Time.time + 1;
             }
 
-            if (!objectCanvas.activeSelf)
+            if (!IsGrabbed() && objectCanvas.activeSelf)
             {
-                objectCanvas.SetActive(true);
+                objectCanvas.SetActive(false);
             }
-
-            analyzeCooldown = Time.time + 1;
-        }
-
-        if (!IsGrabbed() && objectCanvas.activeSelf)
-        {
-            objectCanvas.SetActive(false);
         }
     }
 
     // Apply the key text to the GUI of the button
-    void SetReset()
+    public virtual void SetReset()
     {
         resetPosition = transform.position;
         resetRotation = transform.rotation;
@@ -94,11 +106,15 @@ public class StandardObject : VRTK_InteractableObject
     {
         base.Grabbed(currentGrabbingObject);
 
+        // Reset Respawn
         if (resetCoroutine != null)
         {
             StopCoroutine(resetCoroutine);
             resetCoroutine = null;
         }
+
+        // Aim the Display to the player
+        tooltipHead.LookAt(playerHead.position);
     }
 
     public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject = null)
@@ -109,7 +125,7 @@ public class StandardObject : VRTK_InteractableObject
         StartCoroutine(resetCoroutine);
     }
 
-    void ResetObject()
+    public virtual void ResetObject()
     {
         if (resetCoroutine != null)
         {
