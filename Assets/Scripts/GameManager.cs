@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Evidence[] gatheredEvidence;
+    public List<Evidence> gatheredEvidence = new List<Evidence>();
 
 	// Use this for initialization
 	void Start ()
@@ -20,28 +20,19 @@ public class GameManager : MonoBehaviour
 
     public void AddEvidence(Evidence newEvidence)
     {
-        if (gatheredEvidence.Length < 1)
-        {
-            gatheredEvidence = new Evidence[1];
-        }
-        else
-        {
-            gatheredEvidence = new Evidence[gatheredEvidence.Length + 1];
-        }
-
-        gatheredEvidence[gatheredEvidence.Length - 1] = newEvidence;
+        gatheredEvidence.Add(newEvidence);
     }
 
     public bool CheckAddedEvidence(Evidence newEvidence)
     {
         bool alreadyAdded = false;
 
-        if (gatheredEvidence.Length < 1)    // You have no power (and stuff) here!
+        if (gatheredEvidence.Count < 1)    // You have no power (and stuff) here!
         {
             return false;
         }
 
-        for (int i = 0; i < gatheredEvidence.Length; i++)
+        for (int i = 0; i < gatheredEvidence.Count; i++)
         {
             if (gatheredEvidence[i] == newEvidence) // Found it, stop checking!
             {
@@ -59,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < availableEvidence.Length; i++)
         {
-            if ((i * page) < gatheredEvidence .Length)
+            if ((i * page) < gatheredEvidence.Count)
             {
                 availableEvidence[i] = gatheredEvidence[i * page];
             }
