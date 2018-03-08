@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 114638584451631254}
   - component: {fileID: 114069718407309836}
   - component: {fileID: 114063509803501512}
+  - component: {fileID: 114606584084404010}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -153,6 +154,7 @@ GameObject:
   - component: {fileID: 114723576411220706}
   - component: {fileID: 114775688275850840}
   - component: {fileID: 114768860290282400}
+  - component: {fileID: 114616582803236548}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -562,6 +564,32 @@ MonoBehaviour:
   controller: {fileID: 114768276303114358}
   interactUse: {fileID: 0}
   customOrigin: {fileID: 0}
+--- !u!114 &114606584084404010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839037068415112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a537dcd25de0d4da321bb1019780ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerEvents: {fileID: 114705955437638800}
+  menu: {fileID: 0}
+--- !u!114 &114616582803236548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859619656827964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a537dcd25de0d4da321bb1019780ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerEvents: {fileID: 114768276303114358}
+  menu: {fileID: 0}
 --- !u!114 &114638584451631254
 MonoBehaviour:
   m_ObjectHideFlags: 1
