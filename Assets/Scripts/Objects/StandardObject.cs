@@ -50,6 +50,8 @@ public class StandardObject : VRTK_InteractableObject
 
             objectText = objectCanvas.transform.GetChild(2).GetComponent<Text>();
             objectText.text = evidence.evidenceDescription;
+
+            gameObject.tag = "Evidence";
         }
     }
 
