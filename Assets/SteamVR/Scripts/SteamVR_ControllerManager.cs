@@ -56,7 +56,7 @@ public class SteamVR_ControllerManager : MonoBehaviour
 
 	void Awake()
 	{
-		UpdateTargets();
+        UpdateTargets();
 	}
 
 	SteamVR_ControllerManager()
