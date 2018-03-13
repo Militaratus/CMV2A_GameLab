@@ -19,4 +19,19 @@ public class ButtonManager : MonoBehaviour {
     {
         Application.Quit();
 	}
+
+    public void LineUp1()
+    {
+        Debug.Log("LineUP1");
+    }
+
+    public void LineUp2()
+    {
+        Debug.Log("LineUP2");
+    }
+
+    public void LineUp3()
+    {
+        Debug.Log("LineUP3");
+    }
 }
