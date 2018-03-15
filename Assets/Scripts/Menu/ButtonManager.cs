@@ -8,7 +8,20 @@ using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
-public class ButtonManager : MonoBehaviour {
+public class ButtonManager : MonoBehaviour
+{
+
+    GameObject LineUp1Canvas;
+    GameObject LineUp2Canvas;
+    GameObject LineUp3Canvas;
+
+    void Start()
+    {
+        LineUp1Canvas = GameObject.Find("Lineup1");
+        LineUp2Canvas = GameObject.Find("Lineup2");
+        LineUp3Canvas = GameObject.Find("Lineup3");
+    }
+
     //If button is pressed load scene.
     public void MenuButton(string MainMenu)
     {
@@ -18,11 +31,13 @@ public class ButtonManager : MonoBehaviour {
     public void ExitButton()
     {
         Application.Quit();
-	}
+    }
 
     public void LineUp1()
     {
         Debug.Log("LineUP1");
+        LineUp1Canvas.SetActive(false);
+
     }
 
     public void LineUp2()
