@@ -13,18 +13,30 @@ public class BleepBloop : VRTK_InteractableObject
     internal Transform displayHead;
 
     GameObject menuCanvas;
-    GameObject cluebotCanvas;
     GameObject noteCanvas;
+    GameObject evidenceCanvas;
+    GameObject scanningCanvas;
+    GameObject viewCanvas;
+    GameObject suspectCanvas;
+    GameObject mapCanvas;
+    GameObject cluebotCanvas;
+
+    Scrollbar scanningSlider;
+    Text scanningText;
 
     Button cluebotButton;
     Text cluebotText;
 
+    Light displayLight;
+
+    float scanningProgress = 0;
     int cluebotBattery = 100;
 
     bool canvasActive = false;
     bool cluebotActive = false;
 
     IEnumerator cluebotCoroutine;
+    IEnumerator scanningRoutine;
 
     protected override void Awake()
     {
@@ -36,19 +48,34 @@ public class BleepBloop : VRTK_InteractableObject
         playerHead = GameObject.FindGameObjectWithTag("Player").transform;
         displayHead = transform.GetChild(0);
 
-        menuCanvas = displayHead.GetChild(0).gameObject;
-        cluebotCanvas = displayHead.GetChild(1).gameObject;
-        cluebotButton = cluebotCanvas.transform.GetChild(2).GetComponent<Button>();
-        cluebotText = cluebotButton.transform.GetChild(0).GetComponent<Text>();
-        noteCanvas = displayHead.GetChild(2).gameObject;
+        displayLight = displayHead.GetComponent<Light>();
 
-        
+        menuCanvas = displayHead.GetChild(0).gameObject;
+        noteCanvas = displayHead.GetChild(1).gameObject;
+        evidenceCanvas = displayHead.GetChild(2).gameObject;
+        scanningCanvas = displayHead.GetChild(3).gameObject;
+        scanningSlider = scanningCanvas.transform.GetChild(3).GetComponent<Scrollbar>();
+        scanningText = scanningSlider.transform.GetChild(1).GetComponent<Text>();
+
+        viewCanvas = displayHead.GetChild(4).gameObject;
+        suspectCanvas = displayHead.GetChild(5).gameObject;
+        mapCanvas = displayHead.GetChild(6).gameObject;
+        cluebotCanvas = displayHead.GetChild(7).gameObject;
+        cluebotButton = cluebotCanvas.transform.GetChild(1).GetComponent<Button>();
+        cluebotText = cluebotButton.transform.GetChild(0).GetComponent<Text>();
+
+        TurnOff();
     }
 
     public override void StartUsing(VRTK_InteractUse usingObject)
     {
         base.StartUsing(usingObject);
+        ToggleDisplay();
+        StopUsing();    // Prevents Coroutine crash when hammering the use button
+    }
 
+    void ToggleDisplay()
+    {
         if (!canvasActive)
         {
             canvasActive = true;
@@ -57,28 +84,69 @@ public class BleepBloop : VRTK_InteractableObject
         else if (canvasActive)
         {
             canvasActive = false;
-            SwitchMenu("menu");
+            SwitchMenu("nothing");
         }
+
+        displayLight.enabled = canvasActive;
+    }
+
+    void TurnOff()
+    {
+        menuCanvas.SetActive(false);
+        noteCanvas.SetActive(false); ;
+        evidenceCanvas.SetActive(false);
+        scanningCanvas.SetActive(false);
+        viewCanvas.SetActive(false);
+        suspectCanvas.SetActive(false);
+        mapCanvas.SetActive(false);
+        cluebotCanvas.SetActive(false);
     }
 
     public void SwitchMenu(string menu)
     {
         // Turn off everything
-        menuCanvas.SetActive(false);
-        cluebotCanvas.SetActive(false);
-        noteCanvas.SetActive(false);
+        TurnOff();
+
+        // Turn off unneccesary Coroutines
+        if (scanningRoutine != null)
+        {
+            StopCoroutine(scanningRoutine);
+            scanningRoutine = null;
+        }
 
         if (menu == "menu")
         {
             menuCanvas.SetActive(true);
         }
+        if (menu == "notes")
+        {
+            noteCanvas.SetActive(true);
+        }
+        if (menu == "evidence")
+        {
+            evidenceCanvas.SetActive(true);
+        }
+        if (menu == "scanning")
+        {
+            scanningRoutine = ScanningCoroutine();
+            StartCoroutine(scanningRoutine);
+            scanningCanvas.SetActive(true);
+        }
+        if (menu == "view")
+        {
+            viewCanvas.SetActive(true);
+        }
+        if (menu == "suspects")
+        {
+            suspectCanvas.SetActive(true);
+        }
+        if (menu == "map")
+        {
+            mapCanvas.SetActive(true);
+        }
         if (menu == "cluebot")
         {
             cluebotCanvas.SetActive(true);
-        }
-        if (menu == "note")
-        {
-            noteCanvas.SetActive(true);
         }
 
         audioPlayer.Play();
@@ -106,6 +174,11 @@ public class BleepBloop : VRTK_InteractableObject
         StartCoroutine(cluebotCoroutine);
     }
 
+    public void CheckEvidence(int evidenceID)
+    {
+        SwitchMenu("scanning");
+    }
+
     IEnumerator CluebotCoroutine()
     {
         while (cluebotBattery > 0)
@@ -126,5 +199,26 @@ public class BleepBloop : VRTK_InteractableObject
 
         cluebotText.text = "Tap to Summon";
         cluebotButton.interactable = true;
+    }
+
+    IEnumerator ScanningCoroutine()
+    {
+        scanningProgress = 0;
+        scanningSlider.size = scanningProgress / 100;
+        scanningText.text = scanningProgress + "%";
+
+        while (scanningProgress < 100)
+        {
+            scanningProgress += Random.Range(10, 25);
+            if (scanningProgress > 100)
+            {
+                scanningProgress = 100;
+            }
+            scanningSlider.size = scanningProgress / 100;
+            scanningText.text = scanningProgress + "%";
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        SwitchMenu("view");
     }
 }
