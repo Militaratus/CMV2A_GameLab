@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.SceneManagement;
 
 public class HorizontalDoor : VRTK_InteractableObject
 {
@@ -33,6 +34,8 @@ public class HorizontalDoor : VRTK_InteractableObject
             SetRotation();
             open = !open;
             PlaySound(doorOpening);
+            SceneManager.LoadScene("DialogTest");
+
         }
         else
         {
