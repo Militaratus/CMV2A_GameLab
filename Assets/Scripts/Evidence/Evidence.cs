@@ -8,4 +8,7 @@ public class Evidence : ScriptableObject
     public string evidenceName;
     public string evidenceDescription;
     public Sprite evidenceImage;
+    public string evidenceInformation;
+    public Evidence scannedEvidence;
+    internal bool amScanned = false;
 }

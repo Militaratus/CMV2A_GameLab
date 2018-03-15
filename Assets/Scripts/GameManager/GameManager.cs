@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<Evidence> gatheredEvidence = new List<Evidence>();
+    public List<Suspect> foundSuspects = new List<Suspect>();
 
 	// Use this for initialization
 	void Start ()
@@ -20,7 +21,11 @@ public class GameManager : MonoBehaviour
 
     public void AddEvidence(Evidence newEvidence)
     {
-        gatheredEvidence.Add(newEvidence);
+        if (!CheckAddedEvidence(newEvidence))   // Double check
+        {
+            newEvidence.amScanned = false; // Reset the Scriptable Object
+            gatheredEvidence.Add(newEvidence);
+        }
     }
 
     public bool CheckAddedEvidence(Evidence newEvidence)
@@ -57,5 +62,41 @@ public class GameManager : MonoBehaviour
         }
 
         return availableEvidence;
+    }
+
+    public List<Evidence> GetNewEvidence()
+    {
+        return gatheredEvidence;
+    }
+
+    public void AddSuspect(Suspect newSuspect)
+    {
+        foundSuspects.Add(newSuspect);
+    }
+
+    public bool CheckAddedSuspects(Suspect newSuspect)
+    {
+        bool alreadyAdded = false;
+
+        if (foundSuspects.Count < 1)    // You have no power (and stuff) here!
+        {
+            return false;
+        }
+
+        for (int i = 0; i < foundSuspects.Count; i++)
+        {
+            if (foundSuspects[i] == newSuspect) // Found it, stop checking!
+            {
+                alreadyAdded = true;
+                break;
+            }
+        }
+
+        return alreadyAdded;
+    }
+
+    public List<Suspect> GetSuspects()
+    {
+        return foundSuspects;
     }
 }

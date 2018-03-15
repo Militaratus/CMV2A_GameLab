@@ -8,6 +8,8 @@ public class DialogSystem : MonoBehaviour
     int activeTopic = -1;
     bool amAccusing = false;
     Topic activeDialog;
+
+    public Suspect testSuspect;
     public DialogMenu testDialog;
 
     Text personName;
