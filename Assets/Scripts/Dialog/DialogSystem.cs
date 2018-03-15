@@ -9,6 +9,8 @@ public class DialogSystem : MonoBehaviour
     bool amAccusing = false;
     Topic activeDialog;
 
+    string characterName;
+
     public Suspect testSuspect;
     public DialogMenu testDialog;
 
@@ -84,6 +86,15 @@ public class DialogSystem : MonoBehaviour
 
         // Grab Game Manager
         managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        if (testSuspect != null)
+        {
+            characterName = testSuspect.suspectName;
+        }
+        else
+        {
+            characterName = gameObject.name;
+        }
     }
 
     void UpdateTopics()
@@ -146,7 +157,13 @@ public class DialogSystem : MonoBehaviour
         //topicPanel.SetActive(true);
         dialogPanel.SetActive(true);
 
-        personName.text = gameObject.name;
+        if (testSuspect != null)
+        {
+            managerGame.AddSuspect(testSuspect);
+        }
+        
+
+        personName.text = characterName;
         currentDialog = testDialog.openingDialog;
         dialogStage = 0;
         dialogStages = currentDialog.Length;
@@ -219,7 +236,7 @@ public class DialogSystem : MonoBehaviour
             // [OLDCODE] Bartender fix
             if (!transform.parent)
             {
-                personName.text = gameObject.name;
+                personName.text = characterName;
             }
             else
             {

@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviour
 
     public void AddSuspect(Suspect newSuspect)
     {
-        foundSuspects.Add(newSuspect);
+        if (!CheckAddedSuspects(newSuspect))
+        {
+            foundSuspects.Add(newSuspect);
+        }
     }
 
     public bool CheckAddedSuspects(Suspect newSuspect)

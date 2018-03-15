@@ -158,8 +158,26 @@ public class BleepBloop : VRTK_InteractableObject
             suspectContent = new GameObject[foundSuspects.Count];
             for (int i = 0; i < suspectContent.Length; i++)
             {
-                suspectContent[i] = Instantiate(evidencePrefab, evidenceContainer);
+                suspectContent[i] = Instantiate(suspectPrefab, suspectContainer);
                 suspectContent[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 + (i * -60));
+
+                // Populate Children
+                suspectContent[i].transform.GetChild(1).GetComponent<Text>().text = foundSuspects[i].suspectName;
+                suspectContent[i].transform.GetChild(2).GetComponent<Text>().text = foundSuspects[i].suspectDescription;
+
+                string myEvidence = "";
+                for (int x = 0; x < foundSuspects[i].suspectEvidence.Length; x++)
+                {
+                    for (int y = 0; y < foundEvidence.Count; y++)
+                    {
+                        if (foundSuspects[i].suspectEvidence[x] == foundEvidence[y])
+                        {
+                            myEvidence = myEvidence + foundSuspects[i].suspectEvidence[x].evidenceName + "\n";
+                        }
+                    }
+                }
+
+                suspectContent[i].transform.GetChild(3).GetComponent<Text>().text = myEvidence;
             }
         }
     }
@@ -231,7 +249,7 @@ public class BleepBloop : VRTK_InteractableObject
         if (menu == "loading")
         {
             amLoading = true;
-            loadingTimer = Time.time + 1;
+            loadingTimer = Time.time + 2;
             loadingCanvas.SetActive(true);
         }
 
@@ -364,9 +382,9 @@ public class BleepBloop : VRTK_InteractableObject
         if (foundEvidence[activeScanID].scannedEvidence != null)
         {
             managerGame.AddEvidence(foundEvidence[activeScanID].scannedEvidence);
-            viewText.text = viewText.text + "\nFound Evidence:\n" + foundEvidence[activeScanID].scannedEvidence.evidenceName;
+            viewText.text = viewText.text + "\n\nFound Evidence:\n" + foundEvidence[activeScanID].scannedEvidence.evidenceName;
         }
-        UpdateEvidence();
+        UpdateContent();
 
         SwitchMenu("view");
     }
