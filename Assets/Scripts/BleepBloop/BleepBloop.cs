@@ -40,6 +40,7 @@ public class BleepBloop : VRTK_InteractableObject
 
     Text viewText;
 
+    GameObject cluebot;
     Button cluebotButton;
     Text cluebotText;
 
@@ -48,8 +49,6 @@ public class BleepBloop : VRTK_InteractableObject
     float scanningProgress = 0;
     int cluebotBattery = 100;
 
-    bool amLoading = false;
-    float loadingTimer = 0;
     bool canvasActive = false;
     bool cluebotActive = false;
 
@@ -71,6 +70,8 @@ public class BleepBloop : VRTK_InteractableObject
 
         playerHead = GameObject.FindGameObjectWithTag("Player").transform;
         displayHead = transform.GetChild(0);
+        cluebot = transform.GetChild(1).gameObject;
+        cluebot.SetActive(false);
 
         displayLight = displayHead.GetComponent<Light>();
 
@@ -248,8 +249,7 @@ public class BleepBloop : VRTK_InteractableObject
 
         if (menu == "loading")
         {
-            amLoading = true;
-            loadingTimer = Time.time + 2;
+            StartCoroutine(LoadingCoroutine());
             loadingCanvas.SetActive(true);
         }
 
@@ -297,26 +297,26 @@ public class BleepBloop : VRTK_InteractableObject
 
         // Aim the Display to the player
         displayHead.LookAt(playerHead.position);
-
-        if (amLoading)
-        {
-            if (Time.time > loadingTimer)
-            {
-                amLoading = false;
-                SwitchMenu("menu");
-            }
-        }
     }
 
     public void ToggleCluebot()
     {
         cluebotButton.interactable = false;
 
+        Vector3 spawnLocation = playerHead.position;
+        //spawnLocation += -Vector3.forward * 2;
+        //spawnLocation.y = playerHead.position.y - 0.68f;
+        cluebot.transform.position = spawnLocation;
+        cluebot.transform.parent = null;
+        cluebot.SetActive(true);
+
         if (cluebotCoroutine != null)
         {
             StopCoroutine(cluebotCoroutine);
             cluebotCoroutine = null;
         }
+
+
 
         cluebotCoroutine = CluebotCoroutine();
         StartCoroutine(cluebotCoroutine);
@@ -338,6 +338,13 @@ public class BleepBloop : VRTK_InteractableObject
         }
     }
 
+    IEnumerator LoadingCoroutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SwitchMenu("menu");
+        StopCoroutine(LoadingCoroutine());
+    }
+
     IEnumerator CluebotCoroutine()
     {
         while (cluebotBattery > 0)
@@ -347,7 +354,7 @@ public class BleepBloop : VRTK_InteractableObject
             yield return new WaitForSeconds(1.0f);
         }
 
-        Debug.Log("RECHARGING");
+        cluebot.SetActive(false);
 
         while (cluebotBattery < 100)
         {
