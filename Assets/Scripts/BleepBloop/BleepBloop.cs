@@ -60,7 +60,17 @@ public class BleepBloop : VRTK_InteractableObject
         base.Awake();
 
         // Grab Game Manager
-        managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameObject.Find("GameManager"))
+        {
+            managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+        else
+        {
+            GameObject managerGamePrefab = Resources.Load("GameManager") as GameObject;
+            GameObject managerGameInstant = Instantiate(managerGamePrefab);
+            managerGameInstant.name = "GameManager";
+            managerGame = managerGameInstant.GetComponent<GameManager>();
+        }
 
         evidencePrefab = Resources.Load("UI/EvidenceButton") as GameObject;
         suspectPrefab = Resources.Load("UI/SuspectPanel") as GameObject;

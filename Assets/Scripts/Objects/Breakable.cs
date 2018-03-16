@@ -35,7 +35,17 @@ public class Breakable : VRTK_InteractableObject
         ResetObject();
 
         // Set up
-        managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if (GameObject.Find("GameManager"))
+        {
+            managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+        else
+        {
+            GameObject managerGamePrefab = Resources.Load("GameManager") as GameObject;
+            GameObject managerGameInstant = Instantiate(managerGamePrefab);
+            managerGameInstant.name = "GameManager";
+            managerGame = managerGameInstant.GetComponent<GameManager>();
+        }
         amAnalyzed = managerGame.CheckAddedEvidence(evidence);
 
         objectCanvas = transform.GetChild(1).gameObject;
