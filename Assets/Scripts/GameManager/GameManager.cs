@@ -8,10 +8,11 @@ public class GameManager : MonoBehaviour
     public List<Suspect> foundSuspects = new List<Suspect>();
 
 	// Use this for initialization
-	void Start ()
+	void Awake ()
     {
-		
-	}
+        ProtectMeFromDeath();
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -101,5 +102,10 @@ public class GameManager : MonoBehaviour
     public List<Suspect> GetSuspects()
     {
         return foundSuspects;
+    }
+
+    void ProtectMeFromDeath()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 }

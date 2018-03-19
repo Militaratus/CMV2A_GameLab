@@ -9,6 +9,6 @@ public class BodyFollower : VRTK_TransformFollow
     {
         base.SetPositionOnGameObject(newPosition);
 
-        transformToChange.position = newPosition + Vector3.up;
+        transformToChange.position = newPosition + (Vector3.up * 1.08f);
     }
 }
