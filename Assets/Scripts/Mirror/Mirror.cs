@@ -8,9 +8,11 @@ public class Mirror : MonoBehaviour {
     public Transform PlayerCam;
 
 	// Use this for initialization
-	void Start () {
-		
-	}
+	void Start ()
+    {
+        PlayerCam = Camera.main.transform;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
