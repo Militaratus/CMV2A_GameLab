@@ -34,7 +34,7 @@ public class HorizontalDoor : VRTK_InteractableObject
             SetRotation();
             open = !open;
             PlaySound(doorOpening);
-            SceneManager.LoadScene("DialogTest");
+            SceneManager.LoadScene("Loading");
 
         }
         else
