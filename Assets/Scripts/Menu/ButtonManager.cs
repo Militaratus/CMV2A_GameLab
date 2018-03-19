@@ -14,12 +14,14 @@ public class ButtonManager : MonoBehaviour
     GameObject LineUp1Canvas;
     GameObject LineUp2Canvas;
     GameObject LineUp3Canvas;
+    GameObject TutorialCanvas;
 
     void Start()
     {
         LineUp1Canvas = GameObject.Find("Lineup1");
         LineUp2Canvas = GameObject.Find("Lineup2");
         LineUp3Canvas = GameObject.Find("Lineup3");
+        LineUp3Canvas = GameObject.Find("Tutorial");
     }
 
     //If button is pressed load scene.
@@ -48,5 +50,10 @@ public class ButtonManager : MonoBehaviour
     public void LineUp3()
     {
         Debug.Log("LineUP3");
+    }
+
+    public void Tutorial()
+    {
+        TutorialCanvas.SetActive(false);
     }
 }

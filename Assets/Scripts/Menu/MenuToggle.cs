@@ -8,7 +8,7 @@ public class MenuToggle : MonoBehaviour {
     public VRTK_ControllerEvents controllerEvents;
     public GameObject menu;
 
-    bool menuState = false;
+    bool menuState = true;
 
     // Use ts for initialization
     void Start () {
