@@ -8,7 +8,7 @@ public class Mirror : MonoBehaviour {
     public Transform PlayerCam;
 
 	// Use this for initialization
-	void Start ()
+	void OnAwake ()
     {
         PlayerCam = Camera.main.transform;
 
