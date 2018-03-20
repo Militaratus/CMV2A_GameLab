@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114095950759577912}
   - component: {fileID: 114654129490461092}
   - component: {fileID: 82401713643101754}
+  - component: {fileID: 114726488129751080}
   m_Layer: 0
   m_Name: TV Button
   m_TagString: Untagged
@@ -89,14 +90,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995515706096832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.48, y: 2.33, z: -0.1685741}
+  m_LocalRotation: {x: -0, y: -0.06274991, z: -0, w: 0.9980293}
+  m_LocalPosition: {x: 4.043, y: 1.36, z: -0.888}
   m_LocalScale: {x: 0.1, y: 2, z: 3}
   m_Children:
   - {fileID: 4294791244320094}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -7.195, z: 0}
 --- !u!4 &4916872947742148
 Transform:
   m_ObjectHideFlags: 1
@@ -390,7 +391,19 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
-  Bleep: {fileID: 8300000, guid: 9487bdeae486bc448bf4652fbceea3a1, type: 3}
+  Bleep: {fileID: 8300000, guid: e6a2af6f7cca1a54583888287c93abb3, type: 3}
+--- !u!114 &114726488129751080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229274560528398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530c28568836b24438c40a951aaf1010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bleep: {fileID: 8300000, guid: e6a2af6f7cca1a54583888287c93abb3, type: 3}
 --- !u!328 &328198248550706838
 VideoPlayer:
   m_ObjectHideFlags: 1
@@ -398,7 +411,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494173486887878}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5238c0886c4c22b4ebcb74981f3046eb, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: f275fa44e9f198f48a39708c94d16869, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera: {fileID: 0}
   m_TargetTexture: {fileID: 0}
