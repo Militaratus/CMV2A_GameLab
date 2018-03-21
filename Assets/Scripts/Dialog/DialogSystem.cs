@@ -9,6 +9,8 @@ public class DialogSystem : MonoBehaviour
     bool amAccusing = false;
     Topic activeDialog;
 
+    bool wasActive = false;
+
     string characterName;
 
     public Suspect testSuspect;
@@ -171,8 +173,9 @@ public class DialogSystem : MonoBehaviour
             }
         }
 
-        if (!inConversation && !audioPlayer.isPlaying)
+        if (!inConversation && !audioPlayer.isPlaying && wasActive)
         {
+            wasActive = false;
             dialogSubtitles.HideText();
         }
 	}
@@ -183,6 +186,7 @@ public class DialogSystem : MonoBehaviour
         UpdateTopics();
         UpdateEvidences();
 
+        wasActive = true;
         inConversation = true;
         //topicPanel.SetActive(true);
         dialogPanel.SetActive(false);
@@ -244,7 +248,7 @@ public class DialogSystem : MonoBehaviour
                 else
                 {
                     StopTalking();
-                    dialogSubtitles.HideText();
+                    //dialogSubtitles.HideText();
                 }
             }
 
