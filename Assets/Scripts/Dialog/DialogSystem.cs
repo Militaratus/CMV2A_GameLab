@@ -38,8 +38,13 @@ public class DialogSystem : MonoBehaviour
     AudioSource audioPlayer;
     Transform player;
 
+    Transform canvasHead;
+    public Transform npcHead;
+
     // GameManager reference
     GameManager managerGame;
+
+    DialogSubtitles dialogSubtitles;
 
     private void Awake()
     {
@@ -50,11 +55,14 @@ public class DialogSystem : MonoBehaviour
 
     void GrabComponents()
     {
+        // CanvasHead
+        canvasHead = transform.GetChild(0);
+
         // Grab Panels
-        topicPanel = transform.GetChild(0).gameObject;
-        choicePanel = transform.GetChild(1).gameObject;
-        evidencePanel = transform.GetChild(2).gameObject;
-        dialogPanel = transform.GetChild(3).gameObject;
+        topicPanel = canvasHead.GetChild(0).gameObject;
+        choicePanel = canvasHead.GetChild(1).gameObject;
+        evidencePanel = canvasHead.GetChild(2).gameObject;
+        dialogPanel = canvasHead.GetChild(3).gameObject;
 
         // Grab Topics
         topics = new GameObject[topicPanel.transform.childCount];
@@ -82,7 +90,7 @@ public class DialogSystem : MonoBehaviour
         }
 
         // Grab Audio Player
-        audioPlayer = GetComponent<AudioSource>();
+        audioPlayer = canvasHead.GetComponent<AudioSource>();
 
         // Grab Game Manager
         if (GameObject.Find("GameManager"))
@@ -96,6 +104,8 @@ public class DialogSystem : MonoBehaviour
             managerGameInstant.name = "GameManager";
             managerGame = managerGameInstant.GetComponent<GameManager>();
         }
+
+        dialogSubtitles = GameObject.FindGameObjectWithTag("HeadCanvas").GetComponent<DialogSubtitles>();
 
         if (testSuspect != null)
         {
@@ -144,7 +154,12 @@ public class DialogSystem : MonoBehaviour
         // At least have the decency to look at the player when talking to them!!!
 		if (inConversation)
         {
-            transform.LookAt(player.position);
+            canvasHead.LookAt(player.position);
+            if (npcHead)
+            {
+                npcHead.LookAt(player.position);
+            }
+            
 
             if (inDialog && Time.time > conversationCooldown)
             {
@@ -154,6 +169,11 @@ public class DialogSystem : MonoBehaviour
                     ContinueTalking();
                 }
             }
+        }
+
+        if (!inConversation && !audioPlayer.isPlaying)
+        {
+            dialogSubtitles.HideText();
         }
 	}
 
@@ -165,18 +185,20 @@ public class DialogSystem : MonoBehaviour
 
         inConversation = true;
         //topicPanel.SetActive(true);
-        dialogPanel.SetActive(true);
+        dialogPanel.SetActive(false);
 
         if (testSuspect != null)
         {
             managerGame.AddSuspect(testSuspect);
         }
         
-
-        personName.text = characterName;
-        currentDialog = testDialog.openingDialog;
-        dialogStage = 0;
-        dialogStages = currentDialog.Length;
+        if (activeTopic < 0 && !inDialog)
+        {
+            personName.text = characterName;
+            currentDialog = testDialog.openingDialog;
+            dialogStage = 0;
+            dialogStages = currentDialog.Length;
+        }
         UpdateConversation();
     }
 
@@ -213,9 +235,17 @@ public class DialogSystem : MonoBehaviour
             }
             else
             {
-                topicPanel.SetActive(false);
-                choicePanel.SetActive(true);
-                evidencePanel.SetActive(false);
+                if (testDialog.availableTopics.Length > 0)
+                {
+                    topicPanel.SetActive(false);
+                    choicePanel.SetActive(true);
+                    evidencePanel.SetActive(false);
+                }
+                else
+                {
+                    StopTalking();
+                    dialogSubtitles.HideText();
+                }
             }
 
             return;
@@ -237,24 +267,16 @@ public class DialogSystem : MonoBehaviour
             Debug.LogError("ERROR: Voice of Dialog Stage " + dialogStage + " is missing!");
         }
 
+
+        string headsetDialogName = "";
+        headsetDialogName = characterName;
         if (currentDialog[dialogStage].playerIsTalking)
         {
-            personName.text = "Morgan";
-        }
-        else
-        {
-            // [OLDCODE] Bartender fix
-            if (!transform.parent)
-            {
-                personName.text = characterName;
-            }
-            else
-            {
-                personName.text = transform.parent.name;
-            }
+            headsetDialogName = "Me";
         }
 
-        personDialog.text = currentDialog[dialogStage].text;
+        string headsetDialogText = currentDialog[dialogStage].text;
+        dialogSubtitles.UpdateText(headsetDialogText, headsetDialogName);
     }
 
     void StopTalking()
@@ -264,24 +286,6 @@ public class DialogSystem : MonoBehaviour
         choicePanel.SetActive(false);
         dialogPanel.SetActive(false);
         evidencePanel.SetActive(false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            player = other.transform;
-            StartTalking();
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            player = null;
-            StopTalking();
-        }
     }
 
     public void ActivateTopic(int topicID)
@@ -360,5 +364,17 @@ public class DialogSystem : MonoBehaviour
         topicPanel.SetActive(false);
         choicePanel.SetActive(false);
         evidencePanel.SetActive(false);
+    }
+
+    public void PlayerEnter(Transform newPlayer)
+    {
+        player = newPlayer;
+        StartTalking();
+    }
+
+    public void PlayerExit()
+    {
+        player = null;
+        StopTalking();
     }
 }

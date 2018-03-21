@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d991de9ca528f478ba4e119988f795, type: 3}
+  m_Name: Alley_FirstRespondant
+  m_EditorClassIdentifier: 
+  openingDialog:
+  - playerIsTalking: 0
+    text: Evening, detective Morgan.
+    voice: {fileID: 8300000, guid: b15188730410d6f4387e8fb3119fcbb5, type: 3}
+  - playerIsTalking: 1
+    text: Evening, Joe. What do we got?
+    voice: {fileID: 8300000, guid: 2e5b30371a192dd43affa596618f04ec, type: 3}
+  - playerIsTalking: 0
+    text: We got a John Doe stabbed after a lucky night.
+    voice: {fileID: 8300000, guid: 21ce6f508f26e4c438840012cb1024eb, type: 3}
+  - playerIsTalking: 1
+    text: John Doe?
+    voice: {fileID: 8300000, guid: 94006a1c69ebac44e8dd39bbc9f07529, type: 3}
+  - playerIsTalking: 0
+    text: Something contaminated his DNA structure, can't get a good reading.
+    voice: {fileID: 8300000, guid: 2a93faaa294fccd469850a3a6f42bfaf, type: 3}
+  - playerIsTalking: 1
+    text: Any witnesses?
+    voice: {fileID: 8300000, guid: 2f479095658bc1c419b3fd54a91fe21e, type: 3}
+  - playerIsTalking: 0
+    text: None at the scene, but the bottles seem to indicate he probably visited
+      a bar last before...
+    voice: {fileID: 8300000, guid: 505bd6afa5f30484bbda2f748586ca1e, type: 3}
+  - playerIsTalking: 1
+    text: Okay, thanks Joe!
+    voice: {fileID: 8300000, guid: 7a9eb4bc4016c9f418e3e72966a7a9be, type: 3}
+  - playerIsTalking: 0
+    text: No problem, detective.
+    voice: {fileID: 8300000, guid: 86fbb2e581a32ac46b6934f88134db02, type: 3}
+  availableTopics: []
