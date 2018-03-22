@@ -1507,6 +1507,7 @@ GameObject:
   - component: {fileID: 124785954767443338}
   - component: {fileID: 92405506486533792}
   - component: {fileID: 81493916751450778}
+  - component: {fileID: 114865540493600124}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1554,7 +1555,8 @@ GameObject:
   - component: {fileID: 4812651368166148}
   - component: {fileID: 20899208669400222}
   - component: {fileID: 124630151163187118}
-  - component: {fileID: 114280815498345508}
+  - component: {fileID: 114041163115935868}
+  - component: {fileID: 114020880445531582}
   m_Layer: 9
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -2579,7 +2581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1957289811841280
 GameObject:
   m_ObjectHideFlags: 1
@@ -4193,14 +4195,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1032715803308140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4101909236163476}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4662892393001418
 Transform:
   m_ObjectHideFlags: 1
@@ -5402,6 +5404,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114020880445531582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569070871024104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4479738391694172}
+  _ears: {fileID: 4264951653504328}
+  wireframe: 0
 --- !u!114 &114036957209777736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5440,6 +5456,18 @@ MonoBehaviour:
     fallbackTypeName: VRTK.SDK_FallbackController
     typeName: VRTK.SDK_SteamVRController
     descriptionIndex: 0
+--- !u!114 &114041163115935868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569070871024104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 333bc54e4bfbb5a4ca77c777a5649c39, type: 2}
 --- !u!114 &114087767624692344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5657,14 +5685,14 @@ MonoBehaviour:
   size: 2
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.5, y: 0.01, z: 1.125}
   - {x: 1.5, y: 0.01, z: -1.125}
   - {x: -1.5, y: 0.01, z: -1.125}
   - {x: -1.5, y: 0.01, z: 1.125}
-  - {x: 1.65, y: 0.01, z: 1.275}
+  - {x: 1.5, y: 0.01, z: 1.125}
   - {x: 1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
+  - {x: 1.65, y: 0.01, z: 1.275}
 --- !u!114 &114262636295824426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5676,20 +5704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0893f0c8a7712e8458dc3722eef95aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114280815498345508
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1569070871024104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4479738391694172}
-  _ears: {fileID: 4264951653504328}
-  wireframe: 0
 --- !u!114 &114287474331267752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5779,7 +5793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a86c1078ce4314b9c4224560e031b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vrcam: {fileID: 114280815498345508}
+  vrcam: {fileID: 0}
 --- !u!114 &114427765873122752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5949,6 +5963,18 @@ MonoBehaviour:
   objects:
   - {fileID: 1591981207719560}
   assignAllBeforeIdentified: 0
+--- !u!114 &114865540493600124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564351941108154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 333bc54e4bfbb5a4ca77c777a5649c39, type: 2}
 --- !u!114 &114870702554398390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6560,10 +6586,10 @@ RectTransform:
   m_Father: {fileID: 224618031613038856}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 51, y: 0}
+  m_SizeDelta: {x: 82, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224452199704937672
 RectTransform:
@@ -6634,8 +6660,8 @@ RectTransform:
   m_Father: {fileID: 224449857240613498}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 41, y: -8}
+  m_SizeDelta: {x: 82, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}

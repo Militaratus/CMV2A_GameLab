@@ -126,6 +126,7 @@ public class StandardObject : VRTK_InteractableObject
         }
 
         // Aim the Display to the player
+        tooltipHead.position = transform.position + (Vector3.up * 0.5f);
         tooltipHead.LookAt(playerHead.position);
     }
 
