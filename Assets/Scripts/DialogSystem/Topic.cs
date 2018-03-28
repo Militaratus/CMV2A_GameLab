@@ -3,14 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class DialogMenu : ScriptableObject
-{
-    public Dialog[] openingDialog;
-    public Topic[] availableTopics;
-}
-
-[System.Serializable]
-public class Topic
+public class Topic : ScriptableObject
 {
     public bool topicAvailable = true;
     public string topicName = "";
@@ -18,28 +11,29 @@ public class Topic
     public DialogChoice goodCop;
     public DialogChoice badCop;
     public DialogAccuse accuseCop;
+    public bool topicCompleted = false;
+
+    // Runtime Settings
+    internal bool rt_topicAvailable;
+    internal bool rt_topicCompleted;
+
+    private void OnEnable()
+    {
+        rt_topicAvailable = topicAvailable;
+        rt_topicCompleted = topicCompleted;
+    }
 }
 
 [System.Serializable]
 public class DialogChoice
 {
     public Dialog[] choiceResponse;
-    public Evidence newEvidence;
-    public int[] newTopics;
 }
 
 [System.Serializable]
 public class DialogAccuse : DialogChoice
 {
-    public Evidence choiceEvidence;
+    public Evidence requiredEvidence;
     public Dialog[] choiceSuccess;
     public Dialog[] choiceFail;
-}
-
-[System.Serializable]
-public class Dialog
-{
-    public bool playerIsTalking = false;
-    public string text = "";
-    public AudioClip voice; 
 }

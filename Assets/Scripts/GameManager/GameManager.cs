@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,11 +9,15 @@ public class GameManager : MonoBehaviour
     public List<Evidence> gatheredEvidence = new List<Evidence>();
     public List<Suspect> foundSuspects = new List<Suspect>();
 
-	// Use this for initialization
-	void Awake ()
+    public GameData gameData;
+    private string gameDataProjectFilePath = "/StreamingAssets/data.json";
+
+    // Use this for initialization
+    void Awake ()
     {
         ProtectMeFromDeath();
-
+        AutoLoad();
+        gatheredEvidence = gameData.gatheredEvidence;
     }
 	
 	// Update is called once per frame
@@ -27,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             newEvidence.amScanned = false; // Reset the Scriptable Object
             gatheredEvidence.Add(newEvidence);
+            gameData.gatheredEvidence = gatheredEvidence;
+            AutoSave();
         }
     }
 
@@ -51,19 +58,9 @@ public class GameManager : MonoBehaviour
         return alreadyAdded;
     }
 
-    public Evidence[] GetEvidence(int page)
+    public List<Evidence> GetEvidence()
     {
-        Evidence[] availableEvidence = new Evidence[10];
-
-        for (int i = 0; i < availableEvidence.Length; i++)
-        {
-            if ((i * page) < gatheredEvidence.Count)
-            {
-                availableEvidence[i] = gatheredEvidence[i * page];
-            }
-        }
-
-        return availableEvidence;
+        return gatheredEvidence;
     }
 
     public List<Evidence> GetNewEvidence()
@@ -76,6 +73,8 @@ public class GameManager : MonoBehaviour
         if (!CheckAddedSuspects(newSuspect))
         {
             foundSuspects.Add(newSuspect);
+            gameData.foundSuspects = foundSuspects;
+            AutoSave();
         }
     }
 
@@ -110,5 +109,25 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void AutoSave()
+    {
+        string dataAsJson = JsonUtility.ToJson(gameData);
+        string filePath = Application.dataPath + gameDataProjectFilePath;
+        File.WriteAllText(filePath, dataAsJson);
+    }
 
+    public void AutoLoad()
+    {
+        string filePath = Application.dataPath + gameDataProjectFilePath;
+
+        if (File.Exists (filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+        }
+        else
+        {
+            gameData = new GameData();
+        }
+    }
 }

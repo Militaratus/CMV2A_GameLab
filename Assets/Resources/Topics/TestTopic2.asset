@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: TestTopic2
+  m_EditorClassIdentifier: 
+  topicAvailable: 0
+  topicName: If you see this, good job!
+  topicResponse:
+  - text: Okay?
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse:
+    - text: Yes
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  badCop:
+    choiceResponse:
+    - text: No
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  accuseCop:
+    choiceResponse:
+    - text: Love
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    requiredEvidence: {fileID: 0}
+    choiceSuccess:
+    - text: Hate
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    choiceFail:
+    - text: Pizza
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
