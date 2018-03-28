@@ -14,14 +14,25 @@ public class ButtonManager : MonoBehaviour
     GameObject LineUp1Canvas;
     GameObject LineUp2Canvas;
     GameObject LineUp3Canvas;
-    GameObject TutorialCanvas;
+    GameObject Dropdown1Canvas;
+    GameObject Dropdown2Canvas;
+    GameObject Dropdown3Canvas;
+    GameObject BackButton;
+
 
     void Start()
     {
         LineUp1Canvas = GameObject.Find("Lineup1");
         LineUp2Canvas = GameObject.Find("Lineup2");
         LineUp3Canvas = GameObject.Find("Lineup3");
-        LineUp3Canvas = GameObject.Find("Tutorial");
+        Dropdown1Canvas = GameObject.Find("Dropdown1");
+        Dropdown2Canvas = GameObject.Find("Dropdown2");
+        Dropdown3Canvas = GameObject.Find("Dropdown3");
+        BackButton = GameObject.Find("Back");
+        Dropdown1Canvas.SetActive(false);
+        Dropdown2Canvas.SetActive(false);
+        Dropdown3Canvas.SetActive(false);
+        BackButton.SetActive(false);
     }
 
     //If button is pressed load scene.
@@ -39,21 +50,47 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("LineUP1");
         LineUp1Canvas.SetActive(false);
+        LineUp2Canvas.SetActive(false);
+        LineUp3Canvas.SetActive(false);
+        Dropdown1Canvas.SetActive(true);
+        Dropdown2Canvas.SetActive(false);
+        Dropdown3Canvas.SetActive(false);
+        BackButton.SetActive(true);
 
     }
 
     public void LineUp2()
     {
         Debug.Log("LineUP2");
+        LineUp1Canvas.SetActive(false);
+        LineUp2Canvas.SetActive(false);
+        LineUp3Canvas.SetActive(false);
+        Dropdown2Canvas.SetActive(true);
+        Dropdown1Canvas.SetActive(false);
+        
+        BackButton.SetActive(true);
     }
 
     public void LineUp3()
     {
         Debug.Log("LineUP3");
+        LineUp1Canvas.SetActive(false);
+        LineUp2Canvas.SetActive(false);
+        LineUp3Canvas.SetActive(false);
+        Dropdown1Canvas.SetActive(false);
+        Dropdown2Canvas.SetActive(false);
+        Dropdown3Canvas.SetActive(true);
+        BackButton.SetActive(true);
     }
 
-    public void Tutorial()
+    public void Back()
     {
-        TutorialCanvas.SetActive(false);
+        LineUp1Canvas.SetActive(true);
+        LineUp2Canvas.SetActive(true);
+        LineUp3Canvas.SetActive(true);
+        Dropdown1Canvas.SetActive(false);
+        Dropdown2Canvas.SetActive(false);
+        Dropdown3Canvas.SetActive(false);
+        BackButton.SetActive(false);
     }
 }
