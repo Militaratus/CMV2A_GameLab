@@ -23,7 +23,7 @@ public class IKControl : MonoBehaviour {
             //head.position = headObj.position;
         }
         if (hipsObj != null) {
-            Transform hips = animator.GetBoneTransform(HumanBodyBones.Hips);
+            //Transform hips = animator.GetBoneTransform(HumanBodyBones.Hips);
             //hips.rotation = hipsObj.rotation;
             Vector3 oldPosition = gameObject.transform.position;
             gameObject.transform.position = new Vector3(hipsObj.position.x, oldPosition.y, hipsObj.position.z);

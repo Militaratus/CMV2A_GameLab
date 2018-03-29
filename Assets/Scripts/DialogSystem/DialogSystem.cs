@@ -11,7 +11,6 @@ public class DialogSystem : MonoBehaviour
     bool talkingTopic = false;
     bool talkingChoice = false;
     bool talkingAccuse = false;
-    bool awaitingEvidence = false;
     bool talkingFinished = false;
     bool alreadyClosed = false;
     bool inConversation;
@@ -33,11 +32,6 @@ public class DialogSystem : MonoBehaviour
     // Private Components
     AudioSource audioPlayer;
     public GameObject[] topics;
-    GameObject choice1;
-    GameObject choice2;
-    GameObject choice3;
-    //GameObject[] evidences;
-    List<Evidence> availableEvidence;
     GameObject topicPanel;
     GameObject choicePanel;
     GameObject dialogPanel;
@@ -89,11 +83,6 @@ public class DialogSystem : MonoBehaviour
             topics[i].SetActive(false);
         }
 
-        // Grab Choices
-        choice1 = choicePanel.transform.GetChild(0).gameObject;
-        choice2 = choicePanel.transform.GetChild(1).gameObject;
-        choice3 = choicePanel.transform.GetChild(2).gameObject;
-
         // Grab Audio Player
         audioPlayer = canvasHead.GetComponent<AudioSource>();
 
@@ -130,7 +119,6 @@ public class DialogSystem : MonoBehaviour
 
     void UpdateEvidences()
     {
-        availableEvidence = managerGame.GetEvidence();
         managerGame.RefreshBleepBloop();
     }
 

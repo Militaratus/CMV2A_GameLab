@@ -8,7 +8,7 @@ public class NextScene : MonoBehaviour
 {
 
     public AudioClip Bleep;
-    private AudioSource audioPlayer;
+    //private AudioSource audioPlayer;
 
     private VideoPlayer videoPlayer;
 
@@ -20,7 +20,7 @@ public class NextScene : MonoBehaviour
     void Start()
     {
         tv = transform.GetChild(0).gameObject;
-        audioPlayer = GetComponent<AudioSource>();
+        //audioPlayer = GetComponent<AudioSource>();
         videoPlayer = tv.GetComponent<VideoPlayer>();
         videoPlayer.Play();
     }

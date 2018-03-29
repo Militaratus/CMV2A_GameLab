@@ -54,7 +54,6 @@ public class BleepBloop : VRTK_InteractableObject
     int cluebotBattery = 100;
 
     bool canvasActive = false;
-    bool cluebotActive = false;
 
     IEnumerator cluebotCoroutine;
     IEnumerator scanningRoutine;

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadingManager : MonoBehaviour
 {
     // Managers
-    GameManager managerGame;
+    //GameManager managerGame;
 
     public GameObject destinationPanel;
     public GameObject travelingPanel;
@@ -16,6 +16,7 @@ public class LoadingManager : MonoBehaviour
     // Use this for initialization
     private void Awake()
     {
+/*
 #if UNITY_EDITOR
         if (GameObject.Find("GameManager"))
         {
@@ -31,6 +32,7 @@ public class LoadingManager : MonoBehaviour
 #else
         managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
 #endif
+*/
         destinationPanel.SetActive(true);
         travelingPanel.SetActive(false);
     }
