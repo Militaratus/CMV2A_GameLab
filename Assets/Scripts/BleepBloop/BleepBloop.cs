@@ -6,7 +6,11 @@ using VRTK;
 
 public class BleepBloop : VRTK_InteractableObject
 {
+    //
     private GameManager managerGame;
+    public enum Mode { View, Accuse, Projector };
+    internal Mode myMode = Mode.View;
+
 
     public List<Evidence> foundEvidence;
     GameObject evidencePrefab;
@@ -105,10 +109,13 @@ public class BleepBloop : VRTK_InteractableObject
         evidenceContainer = evidenceCanvas.transform.GetChild(1).GetChild(0).GetChild(0);
         suspectContainer = suspectCanvas.transform.GetChild(1).GetChild(0).GetChild(0);
 
+        // Save Reference to Game Manager to summon
+        managerGame.SetBleepBloop(this);
+
         TurnOff();
     }
 
-    void UpdateContent()
+    public void UpdateContent()
     {
         UpdateEvidence();
         UpdateSuspects();
@@ -132,14 +139,15 @@ public class BleepBloop : VRTK_InteractableObject
             evidenceContent = new GameObject[foundEvidence.Count];
             for (int i = 0; i < evidenceContent.Length; i++)
             {
+                // Spawn button
                 evidenceContent[i] = Instantiate(evidencePrefab, evidenceContainer);
                 evidenceContent[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 + (i * -60));
-                evidenceContent[i].GetComponent<Button>().onClick.AddListener(delegate { CheckEvidence(i-1); });
 
                 // Populate Children
                 evidenceContent[i].transform.GetChild(1).GetComponent<Text>().text = foundEvidence[i].evidenceName;
                 evidenceContent[i].transform.GetChild(2).GetComponent<Text>().text = foundEvidence[i].evidenceDescription;
 
+                // Am I already scanned?
                 if (!foundEvidence[i].amScanned)
                 {
                     evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = "Unscanned";
@@ -148,6 +156,10 @@ public class BleepBloop : VRTK_InteractableObject
                 {
                     evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = foundEvidence[i].evidenceInformation;
                 }
+
+                // Delegate Work
+                int myCount = i;
+                evidenceContent[i].GetComponent<Button>().onClick.AddListener(delegate { UseEvidence(myCount); });
             }
         }
     }
@@ -332,9 +344,24 @@ public class BleepBloop : VRTK_InteractableObject
         StartCoroutine(cluebotCoroutine);
     }
 
+    public void UseEvidence(int evidenceID)
+    {
+        switch (myMode)
+        {
+            case Mode.View:
+                CheckEvidence(evidenceID); break;
+            case Mode.Accuse:
+                managerGame.PassEvidenceConversation(evidenceID); break;
+            case Mode.Projector:
+                break;
+            default:
+                break;
+        }
+    }
+
     public void CheckEvidence(int evidenceID)
     {
-        Debug.Log(evidenceID);
+        Debug.Log("EvidenceID" + evidenceID);
         activeScanID = evidenceID;
         viewText.text = foundEvidence[activeScanID].evidenceInformation;
 
@@ -345,6 +372,20 @@ public class BleepBloop : VRTK_InteractableObject
         else
         {
             SwitchMenu("view");
+        }
+    }
+
+    public void ChangeMode(Mode newMode)
+    {
+        myMode = newMode;
+
+        if (myMode == Mode.View)
+        {
+            SwitchMenu("none");
+        }
+        else
+        {
+            SwitchMenu("evidence");
         }
     }
 

@@ -11,6 +11,7 @@ public class DialogSystem : MonoBehaviour
     bool talkingTopic = false;
     bool talkingChoice = false;
     bool talkingAccuse = false;
+    bool awaitingEvidence = false;
     bool talkingFinished = false;
     bool alreadyClosed = false;
     bool inConversation;
@@ -35,7 +36,7 @@ public class DialogSystem : MonoBehaviour
     GameObject choice1;
     GameObject choice2;
     GameObject choice3;
-    GameObject[] evidences;
+    //GameObject[] evidences;
     List<Evidence> availableEvidence;
     GameObject topicPanel;
     GameObject choicePanel;
@@ -93,14 +94,6 @@ public class DialogSystem : MonoBehaviour
         choice2 = choicePanel.transform.GetChild(1).gameObject;
         choice3 = choicePanel.transform.GetChild(2).gameObject;
 
-        // Grab Evidence
-        evidences = new GameObject[evidencePanel.transform.childCount];
-        for (int i = 0; i < evidences.Length; i++)
-        {
-            evidences[i] = evidencePanel.transform.GetChild(i).gameObject;
-            evidences[i].SetActive(false);
-        }
-
         // Grab Audio Player
         audioPlayer = canvasHead.GetComponent<AudioSource>();
 
@@ -138,17 +131,7 @@ public class DialogSystem : MonoBehaviour
     void UpdateEvidences()
     {
         availableEvidence = managerGame.GetEvidence();
-        if (availableEvidence != null)
-        {
-            for (int i = 0; i < availableEvidence.Count; i++)
-            {
-                if (availableEvidence[i])
-                {
-                    evidences[i].transform.GetChild(0).GetComponent<Text>().text = availableEvidence[i].evidenceName;
-                    evidences[i].SetActive(true);
-                }
-            }
-        }
+        managerGame.RefreshBleepBloop();
     }
 
     void StartConversation()
@@ -184,12 +167,12 @@ public class DialogSystem : MonoBehaviour
             if (currentDialog == myConversation.openingDialog)
             {
                 alreadyOpened = true;
-                talkingFinished = true;
+                //talkingFinished = true;
             }
             else if (currentDialog == myConversation.closingDialog)
             {
                 alreadyClosed = true;
-                talkingFinished = true;
+                //talkingFinished = true;
             }
 
             // Are we already talking about a topic, if not show topics if available
@@ -230,6 +213,7 @@ public class DialogSystem : MonoBehaviour
                         if (managerGame.gatheredEvidence != null && managerGame.gatheredEvidence.Count > 0)
                         {
                             SwitchPanel("evidence");
+                            managerGame.SetBleepBloopMode(BleepBloop.Mode.Accuse);
                             return;
                         }
                         else
@@ -284,6 +268,9 @@ public class DialogSystem : MonoBehaviour
         inConversation = false;
         SwitchPanel("none");
         dialogSubtitles.HideText();
+
+        // Set Mode
+        managerGame.SetBleepBloopMode(BleepBloop.Mode.View);
     }
 
     public void ActivateTopic(int topicID)
@@ -325,13 +312,14 @@ public class DialogSystem : MonoBehaviour
         dialogStage = 0;
         dialogStages = currentDialog.Length;
         talkingAccuse = true;
+
         UpdateConversation();
     }
 
     public void AccuseAttempt(Evidence chosenEvidence)
     {
         DialogAccuse activeResponse = myConversation.availableTopics[activeTopic].accuseCop;
-        if (chosenEvidence == activeResponse.requiredEvidence)
+        if (chosenEvidence.evidenceName == activeResponse.requiredEvidence.evidenceName)
         {
             AccuseSuccess();
         }
@@ -349,6 +337,9 @@ public class DialogSystem : MonoBehaviour
         dialogStages = currentDialog.Length;
         talkingFinished = true;
         UpdateConversation();
+
+        // Set Mode
+        managerGame.SetBleepBloopMode(BleepBloop.Mode.View);
     }
 
     void AccuseFail()
@@ -359,6 +350,9 @@ public class DialogSystem : MonoBehaviour
         dialogStages = currentDialog.Length;
         talkingFinished = true;
         UpdateConversation();
+
+        // Set Mode
+        managerGame.SetBleepBloopMode(BleepBloop.Mode.View);
     }
 
     void SwitchPanel(string newPanel)
@@ -373,6 +367,8 @@ public class DialogSystem : MonoBehaviour
                 topicPanel.SetActive(true); break;
             case "choice":
                 choicePanel.SetActive(true); break;
+            case "evidence":
+                evidencePanel.SetActive(true); break;
             default:
                 break;
         }
@@ -439,13 +435,23 @@ public class DialogSystem : MonoBehaviour
         // Suspects
         if (currentDialog[dialogStage].newSuspect != null)
         {
-
+            dialogSubtitles.UpdateSuspect(currentDialog[dialogStage].newSuspect.suspectName);
+            managerGame.AddSuspect(currentDialog[dialogStage].newSuspect);
+        }
+        else
+        {
+            dialogSubtitles.HideSuspect();
         }
 
         // Evidence
         if (currentDialog[dialogStage].newEvidence != null)
         {
-
+            dialogSubtitles.UpdateEvidence(currentDialog[dialogStage].newEvidence.evidenceName);
+            managerGame.AddEvidence(currentDialog[dialogStage].newEvidence);
+        }
+        else
+        {
+            dialogSubtitles.HideEvidence();
         }
 
         // Topics
@@ -463,6 +469,9 @@ public class DialogSystem : MonoBehaviour
     {
         player = newPlayer;
         inConversation = true;
+
+        // store the conversation reference in GameManager
+        managerGame.SetConversation(this);
 
         if (myConversation != null)
         {

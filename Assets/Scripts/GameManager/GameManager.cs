@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameData gameData;
     private string gameDataProjectFilePath = "/StreamingAssets/data.json";
 
+    public BleepBloop bleepBloop;
+    public DialogSystem currentConversation;
+
     // Use this for initialization
     void Awake ()
     {
@@ -19,9 +22,39 @@ public class GameManager : MonoBehaviour
         AutoLoad();
         gatheredEvidence = gameData.gatheredEvidence;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    public void SetBleepBloop(BleepBloop newBleepBloop)
+    {
+        bleepBloop = newBleepBloop;
+    }
+
+    public void SetConversation(DialogSystem newConversation)
+    {
+        currentConversation = newConversation;
+    }
+
+    public void SetBleepBloopMode(BleepBloop.Mode newMode)
+    {
+        bleepBloop.ChangeMode(newMode);
+
+        if (newMode == BleepBloop.Mode.View)
+        {
+            currentConversation = null;
+        }
+    }
+
+    public void RefreshBleepBloop()
+    {
+        bleepBloop.UpdateContent();
+    }
+
+    public void PassEvidenceConversation(int evidenceID)
+    {
+        currentConversation.AccuseAttempt(gatheredEvidence[evidenceID]);
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
 		
 	}
@@ -30,10 +63,16 @@ public class GameManager : MonoBehaviour
     {
         if (!CheckAddedEvidence(newEvidence))   // Double check
         {
+            if (gatheredEvidence == null)
+            {
+                gatheredEvidence = new List<Evidence>();
+            }
+
             newEvidence.amScanned = false; // Reset the Scriptable Object
             gatheredEvidence.Add(newEvidence);
             gameData.gatheredEvidence = gatheredEvidence;
             AutoSave();
+            RefreshBleepBloop();
         }
     }
 
@@ -41,7 +80,7 @@ public class GameManager : MonoBehaviour
     {
         bool alreadyAdded = false;
 
-        if (gatheredEvidence.Count < 1)    // You have no power (and stuff) here!
+        if (gatheredEvidence == null || gatheredEvidence.Count < 1)    // You have no power (and stuff) here!
         {
             return false;
         }
@@ -75,6 +114,7 @@ public class GameManager : MonoBehaviour
             foundSuspects.Add(newSuspect);
             gameData.foundSuspects = foundSuspects;
             AutoSave();
+            RefreshBleepBloop();
         }
     }
 
