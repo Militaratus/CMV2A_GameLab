@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 using System;
 
 namespace UnityEngine.Rendering.PostProcessing
@@ -23,6 +24,8 @@ namespace UnityEngine.Rendering.PostProcessing
 =======
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 namespace UnityEngine.PostProcessing
 {
     public sealed class TrackballAttribute : PropertyAttribute
@@ -33,6 +36,9 @@ namespace UnityEngine.PostProcessing
         {
             this.method = method;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
