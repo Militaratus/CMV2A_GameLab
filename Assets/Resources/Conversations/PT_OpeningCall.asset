@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d65700efda443c47aa5b219d663e299, type: 3}
+  m_Name: PT_OpeningCall
+  m_EditorClassIdentifier: 
+  openingDialog:
+  - text: Incoming message from Superintendent Campbell
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 11400000, guid: 0d8ba32598732f947bd02422d29953a5, type: 2}
+  - text: "(deep breath) Well, that's my queue, I guess\u2026"
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 11400000, guid: 7014f75d8f4985d40a6b7323ef7885c8, type: 2}
+    newSuspect: {fileID: 0}
+  - text: 'First responder has closed off the scene, it''s being recorded as we speak. '
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: "There'll be transport out front, waiting for you. Oh, and Morgan\u2026 "
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: No, never mind, just go. I'll be waiting for your report. Good luck.
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: "(deep breath) Well, that's my queue, I guess\u2026"
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  availableTopics: []
+  closingDialog: []

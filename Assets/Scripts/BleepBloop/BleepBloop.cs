@@ -25,15 +25,15 @@ public class BleepBloop : VRTK_InteractableObject
     internal Transform playerHead;
     internal Transform displayHead;
 
-    GameObject loadingCanvas;
-    GameObject menuCanvas;
-    GameObject noteCanvas;
-    GameObject evidenceCanvas;
-    GameObject scanningCanvas;
-    GameObject viewCanvas;
-    GameObject suspectCanvas;
-    GameObject mapCanvas;
-    GameObject cluebotCanvas;
+    public GameObject loadingCanvas;
+    public GameObject menuCanvas;
+    public GameObject noteCanvas;
+    public GameObject evidenceCanvas;
+    public GameObject scanningCanvas;
+    public GameObject viewCanvas;
+    public GameObject suspectCanvas;
+    public GameObject mapCanvas;
+    public GameObject cluebotCanvas;
 
     Transform evidenceContainer;
     Transform suspectContainer;
@@ -62,6 +62,16 @@ public class BleepBloop : VRTK_InteractableObject
     {
         base.Awake();
 
+        GrabComponents();
+
+        // Save Reference to Game Manager to summon
+        managerGame.SetBleepBloop(this);
+
+        TurnOff();
+    }
+
+    void GrabComponents()
+    {
         // Grab Game Manager
         if (GameObject.Find("GameManager"))
         {
@@ -107,11 +117,6 @@ public class BleepBloop : VRTK_InteractableObject
 
         evidenceContainer = evidenceCanvas.transform.GetChild(1).GetChild(0).GetChild(0);
         suspectContainer = suspectCanvas.transform.GetChild(1).GetChild(0).GetChild(0);
-
-        // Save Reference to Game Manager to summon
-        managerGame.SetBleepBloop(this);
-
-        TurnOff();
     }
 
     public void UpdateContent()
@@ -245,6 +250,11 @@ public class BleepBloop : VRTK_InteractableObject
 
     void TurnOff()
     {
+        if (!loadingCanvas || !menuCanvas || !noteCanvas || !evidenceCanvas || !scanningCanvas || !viewCanvas || !suspectCanvas || !mapCanvas || !cluebotCanvas)
+        {
+            GrabComponents();
+        }
+
         loadingCanvas.SetActive(false);
         menuCanvas.SetActive(false);
         noteCanvas.SetActive(false);

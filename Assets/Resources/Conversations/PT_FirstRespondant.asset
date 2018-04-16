@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d65700efda443c47aa5b219d663e299, type: 3}
+  m_Name: PT_FirstRespondant
+  m_EditorClassIdentifier: 
+  openingDialog:
+  - text: DCI Davies. You're the first responder?
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 'Eh, yes ma''am. Constable Neville Montfort Was on my routine patrol when
+      I spotted him. '
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: "Thought it was a pile of clothes or something, at first\u2026 But\u2026"
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: "Okay, calm down now. Tell me what happened\u2026"
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  availableTopics:
+  - {fileID: 11400000, guid: b65f84decbc6a424c8ed67e43e728e3b, type: 2}
+  - {fileID: 11400000, guid: 088fc6980c9349b429027ac2226efa56, type: 2}
+  - {fileID: 11400000, guid: bf5e1e1f4c47f474ab29c204b7a3d8e2, type: 2}
+  - {fileID: 11400000, guid: a3cf0a4cb78878a418d1008c80e589c8, type: 2}
+  - {fileID: 11400000, guid: 504e7e45aebf7de4993b7066aa38001c, type: 2}
+  closingDialog:
+  - text: I should get to work. Thank you, constable Montfort, I'll let you get back
+      to it.
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: Right you are, ma'am.
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}

@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: PT_FR_Neville
+  m_EditorClassIdentifier: 
+  topicAvailable: 1
+  topicName: Neville
+  topicResponse:
+  - text: You're quite young, aren't you? Been with the force long?
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: This is my fourth year. Graduated from the academy in '80.
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: From the Orba program?
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: "\u2026 Yeah, I had the aptitude for law enforcement."
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse:
+    - text: This won't have been your first dead body then?
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: No. No, it isn't. I'm a bit too young to remember the war, but even throughout
+        these past four years, I've seen enough.
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  badCop:
+    choiceResponse:
+    - text: Why were you in the Orba?
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: Parents died in the war - both of them. I'm lucky enough to remember them
+        though.
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: 'My brother only has the recordings to go off of. '
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  accuseCop:
+    choiceResponse:
+    - text: A lot of bad seeds in the Orba program, I remember them well. Are you
+        a good seed, Neville?
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: 'What? Yes, yes of course I am. I''ve lived my entire life by the book. '
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: I'm putting my life on the line for others in order to make the city safer.
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: I'm the best kind of seed!
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    requiredEvidence: {fileID: 0}
+    choiceSuccess: []
+    choiceFail:
+    - text: Wow, okay there, captain righteous. Just making sure, you know.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: Can't be too careful, right?
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  topicCompleted: 0
