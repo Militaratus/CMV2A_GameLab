@@ -4,7 +4,11 @@ using UnityEngine;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 namespace UnityEditor.Rendering.PostProcessing
+=======
+namespace UnityEditor.PostProcessing
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 namespace UnityEditor.PostProcessing
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -30,11 +34,17 @@ namespace UnityEditor.PostProcessing
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         #endregion
 
         #region Structs
 
+=======
+        #endregion
+
+        #region Structs
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
         #endregion
 
@@ -146,6 +156,7 @@ namespace UnityEditor.PostProcessing
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         #endregion
 
@@ -157,6 +168,8 @@ namespace UnityEditor.PostProcessing
 =======
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
         #endregion
 
         #region Fields & properties
@@ -164,6 +177,9 @@ namespace UnityEditor.PostProcessing
 
         Dictionary<SerializedProperty, CurveState> m_Curves;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -178,6 +194,7 @@ namespace UnityEditor.PostProcessing
         bool m_Dirty;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         #endregion
 
@@ -189,6 +206,8 @@ namespace UnityEditor.PostProcessing
 =======
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
         #endregion
 
         #region Constructors & destructors
@@ -196,6 +215,9 @@ namespace UnityEditor.PostProcessing
             : this(Settings.defaultSettings)
         {}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
+=======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -211,7 +233,10 @@ namespace UnityEditor.PostProcessing
         #region Public API
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
@@ -329,7 +354,11 @@ namespace UnityEditor.PostProcessing
             var color = state.color;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!state.editable || !GUI.enabled)
+=======
+            if (!state.editable)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
             if (!state.editable)
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -429,11 +458,14 @@ namespace UnityEditor.PostProcessing
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (!state.editable)
                 m_SelectedKeyframeIndex = -1;
 
             float enabledFactor = GUI.enabled ? 1f : 0.8f;
 
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
@@ -458,9 +490,15 @@ namespace UnityEditor.PostProcessing
                 // Draw
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (state.editable || state.showNonEditableHandles)
                 {
                     if (e.type == EventType.Repaint)
+=======
+                if (state.showNonEditableHandles)
+                {
+                    if (e.type == EventType.repaint)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
                 if (state.showNonEditableHandles)
                 {
@@ -479,7 +517,11 @@ namespace UnityEditor.PostProcessing
                         // Keyframe
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         EditorGUI.DrawRect(offset.Remove(hitRect), selectedColor * enabledFactor);
+=======
+                        EditorGUI.DrawRect(offset.Remove(hitRect), selectedColor);
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
                         EditorGUI.DrawRect(offset.Remove(hitRect), selectedColor);
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -492,7 +534,11 @@ namespace UnityEditor.PostProcessing
                         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                             Handles.color = selectedColor * enabledFactor;
+=======
+                            Handles.color = selectedColor;
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
                             Handles.color = selectedColor;
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -534,7 +580,11 @@ namespace UnityEditor.PostProcessing
                     // Keyframe selection & context menu
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (e.type == EventType.MouseDown && rect.Contains(e.mousePosition))
+=======
+                    if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
                     if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -573,7 +623,11 @@ namespace UnityEditor.PostProcessing
                     // Tangent selection & edit mode
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (e.type == EventType.MouseDown && rect.Contains(e.mousePosition))
+=======
+                    if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
                     if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -627,7 +681,11 @@ namespace UnityEditor.PostProcessing
             // Selection
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (e.type == EventType.MouseDown)
+=======
+            if (e.type == EventType.mouseDown)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
             if (e.type == EventType.mouseDown)
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -718,7 +776,11 @@ namespace UnityEditor.PostProcessing
             // Delete selected key(s)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (e.type == EventType.KeyDown && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace))
+=======
+            if (e.type == EventType.keyDown && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
             if (e.type == EventType.keyDown && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace))
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
@@ -929,7 +991,11 @@ namespace UnityEditor.PostProcessing
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             float middle = start.time + ((end.time - start.time) * 0.333333f);
+=======
+            float middle  = start.time + ((end.time - start.time) * 0.333333f);
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 =======
             float middle  = start.time + ((end.time - start.time) * 0.333333f);
 >>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
