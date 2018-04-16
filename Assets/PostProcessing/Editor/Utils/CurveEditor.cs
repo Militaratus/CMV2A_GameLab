@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< HEAD
 namespace UnityEditor.Rendering.PostProcessing
+=======
+namespace UnityEditor.PostProcessing
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 {
     public sealed class CurveEditor
     {
@@ -20,11 +24,17 @@ namespace UnityEditor.Rendering.PostProcessing
             In,
             Out
         }
+<<<<<<< HEAD
 
         #endregion
 
         #region Structs
 
+=======
+        #endregion
+
+        #region Structs
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
         public struct Settings
         {
             public Rect bounds;
@@ -124,6 +134,7 @@ namespace UnityEditor.Rendering.PostProcessing
                 this.position = position;
             }
         }
+<<<<<<< HEAD
 
         #endregion
 
@@ -132,6 +143,14 @@ namespace UnityEditor.Rendering.PostProcessing
         public Settings settings { get; private set; }
 
         readonly Dictionary<SerializedProperty, CurveState> m_Curves;
+=======
+        #endregion
+
+        #region Fields & properties
+        public Settings settings { get; private set; }
+
+        Dictionary<SerializedProperty, CurveState> m_Curves;
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
         Rect m_CurveArea;
 
         SerializedProperty m_SelectedCurve;
@@ -141,6 +160,7 @@ namespace UnityEditor.Rendering.PostProcessing
         Tangent m_TangentEditMode;
 
         bool m_Dirty;
+<<<<<<< HEAD
 
         #endregion
 
@@ -149,6 +169,14 @@ namespace UnityEditor.Rendering.PostProcessing
         public CurveEditor()
             : this(Settings.defaultSettings)
         { }
+=======
+        #endregion
+
+        #region Constructors & destructors
+        public CurveEditor()
+            : this(Settings.defaultSettings)
+        {}
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 
         public CurveEditor(Settings settings)
         {
@@ -159,7 +187,10 @@ namespace UnityEditor.Rendering.PostProcessing
         #endregion
 
         #region Public API
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
         public void Add(params SerializedProperty[] curves)
         {
             foreach (var curve in curves)
@@ -271,7 +302,11 @@ namespace UnityEditor.Rendering.PostProcessing
             // Curve drawing
             // Slightly dim non-editable curves
             var color = state.color;
+<<<<<<< HEAD
             if (!state.editable || !GUI.enabled)
+=======
+            if (!state.editable)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
                 color.a *= 0.5f;
 
             Handles.color = color;
@@ -363,11 +398,14 @@ namespace UnityEditor.Rendering.PostProcessing
             if (isCurrentlySelectedCurve && m_SelectedKeyframeIndex >= length)
                 m_SelectedKeyframeIndex = -1;
 
+<<<<<<< HEAD
             if (!state.editable)
                 m_SelectedKeyframeIndex = -1;
 
             float enabledFactor = GUI.enabled ? 1f : 0.8f;
 
+=======
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
             // Handles & keys
             for (int k = 0; k < length; k++)
             {
@@ -386,21 +424,35 @@ namespace UnityEditor.Rendering.PostProcessing
                 var outTangentHitrect = new Rect(outTangent.x - 7f, outTangent.y - 7f, 14f, 14f);
 
                 // Draw
+<<<<<<< HEAD
                 if (state.editable || state.showNonEditableHandles)
                 {
                     if (e.type == EventType.Repaint)
+=======
+                if (state.showNonEditableHandles)
+                {
+                    if (e.type == EventType.repaint)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
                     {
                         var selectedColor = (isCurrentlySelectedCurve && isCurrentlySelectedKeyframe)
                             ? settings.selectionColor
                             : state.color;
 
                         // Keyframe
+<<<<<<< HEAD
                         EditorGUI.DrawRect(offset.Remove(hitRect), selectedColor * enabledFactor);
+=======
+                        EditorGUI.DrawRect(offset.Remove(hitRect), selectedColor);
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 
                         // Tangents
                         if (isCurrentlySelectedCurve && (!state.onlyShowHandlesOnSelection || (state.onlyShowHandlesOnSelection && isCurrentlySelectedKeyframe)))
                         {
+<<<<<<< HEAD
                             Handles.color = selectedColor * enabledFactor;
+=======
+                            Handles.color = selectedColor;
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
 
                             if (k > 0 || state.loopInBounds)
                             {
@@ -434,7 +486,11 @@ namespace UnityEditor.Rendering.PostProcessing
                     }
 
                     // Keyframe selection & context menu
+<<<<<<< HEAD
                     if (e.type == EventType.MouseDown && rect.Contains(e.mousePosition))
+=======
+                    if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
                     {
                         if (hitRect.Contains(e.mousePosition))
                         {
@@ -465,7 +521,11 @@ namespace UnityEditor.Rendering.PostProcessing
                     }
 
                     // Tangent selection & edit mode
+<<<<<<< HEAD
                     if (e.type == EventType.MouseDown && rect.Contains(e.mousePosition))
+=======
+                    if (e.type == EventType.mouseDown && rect.Contains(e.mousePosition))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
                     {
                         if (inTangentHitRect.Contains(e.mousePosition) && (k > 0 || state.loopInBounds))
                         {
@@ -511,7 +571,11 @@ namespace UnityEditor.Rendering.PostProcessing
             var e = Event.current;
 
             // Selection
+<<<<<<< HEAD
             if (e.type == EventType.MouseDown)
+=======
+            if (e.type == EventType.mouseDown)
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
             {
                 GUI.FocusControl(null);
                 m_SelectedCurve = null;
@@ -594,7 +658,11 @@ namespace UnityEditor.Rendering.PostProcessing
             }
 
             // Delete selected key(s)
+<<<<<<< HEAD
             if (e.type == EventType.KeyDown && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace))
+=======
+            if (e.type == EventType.keyDown && (e.keyCode == KeyCode.Delete || e.keyCode == KeyCode.Backspace))
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
             {
                 if (m_SelectedKeyframeIndex != -1 && m_SelectedCurve != null)
                 {
@@ -797,7 +865,11 @@ namespace UnityEditor.Rendering.PostProcessing
             segment[0] = CurveToCanvas(new Vector3(start.time, start.value));
             segment[3] = CurveToCanvas(new Vector3(end.time, end.value));
 
+<<<<<<< HEAD
             float middle = start.time + ((end.time - start.time) * 0.333333f);
+=======
+            float middle  = start.time + ((end.time - start.time) * 0.333333f);
+>>>>>>> parent of 236db71... Merge branch 'master' of https://github.com/Militaratus/CMV2A_GameLab
             float middle2 = start.time + ((end.time - start.time) * 0.666666f);
 
             segment[1] = CurveToCanvas(new Vector3(middle, ProjectTangent(start.time, start.value, start.outTangent, middle)));
