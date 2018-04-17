@@ -8,6 +8,8 @@ public class PT_StageManager : MonoBehaviour
     public enum StagePhase { START, PHONE, ALLEY, CRIME, ACCUSE }
     public StagePhase currentStage = StagePhase.START;
 
+    public Evidence wallet;
+
     public DialogPhoneSystem playerPhone;
 
     public GameObject stageOneRemoval;
@@ -51,6 +53,11 @@ public class PT_StageManager : MonoBehaviour
             stageOneRemoval.SetActive(false);
         }
 
+        if (currentStage == StagePhase.CRIME)
+        {
+            stageTwoRemoval.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
@@ -64,7 +71,16 @@ public class PT_StageManager : MonoBehaviour
                 HandleStageChange();
             }
         }
-	}
+
+        if (currentStage == StagePhase.ALLEY)
+        {
+            if (wallet.amScanned)
+            {
+                currentStage = StagePhase.CRIME;
+                HandleStageChange();
+            }
+        }
+    }
 
     void SendPhoneCall()
     {

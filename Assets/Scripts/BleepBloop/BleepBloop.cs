@@ -148,17 +148,20 @@ public class BleepBloop : VRTK_InteractableObject
                 evidenceContent[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 + (i * -60));
 
                 // Populate Children
-                evidenceContent[i].transform.GetChild(1).GetComponent<Text>().text = foundEvidence[i].evidenceName;
-                evidenceContent[i].transform.GetChild(2).GetComponent<Text>().text = foundEvidence[i].evidenceDescription;
+                if (foundEvidence[i] != null)
+                {
+                    evidenceContent[i].transform.GetChild(1).GetComponent<Text>().text = foundEvidence[i].evidenceName;
+                    evidenceContent[i].transform.GetChild(2).GetComponent<Text>().text = foundEvidence[i].evidenceDescription;
 
-                // Am I already scanned?
-                if (!foundEvidence[i].amScanned)
-                {
-                    evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = "Unscanned";
-                }
-                else
-                {
-                    evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = foundEvidence[i].evidenceInformation;
+                    // Am I already scanned?
+                    if (!foundEvidence[i].amScanned)
+                    {
+                        evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = "Unscanned";
+                    }
+                    else
+                    {
+                        evidenceContent[i].transform.GetChild(3).GetComponent<Text>().text = foundEvidence[i].evidenceInformation;
+                    }
                 }
 
                 // Delegate Work
