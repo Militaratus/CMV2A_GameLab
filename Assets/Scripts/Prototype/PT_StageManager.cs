@@ -9,6 +9,12 @@ public class PT_StageManager : MonoBehaviour
     public StagePhase currentStage = StagePhase.START;
 
     public Evidence wallet;
+    public Evidence newsTablet;
+    public Evidence postIt;
+    public Evidence emailTablet;
+    public Evidence workTablet;
+    public Evidence CrumbledEvidence;
+
 
     public DialogPhoneSystem playerPhone;
 
@@ -19,8 +25,8 @@ public class PT_StageManager : MonoBehaviour
 
     IEnumerator startCountdown;
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake()
     {
         playerPhone = GameObject.FindGameObjectWithTag("Player").GetComponent<DialogPhoneSystem>();
         HandleStageChange();
@@ -58,12 +64,16 @@ public class PT_StageManager : MonoBehaviour
             stageTwoRemoval.SetActive(false);
         }
 
+        if (currentStage == StagePhase.ACCUSE)
+        {
+            stageTwoRemoval.SetActive(false);
+        }
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-		if (currentStage == StagePhase.PHONE)
+        if (currentStage == StagePhase.PHONE)
         {
             if (!playerPhone.inConversation)
             {
@@ -80,7 +90,44 @@ public class PT_StageManager : MonoBehaviour
                 HandleStageChange();
             }
         }
+
+        if (currentStage == StagePhase.CRIME)
+        {
+            int scanCount = 0;
+
+            if (newsTablet.amScanned)
+            {
+                scanCount++;
+            }
+
+            if (postIt.amScanned)
+            {
+                scanCount++;
+            }
+
+            if (emailTablet.amScanned)
+            {
+                scanCount++;
+            }
+
+            if (workTablet.amScanned)
+            {
+                scanCount++;
+            }
+
+            if (CrumbledEvidence.amScanned)
+            {
+                scanCount++;
+            }
+
+            if (scanCount > 3)
+            {
+                currentStage = StagePhase.ACCUSE;
+                HandleStageChange();
+            }
+        }
     }
+
 
     void SendPhoneCall()
     {
