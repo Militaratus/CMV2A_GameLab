@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     public void SetBleepBloop(BleepBloop newBleepBloop)
     {
+        if (bleepBloop == null)
+        {
+            bleepBloop = GameObject.FindGameObjectWithTag("BleepBloop").GetComponent<BleepBloop>();
+        }
+
         bleepBloop = newBleepBloop;
     }
 
@@ -35,6 +40,11 @@ public class GameManager : MonoBehaviour
 
     public void SetBleepBloopMode(BleepBloop.Mode newMode)
     {
+        if (bleepBloop == null)
+        {
+            bleepBloop = GameObject.FindGameObjectWithTag("BleepBloop").GetComponent<BleepBloop>();
+        }
+
         bleepBloop.ChangeMode(newMode);
 
         if (newMode == BleepBloop.Mode.View)
@@ -45,6 +55,11 @@ public class GameManager : MonoBehaviour
 
     public void RefreshBleepBloop()
     {
+        if (bleepBloop == null)
+        {
+            bleepBloop = GameObject.FindGameObjectWithTag("BleepBloop").GetComponent<BleepBloop>();
+        }
+
         bleepBloop.UpdateContent();
     }
 
