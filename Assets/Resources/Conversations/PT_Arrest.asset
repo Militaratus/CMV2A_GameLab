@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d65700efda443c47aa5b219d663e299, type: 3}
-  m_Name: PT_OpeningCall
+  m_Name: PT_Arrest
   m_EditorClassIdentifier: 
   openingDialog:
   - text: Incoming message from Superintendent Campbell
@@ -17,33 +17,26 @@ MonoBehaviour:
     playerIsTalking: 0
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
-    newSuspect: {fileID: 11400000, guid: 0d8ba32598732f947bd02422d29953a5, type: 2}
-  - text: Morgan, it's me. You're needed. I just got the call; an apparent homicide
-      near Hub615.
-    voice: {fileID: 0}
-    playerIsTalking: 0
-    newTopic: {fileID: 0}
-    newEvidence: {fileID: 11400000, guid: 7014f75d8f4985d40a6b7323ef7885c8, type: 2}
     newSuspect: {fileID: 0}
-  - text: 'First responder has closed off the scene, it''s being recorded as we speak. '
+  - text: Morgan, it's me. We've gone ahead and arrested Johnny Mueller.
     voice: {fileID: 0}
     playerIsTalking: 0
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
     newSuspect: {fileID: 0}
-  - text: "There'll be transport out front, waiting for you. Oh, and Morgan\u2026 "
+  - text: Come to the police station and accuse him with evidence.
     voice: {fileID: 0}
     playerIsTalking: 0
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
     newSuspect: {fileID: 0}
-  - text: No, never mind, just go. I'll be waiting for your report. Good luck.
+  - text: You have to make this guy.
     voice: {fileID: 0}
     playerIsTalking: 0
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
     newSuspect: {fileID: 0}
-  - text: "(deep breath) Well, that's my queue, I guess\u2026"
+  - text: (deep breath) Well, I'll be there soon, I guess.
     voice: {fileID: 0}
     playerIsTalking: 1
     newTopic: {fileID: 0}

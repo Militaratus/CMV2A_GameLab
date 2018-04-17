@@ -107,7 +107,7 @@ public class DialogPhoneSystem : MonoBehaviour
         {
             if (inDialog && Time.time > conversationCooldown)
             {
-                conversationCooldown = Time.time + 1;
+                conversationCooldown = Time.time + 3;
                 if (audioPlayer.isPlaying == false)
                 {
                     ContinueConversation();
@@ -118,7 +118,7 @@ public class DialogPhoneSystem : MonoBehaviour
 
     void UpdateConversation()
     {
-        conversationCooldown = Time.time + 2;
+        conversationCooldown = Time.time + 3;
         inDialog = true;
 
         if (currentDialog[dialogStage] != null)

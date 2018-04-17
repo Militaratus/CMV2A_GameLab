@@ -377,7 +377,7 @@ public class DialogSystem : MonoBehaviour
 
             if (inDialog && Time.time > conversationCooldown)
             {
-                conversationCooldown = Time.time + 1;
+                conversationCooldown = Time.time + 3;
                 if (audioPlayer.isPlaying == false)
                 {
                     ContinueConversation();
@@ -395,7 +395,7 @@ public class DialogSystem : MonoBehaviour
 
     void UpdateConversation()
     {
-        conversationCooldown = Time.time + 2;
+        conversationCooldown = Time.time + 3;
         SwitchPanel("none");
         inDialog = true;
 
