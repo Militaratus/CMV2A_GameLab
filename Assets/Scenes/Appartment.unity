@@ -32901,7 +32901,7 @@ MonoBehaviour:
   gameData:
     gatheredEvidence: []
     foundSuspects: []
-  bleepBloop: {fileID: 0}
+  bleepBloop: {fileID: 1323768689}
   currentConversation: {fileID: 0}
 --- !u!4 &854632159
 Transform:
@@ -44677,7 +44677,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103154708}
-  m_LocalRotation: {x: 0.35295865, y: 0.8718221, z: 0.3141503, w: -0.12905763}
+  m_LocalRotation: {x: 0.35295868, y: 0.87182224, z: 0.31415033, w: -0.12905765}
   m_LocalPosition: {x: 0.71000135, y: -3.4950018, z: -0.75400066}
   m_LocalScale: {x: 30.697437, y: 22.650963, z: 22.650955}
   m_Children: []
@@ -54511,6 +54511,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1323768687}
   m_Script: {fileID: 11500000, guid: d1189f9ea7900f844912f77adb51c717, type: 3}
+--- !u!114 &1323768689 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114629723112594934, guid: d18a0780a5674ca4f98a98aac892ddd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1323768687}
+  m_Script: {fileID: 11500000, guid: ed48c9fa558dc5e43901f69a94ee2e8a, type: 3}
 --- !u!1 &1324187649
 GameObject:
   m_ObjectHideFlags: 0

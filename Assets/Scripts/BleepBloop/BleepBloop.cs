@@ -88,8 +88,12 @@ public class BleepBloop : VRTK_InteractableObject
         evidencePrefab = Resources.Load("UI/EvidenceButton") as GameObject;
         suspectPrefab = Resources.Load("UI/SuspectPanel") as GameObject;
 
-        audioPlayer = GetComponent<AudioSource>();
-        audioPlayer.clip = Bleep;
+        if (GetComponent<AudioSource>() != null)
+        {
+            audioPlayer = GetComponent<AudioSource>();
+            audioPlayer.clip = Bleep;
+        }
+        
 
         playerHead = GameObject.FindGameObjectWithTag("Player").transform;
         displayHead = transform.GetChild(0);
