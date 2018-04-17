@@ -1711,6 +1711,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gatheredEvidence: []
   foundSuspects: []
+  gameData:
+    gatheredEvidence: []
+    foundSuspects: []
+  bleepBloop: {fileID: 0}
+  currentConversation: {fileID: 0}
 --- !u!4 &854632159
 Transform:
   m_ObjectHideFlags: 0
@@ -3661,7 +3666,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MVP Alley
+          m_StringArgument: AlleywayCase1V2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
