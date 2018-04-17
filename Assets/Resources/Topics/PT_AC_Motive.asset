@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: PT_AC_Motive
+  m_EditorClassIdentifier: 
+  topicAvailable: 1
+  topicName: Motive
+  topicResponse:
+  - text: Come clean, Mueller, and it'll all be a lot easier. Why'd you do it?
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: No deal, copper - there is nothing you've got on me. I don't even know the
+      guy.
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse:
+    - text: 'Ahh, are you sure? Because it really looks like it from my point of view. '
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: Hmm, well I'll just let the judge decide that, I guess.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  badCop:
+    choiceResponse:
+    - text: Come on, Mueller - there was a whole lot of evidence on you. You're a
+        shady guy, with a lot of shady dealings.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: We know that. Anderson knew that too, didn't he?
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: 
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    - text: 
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  accuseCop:
+    choiceResponse:
+    - text: You're screwed, Mueller. We know Anderson was investigating you, and you
+        had to off him.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    requiredEvidence: {fileID: 11400000, guid: ae999446704eeae4181b1de531c14750, type: 2}
+    choiceSuccess:
+    - text: How did you know?
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    choiceFail:
+    - text: Haha, that's not gonna stick.
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  topicCompleted: 0

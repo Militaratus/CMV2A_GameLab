@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: PT_AC_Means
+  m_EditorClassIdentifier: 
+  topicAvailable: 1
+  topicName: Means
+  topicResponse:
+  - text: How'd you do it? Tell me. For your own sake.
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: I didn't do shit, my friend - you're just guessing.
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse:
+    - text: I believe you.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  badCop:
+    choiceResponse:
+    - text: I don't really believe you.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  accuseCop:
+    choiceResponse:
+    - text: Like hell you didn't. You shot Anderson with the bullets you've procured
+        from the Suave Unicorn - don't deny it.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    requiredEvidence: {fileID: 11400000, guid: 96020c86046aef84880b19e63e17c220, type: 2}
+    choiceSuccess:
+    - text: You shot him with a plastic bullet.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    choiceFail:
+    - text: I'm sorry, I seem to be mistaken
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  topicCompleted: 0

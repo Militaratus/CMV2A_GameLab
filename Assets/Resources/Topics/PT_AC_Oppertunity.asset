@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: PT_AC_Oppertunity
+  m_EditorClassIdentifier: 
+  topicAvailable: 1
+  topicName: Oppertunity
+  topicResponse:
+  - text: You lured him into the alley to shoot him.
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: You got proof?
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse:
+    - text: I'll take your word for it.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  badCop:
+    choiceResponse:
+    - text: You slimey fucker.
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  accuseCop:
+    choiceResponse:
+    - text: We got the emails!
+      voice: {fileID: 0}
+      playerIsTalking: 1
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    requiredEvidence: {fileID: 11400000, guid: e3a7fe79c822a4649970b856921bb238, type: 2}
+    choiceSuccess:
+    - text: Shit you got me!
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+    choiceFail:
+    - text: Those aren't emails. Hahaha!
+      voice: {fileID: 0}
+      playerIsTalking: 0
+      newTopic: {fileID: 0}
+      newEvidence: {fileID: 0}
+      newSuspect: {fileID: 0}
+  topicCompleted: 0

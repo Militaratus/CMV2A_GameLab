@@ -11,6 +11,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d65700efda443c47aa5b219d663e299, type: 3}
   m_Name: PT_Accusation
   m_EditorClassIdentifier: 
-  openingDialog: []
-  availableTopics: []
-  closingDialog: []
+  openingDialog:
+  - text: Johnny Mueller. Well, well, well - it seems you've slipped up pretty badly
+      this time
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: I don't know what you're talking about, detective...
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: Skip the funny business, Mueller - we have everything on you. You murdered
+      Steve Stevenson.
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  availableTopics:
+  - {fileID: 11400000, guid: 563cff41a0456c04090f7aacb4f6aebb, type: 2}
+  - {fileID: 11400000, guid: c3016e87d89e8864d9ffdeee9cbb7459, type: 2}
+  - {fileID: 11400000, guid: 1f827ae6d9a9cfc4e81513057b0726eb, type: 2}
+  closingDialog:
+  - text: I hope you rot away!
+    voice: {fileID: 0}
+    playerIsTalking: 1
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: And I hope you enjoyed playing the Prototype of Planet Icarus.!
+    voice: {fileID: 0}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
