@@ -6540,6 +6540,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 569153838}
+  - component: {fileID: 569153839}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -6560,6 +6561,23 @@ Transform:
   m_Father: {fileID: 1459364080}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569153839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569153837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4250929ee56321c449a15499f78ee67a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPhone: {fileID: 611362035}
+  newsTablet: {fileID: 11400000, guid: 6fdc169d7525d4e41894df3d19d54ac2, type: 2}
+  postIt: {fileID: 11400000, guid: 5f930c948a8192b4d9a684273a3cf61a, type: 2}
+  emailTablet: {fileID: 11400000, guid: e3a7fe79c822a4649970b856921bb238, type: 2}
+  workTablet: {fileID: 11400000, guid: c94beb437bc4de24788fb1e2426e785d, type: 2}
+  CrumbledEvidence: {fileID: 11400000, guid: f2759dab2642c044abf94ba2f09ac0ff, type: 2}
 --- !u!1001 &570951138
 Prefab:
   m_ObjectHideFlags: 0
@@ -6766,6 +6784,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1839037068415112, guid: d18a0780a5674ca4f98a98aac892ddd2,
     type: 2}
   m_PrefabInternal: {fileID: 611362032}
+--- !u!114 &611362035 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114890173364636516, guid: d18a0780a5674ca4f98a98aac892ddd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 611362032}
+  m_Script: {fileID: 11500000, guid: d1189f9ea7900f844912f77adb51c717, type: 3}
 --- !u!1 &617940163
 GameObject:
   m_ObjectHideFlags: 0

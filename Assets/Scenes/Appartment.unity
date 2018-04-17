@@ -22019,6 +22019,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 569153838}
+  - component: {fileID: 569153839}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -22039,6 +22040,18 @@ Transform:
   m_Father: {fileID: 1459364080}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569153839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569153837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967037674f342b343b43dbf374929ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPhone: {fileID: 1323768688}
 --- !u!1 &573091660
 GameObject:
   m_ObjectHideFlags: 0
@@ -44664,7 +44677,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103154708}
-  m_LocalRotation: {x: 0.35295868, y: 0.87182224, z: 0.31415033, w: -0.12905765}
+  m_LocalRotation: {x: 0.35295865, y: 0.8718221, z: 0.3141503, w: -0.12905763}
   m_LocalPosition: {x: 0.71000135, y: -3.4950018, z: -0.75400066}
   m_LocalScale: {x: 30.697437, y: 22.650963, z: 22.650955}
   m_Children: []
@@ -54492,6 +54505,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1323768688 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114890173364636516, guid: d18a0780a5674ca4f98a98aac892ddd2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1323768687}
+  m_Script: {fileID: 11500000, guid: d1189f9ea7900f844912f77adb51c717, type: 3}
 --- !u!1 &1324187649
 GameObject:
   m_ObjectHideFlags: 0
