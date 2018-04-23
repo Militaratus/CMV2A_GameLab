@@ -142,7 +142,7 @@ public class BleepBloop : VRTK_InteractableObject
         }
 
         foundEvidence = managerGame.GetNewEvidence();
-        if (foundEvidence.Count > 0)    // Only spawn if there is something to spawn
+        if (foundEvidence != null && foundEvidence.Count > 0)    // Only spawn if there is something to spawn
         {
             evidenceContent = new GameObject[foundEvidence.Count];
             for (int i = 0; i < evidenceContent.Length; i++)
