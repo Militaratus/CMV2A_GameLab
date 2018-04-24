@@ -31,7 +31,7 @@ public class StandardObject : VRTK_InteractableObject
     {
         base.Awake();
         SetReset();
-        ResetObject();
+    
 
         // Set up
         if (GameObject.Find("GameManager"))
@@ -71,9 +71,11 @@ public class StandardObject : VRTK_InteractableObject
 
         if (evidence)
         {
-            if (IsGrabbed() && Time.time > analyzeCooldown && evidence)
+            if (IsGrabbed())
             {
-                if (amAnalyzed)
+                amAnalyzed = true;
+                managerGame.AddEvidence(evidence);
+                /*if (amAnalyzed)
                 {
                     objectName.text = evidence.evidenceName;
                     objectText.text = evidence.evidenceDescription;
@@ -94,10 +96,10 @@ public class StandardObject : VRTK_InteractableObject
 
                 if (!objectCanvas.activeSelf)
                 {
-                    objectCanvas.SetActive(true);
-                }
+                    //objectCanvas.SetActive(true);
+                }*/
 
-                analyzeCooldown = Time.time + 1;
+                //analyzeCooldown = Time.time + 1;
             }
 
             if (!IsGrabbed() && objectCanvas.activeSelf)
@@ -134,8 +136,8 @@ public class StandardObject : VRTK_InteractableObject
     {
         base.Ungrabbed(previousGrabbingObject);
 
-        resetCoroutine = ResetTimer();
-        StartCoroutine(resetCoroutine);
+        //resetCoroutine = ResetTimer();
+        //StartCoroutine(resetCoroutine);
     }
 
     public virtual void ResetObject()

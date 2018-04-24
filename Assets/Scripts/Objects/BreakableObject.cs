@@ -27,6 +27,8 @@ public class BreakableObject : StandardObject
             shardPositions[i] = shardParent.GetChild(i).localPosition;
             shardRotations[i] = shardParent.GetChild(i).localRotation;
         }
+        modelParent.SetActive(true);
+        shardParent.gameObject.SetActive(false);
     }
 
     public override void ResetObject()
@@ -48,8 +50,8 @@ public class BreakableObject : StandardObject
             GetComponent<AudioSource>().Play();
             modelParent.SetActive(false);
             shardParent.gameObject.SetActive(true);
-            resetCoroutine = ResetTimer();
-            StartCoroutine(resetCoroutine);
+            //resetCoroutine = ResetTimer();
+           //StartCoroutine(resetCoroutine);
         }
 
     }
