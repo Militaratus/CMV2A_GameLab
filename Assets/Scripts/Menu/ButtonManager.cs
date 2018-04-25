@@ -93,4 +93,24 @@ public class ButtonManager : MonoBehaviour
         Dropdown3Canvas.SetActive(false);
         BackButton.SetActive(false);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Appartment");
+    }
+
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void BackToStart()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
 }
