@@ -30,7 +30,6 @@ public class MissionTV : MonoBehaviour {
         if (startTimer == true)
         {
             Timer = Timer - Time.deltaTime;
-            Debug.Log(Timer);
         }
 
         if (Timer <= 0 && startTimer == true)
