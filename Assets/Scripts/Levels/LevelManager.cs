@@ -7,6 +7,16 @@ public class LevelManager : MonoBehaviour {
 
     private static string lastLevel;
 
+    Vector3 loadingSpawn;
+    Vector3 apartmentSpawn;
+
+    GameObject SDKManager;
+
+    void Start()
+    {
+        SDKManager = GameObject.Find("[VRTK_SDKManager]");
+    }
+
     public static void setLastLevel(string level)
     {
         lastLevel = level;
@@ -19,6 +29,13 @@ public class LevelManager : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log(lastLevel);
+        if(lastLevel == "Loading")
+        {
+            SDKManager.transform.position = new Vector3(2.12f, 0f, -8.17f);
+        }
+        if(lastLevel == "Crimesceneappartment")
+        {
+            SDKManager.transform.position = new Vector3(2.12f, 0f, 0.6f);
+        }
     }
 }
