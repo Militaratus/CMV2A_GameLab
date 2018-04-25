@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4466296174157048}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 223451493740331568}
   - component: {fileID: 114508856046807146}
   - component: {fileID: 114860039131169758}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4640664712665132}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 224079112560581458}
   - component: {fileID: 222679586952638780}
   - component: {fileID: 114882644087961890}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 4143985339805724}
   - component: {fileID: 33716550163773970}
   - component: {fileID: 23565114267349864}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: wallet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 224665605407597970}
   - component: {fileID: 222058592620415212}
   - component: {fileID: 114181747104081894}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 114289070193083320}
   - component: {fileID: 114992001309931082}
   - component: {fileID: 114009526113894154}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wallet
   m_TagString: Evidence
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 224483710978174998}
   - component: {fileID: 222596838707652582}
   - component: {fileID: 114633157272737834}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,15 +197,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885873526485200}
-  m_LocalRotation: {x: 0.69141114, y: -0, z: -0, w: 0.7224616}
-  m_LocalPosition: {x: 10.462, y: 0.156, z: -0.07}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.56, y: -0, z: 5.6722302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4640664712665132}
   - {fileID: 4466296174157048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 87.484, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!23 &23565114267349864
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -586,7 +586,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
