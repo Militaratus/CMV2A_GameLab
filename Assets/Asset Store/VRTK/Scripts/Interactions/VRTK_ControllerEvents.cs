@@ -45,6 +45,8 @@ namespace VRTK
     [AddComponentMenu("VRTK/Scripts/Interactions/VRTK_ControllerEvents")]
     public class VRTK_ControllerEvents : MonoBehaviour
     {
+        public static bool TeleportActive = true;
+
         /// <summary>
         /// Button types
         /// </summary>
@@ -648,6 +650,7 @@ namespace VRTK
             if (TouchpadReleased != null)
             {
                 TouchpadReleased(this, e);
+                TeleportActive = false;
             }
         }
 

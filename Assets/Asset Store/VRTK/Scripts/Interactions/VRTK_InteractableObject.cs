@@ -41,6 +41,7 @@ namespace VRTK
     [AddComponentMenu("VRTK/Scripts/Interactions/VRTK_InteractableObject")]
     public class VRTK_InteractableObject : MonoBehaviour
     {
+
         /// <summary>
         /// Allowed controller type.
         /// </summary>

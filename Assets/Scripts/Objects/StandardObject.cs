@@ -6,6 +6,8 @@ using VRTK;
 
 public class StandardObject : VRTK_InteractableObject
 {
+    public static bool PickUPActive = true;
+
     [Header("Evidence", order = 1)]
     public Evidence evidence;
 
@@ -135,6 +137,8 @@ public class StandardObject : VRTK_InteractableObject
     public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject = null)
     {
         base.Ungrabbed(previousGrabbingObject);
+
+        PickUPActive = false;
 
         //resetCoroutine = ResetTimer();
         //StartCoroutine(resetCoroutine);
