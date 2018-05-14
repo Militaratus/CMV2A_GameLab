@@ -19,6 +19,7 @@ public class BleepBoardMaster : MonoBehaviour
     private GameManager managerGame;
     private Transform evidenceContainer;
     private Evidence addEvidence;
+    private int curID = 0;
 
     // Use this for initialization
     void Awake ()
@@ -87,7 +88,7 @@ public class BleepBoardMaster : MonoBehaviour
                 // Spawn button
                 GameObject newButton = Instantiate(evidencePrefab, evidenceContainer) as GameObject;
                 newButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -0 + (i * -60));
-                newButton.GetComponent<BBEvidence>().AddEvidence(mgEvidence[i]);
+                newButton.GetComponent<BBEvidence>().AddEvidence(mgEvidence[i], i);
 
                 evidenceItems.Add(newButton);
             }
@@ -211,10 +212,13 @@ public class BleepBoardMaster : MonoBehaviour
         sLinkB = null;
     }
 
-    public void PrepareNewEvidence(Evidence newEvidence)
+    public void PrepareNewEvidence(Evidence newEvidence, int newID)
     {
-        Debug.Log("F==");
         addEvidence = newEvidence;
+        evidenceItems[curID].GetComponent<Image>().color = Color.white;
+        evidenceItems[newID].GetComponent<Image>().color = Color.red;
+        curID = newID;
+
         for (int i = 0; i < evidenceSlots.Length; i++)
         {
             Button curEvidenceSlot = evidenceSlots[i].GetComponent<Button>();
@@ -224,6 +228,7 @@ public class BleepBoardMaster : MonoBehaviour
 
     void UnprepareNewEvidence()
     {
+        evidenceItems[curID].GetComponent<Image>().color = Color.white;
         for (int i = 0; i < evidenceSlots.Length; i++)
         {
             if (!evidenceSlots[i].GetComponent<BBLink>().inUse)

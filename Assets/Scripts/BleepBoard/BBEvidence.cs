@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class BBEvidence : MonoBehaviour
 {
     public Evidence myEvidence;
+    int buttonID;
 
     // Use this for initialization
-    public void AddEvidence (Evidence newEvidence)
+    public void AddEvidence (Evidence newEvidence, int newID)
     {
         myEvidence = newEvidence;
+        buttonID = newID;
 
         Text myText = transform.GetChild(0).GetComponent<Text>();
         myText.text = myEvidence.evidenceName;
@@ -21,9 +23,8 @@ public class BBEvidence : MonoBehaviour
 
     public void PrepareEvidence()
     {
-        Debug.Log("JARED!");
         Transform myMasterT = transform.parent.parent.parent;
         BleepBoardMaster myMaster = myMasterT.GetComponent<BleepBoardMaster>();
-        myMaster.PrepareNewEvidence(myEvidence);
+        myMaster.PrepareNewEvidence(myEvidence, buttonID);
     }
 }
