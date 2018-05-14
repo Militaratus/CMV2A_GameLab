@@ -114,6 +114,11 @@ public class GameManager : MonoBehaviour
 
     public List<Evidence> GetEvidence()
     {
+        if (gatheredEvidence == null)
+        {
+            gatheredEvidence = new List<Evidence>();
+        }
+
         return gatheredEvidence;
     }
 
