@@ -402,12 +402,10 @@ public class BleepBloop : VRTK_InteractableObject
         if (myMode == Mode.View)
         {
             SwitchMenu("none");
-            displayHead.gameObject.SetActive(false);
         }
         else
         {
             SwitchMenu("evidence");
-            displayHead.gameObject.SetActive(true);
         }
     }
 
