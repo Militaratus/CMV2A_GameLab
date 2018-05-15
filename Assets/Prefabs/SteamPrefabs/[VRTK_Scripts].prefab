@@ -3889,7 +3889,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201720458932050}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4831,7 +4831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: ToggleCluebot
         m_Mode: 1
         m_Arguments:
@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -5419,9 +5419,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5498,7 +5498,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -5712,9 +5712,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5764,7 +5764,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -5914,7 +5914,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -6195,7 +6195,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -6394,7 +6394,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -7190,7 +7190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -7302,9 +7302,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7414,9 +7414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8715,9 +8715,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9219,7 +9219,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -10469,7 +10469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -10724,9 +10724,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11642,9 +11642,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseDisplay
-        m_Mode: 1
+      - m_Target: {fileID: 114932658185686660}
+        m_MethodName: SwitchMenu
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12702,7 +12702,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -14564,7 +14564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114932658185686660}
         m_MethodName: SwitchMenu
         m_Mode: 5
         m_Arguments:
@@ -16742,7 +16742,7 @@ RectTransform:
   m_GameObject: {fileID: 1835337090450030}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.99999994}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.99999994}
   m_Children:
   - {fileID: 224127233452086924}
   - {fileID: 224940997819672502}
@@ -17266,7 +17266,7 @@ RectTransform:
   m_GameObject: {fileID: 1047479431419552}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 1}
   m_Children:
   - {fileID: 224766216944639502}
   - {fileID: 224221423228765786}
@@ -17860,7 +17860,7 @@ RectTransform:
   m_GameObject: {fileID: 1226202880996976}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 1}
   m_Children:
   - {fileID: 224473588783502876}
   - {fileID: 224199255023521230}
@@ -18965,7 +18965,7 @@ RectTransform:
   m_GameObject: {fileID: 1300500494301460}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.99999994}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.99999994}
   m_Children:
   - {fileID: 224806063351479106}
   - {fileID: 224013708907764826}
@@ -19318,7 +19318,7 @@ RectTransform:
   m_GameObject: {fileID: 1340583472519052}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 1}
   m_Children:
   - {fileID: 224700596648409346}
   - {fileID: 224079659123075288}
@@ -19594,7 +19594,7 @@ RectTransform:
   m_GameObject: {fileID: 1780475466608642}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.99999994}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.99999994}
   m_Children:
   - {fileID: 224034199353085902}
   - {fileID: 224859057269968918}
@@ -20235,7 +20235,7 @@ RectTransform:
   m_GameObject: {fileID: 1293180134606158}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 1}
   m_Children:
   - {fileID: 224255876152946204}
   - {fileID: 224375753734369510}
