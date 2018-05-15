@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     void Awake ()
     {
         ProtectMeFromDeath();
-        AutoLoad();
-        gatheredEvidence = gameData.gatheredEvidence;
+        //AutoLoad();
+        //gatheredEvidence = gameData.gatheredEvidence;
     }
 
     public void SetBleepBloop(BleepBloop newBleepBloop)
