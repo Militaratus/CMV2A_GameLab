@@ -53,7 +53,7 @@ public class BleepBloop : VRTK_InteractableObject
     float scanningProgress = 0;
     int cluebotBattery = 100;
 
-    bool canvasActive = false;
+    public bool canvasActive = false;
 
     IEnumerator cluebotCoroutine;
     IEnumerator scanningRoutine;
@@ -96,7 +96,7 @@ public class BleepBloop : VRTK_InteractableObject
         
 
         playerHead = GameObject.FindGameObjectWithTag("Player").transform;
-        displayHead = transform.GetChild(0);
+        displayHead = transform.GetChild(1);
         cluebot = transform.GetChild(1).gameObject;
         cluebot.SetActive(false);
 
@@ -219,10 +219,13 @@ public class BleepBloop : VRTK_InteractableObject
     public override void StartUsing(VRTK_InteractUse usingObject)
     {
         base.StartUsing(usingObject);
+        Debug.Log("Start Clicking");
+
         if (!canvasActive)
         {
             canvasActive = true;
             SwitchMenu("loading");
+            displayHead.gameObject.SetActive(canvasActive);
             displayLight.enabled = canvasActive;
             UpdateContent();
         }
@@ -236,6 +239,7 @@ public class BleepBloop : VRTK_InteractableObject
             canvasActive = false;
             SwitchMenu("nothing");
             displayLight.enabled = canvasActive;
+            displayHead.gameObject.SetActive(canvasActive);
         }
     }
 
@@ -407,7 +411,13 @@ public class BleepBloop : VRTK_InteractableObject
 
     IEnumerator LoadingCoroutine()
     {
-        yield return new WaitForSeconds(1.0f);
+        Slider loadingBar = loadingCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>();
+        loadingBar.value = 0;
+        while(loadingBar.value < 1.0f)
+        {
+            loadingBar.value = loadingBar.value + 0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
         SwitchMenu("menu");
         StopCoroutine(LoadingCoroutine());
     }
