@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18031386, g: 0.2257506, b: 0.30694047, a: 1}
+  m_IndirectSpecularColor: {r: 0.18031356, g: 0.22575006, b: 0.30693942, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -77,17 +77,15 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 256
     m_PVRBounces: 2
-    m_PVRFilterTypeDirect: 0
-    m_PVRFilterTypeIndirect: 0
-    m_PVRFilterTypeAO: 0
+    m_PVRFiltering: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
-    m_PVRFilteringAtrousPositionSigmaIndirect: 2
-    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_PVRFilteringAtrousColorSigma: 1
+    m_PVRFilteringAtrousNormalSigma: 1
+    m_PVRFilteringAtrousPositionSigma: 1
   m_LightingDataAsset: {fileID: 112000002, guid: a2d9712d3fd6e7545988bfe7c85ad493,
     type: 2}
   m_UseShadowmask: 0
@@ -6653,11 +6651,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPhone: {fileID: 611362035}
-  newsTablet: {fileID: 11400000, guid: 6fdc169d7525d4e41894df3d19d54ac2, type: 2}
-  postIt: {fileID: 11400000, guid: 5f930c948a8192b4d9a684273a3cf61a, type: 2}
-  emailTablet: {fileID: 11400000, guid: e3a7fe79c822a4649970b856921bb238, type: 2}
-  workTablet: {fileID: 11400000, guid: c94beb437bc4de24788fb1e2426e785d, type: 2}
-  CrumbledEvidence: {fileID: 11400000, guid: f2759dab2642c044abf94ba2f09ac0ff, type: 2}
+  newsTablet: {fileID: 11400000, guid: 5b6398a2caebda44db98fbf2b987274c, type: 2}
+  postIt: {fileID: 11400000, guid: da0d2a7acbd1f114fbab5bce1cf3e7ec, type: 2}
+  emailTablet: {fileID: 11400000, guid: 5b6398a2caebda44db98fbf2b987274c, type: 2}
+  workTablet: {fileID: 11400000, guid: 70c8cc99e5204be41b305b75a3a79a42, type: 2}
+  CrumbledEvidence: {fileID: 11400000, guid: a27e0cd9dd43e5f44bf662b5198cc148, type: 2}
 --- !u!1001 &570951138
 Prefab:
   m_ObjectHideFlags: 0
