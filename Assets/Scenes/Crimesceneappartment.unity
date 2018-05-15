@@ -1072,15 +1072,83 @@ Prefab:
       propertyPath: holdButtonToUse
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114279243340803304, guid: 62aa8e25aaa421a4ab9ec4795ca125c6, type: 2}
+    - {fileID: 65966418621384608, guid: 62aa8e25aaa421a4ab9ec4795ca125c6, type: 2}
+    - {fileID: 65474965032298572, guid: 62aa8e25aaa421a4ab9ec4795ca125c6, type: 2}
+    - {fileID: 114120336747647092, guid: 62aa8e25aaa421a4ab9ec4795ca125c6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 62aa8e25aaa421a4ab9ec4795ca125c6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1951718970 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1437471603850294, guid: 62aa8e25aaa421a4ab9ec4795ca125c6,
+  m_PrefabParentObject: {fileID: 1159496996927072, guid: 62aa8e25aaa421a4ab9ec4795ca125c6,
     type: 2}
   m_PrefabInternal: {fileID: 1951718969}
---- !u!114 &1951718971
+--- !u!65 &1951718971
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951718970}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89102936, y: 2.2971525, z: 0.099999905}
+  m_Center: {x: -2.1960425, y: 1.145752, z: -1.6}
+--- !u!1 &1951718972 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1226498451358736, guid: 62aa8e25aaa421a4ab9ec4795ca125c6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1951718969}
+--- !u!65 &1951718973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951718972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2555, y: 3.7917202, z: 1.6714467}
+  m_Center: {x: -0.8017584, y: 0.9476836, z: 0.16094913}
+--- !u!114 &1951718974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951718970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbdb4c7f114a9a448b8f44d4d67802c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 1
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
+  flipped: 0
+  rotated: 0
+  unlocked: 1
+  doorLocked: {fileID: 0}
+  doorOpening: {fileID: 0}
+--- !u!114 &1951718975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1097,12 +1165,7 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
---- !u!1 &1951718972 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1515526465439072, guid: 62aa8e25aaa421a4ab9ec4795ca125c6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1951718969}
---- !u!114 &1951718973
+--- !u!114 &1951718976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1119,6 +1182,41 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
+--- !u!114 &1951718977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1951718972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfd7819f01f8e6419fa2093398f5fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 1
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
+  flipped: 0
+  rotated: 0
+  unlocked: 1
+  doorLocked: {fileID: 0}
+  doorOpening: {fileID: 0}
 --- !u!1 &1998492041
 GameObject:
   m_ObjectHideFlags: 0
