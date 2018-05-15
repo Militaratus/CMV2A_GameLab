@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour
 {
+    public static bool Dialog = true;
+    public static bool Accuse = true;
+
     // Privates
     bool alreadyOpened = false;
     bool talkingPaused = false;
@@ -279,7 +282,10 @@ public class DialogSystem : MonoBehaviour
         dialogStages = currentDialog.Length;
         talkingChoice = true;
         talkingFinished = true;
+        Dialog = false;
         UpdateConversation();
+        
+
     }
 
     public void ChoicePressure()
@@ -290,7 +296,9 @@ public class DialogSystem : MonoBehaviour
         dialogStages = currentDialog.Length;
         talkingChoice = true;
         talkingFinished = true;
+        Dialog = false;
         UpdateConversation();
+      
     }
 
     public void ChoiceAccuse()
@@ -300,7 +308,7 @@ public class DialogSystem : MonoBehaviour
         dialogStage = 0;
         dialogStages = currentDialog.Length;
         talkingAccuse = true;
-
+        Dialog = false;
         UpdateConversation();
     }
 
@@ -309,10 +317,12 @@ public class DialogSystem : MonoBehaviour
         DialogAccuse activeResponse = myConversation.availableTopics[activeTopic].accuseCop;
         if (chosenEvidence.evidenceName == activeResponse.requiredEvidence.evidenceName)
         {
+            Accuse = false;
             AccuseSuccess();
         }
         else
         {
+            Accuse = false;
             AccuseFail();
         }
     }
