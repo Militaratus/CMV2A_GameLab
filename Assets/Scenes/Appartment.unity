@@ -3352,6 +3352,7 @@ GameObject:
   - component: {fileID: 140614379}
   - component: {fileID: 140614378}
   - component: {fileID: 140614377}
+  - component: {fileID: 140614383}
   m_Layer: 13
   m_Name: Nail
   m_TagString: ExcludeTeleport
@@ -3527,6 +3528,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!65 &140614383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140614373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00071103114, y: 0.001208272, z: 0.0011181872}
+  m_Center: {x: 0.008832908, y: -0.000096551696, z: 0.0020224208}
 --- !u!1 &146583088
 GameObject:
   m_ObjectHideFlags: 0
@@ -19093,7 +19106,7 @@ MonoBehaviour:
   gameData:
     gatheredEvidence: []
     foundSuspects: []
-  bleepBloop: {fileID: 1323768689}
+  bleepBloop: {fileID: 0}
   currentConversation: {fileID: 0}
 --- !u!4 &854632159
 Transform:
@@ -20859,6 +20872,7 @@ GameObject:
   - component: {fileID: 910451931}
   - component: {fileID: 910451930}
   - component: {fileID: 910451929}
+  - component: {fileID: 910451935}
   m_Layer: 13
   m_Name: Pan
   m_TagString: ExcludeTeleport
@@ -20998,7 +21012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
+  precisionGrab: 1
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
@@ -21034,6 +21048,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!65 &910451935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 910451925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018916763, y: 0.018916762, z: 0.004138677}
+  m_Center: {x: 0, y: 0.0000000144355, z: 0.001963489}
 --- !u!1 &917859318
 GameObject:
   m_ObjectHideFlags: 0
@@ -31012,6 +31038,7 @@ GameObject:
   - component: {fileID: 1281108389}
   - component: {fileID: 1281108388}
   - component: {fileID: 1281108387}
+  - component: {fileID: 1281108393}
   m_Layer: 13
   m_Name: Holder
   m_TagString: ExcludeTeleport
@@ -31187,6 +31214,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!65 &1281108393
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1281108383}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016283685, y: 0.0024488287, z: 0.007839279}
+  m_Center: {x: 0.016060349, y: -0.000055778753, z: 0.0045918496}
 --- !u!1 &1287769422
 GameObject:
   m_ObjectHideFlags: 0
@@ -31954,12 +31993,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1323768687}
   m_Script: {fileID: 11500000, guid: d1189f9ea7900f844912f77adb51c717, type: 3}
---- !u!114 &1323768689 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114629723112594934, guid: d18a0780a5674ca4f98a98aac892ddd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1323768687}
-  m_Script: {fileID: 11500000, guid: ed48c9fa558dc5e43901f69a94ee2e8a, type: 3}
 --- !u!1001 &1324988098
 Prefab:
   m_ObjectHideFlags: 0
@@ -46790,6 +46823,11 @@ Prefab:
     - target: {fileID: 1515883511369022, guid: 5527520ec6648a645a609d0bcdd4ecae, type: 2}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 114289283993323298, guid: 5527520ec6648a645a609d0bcdd4ecae,
+        type: 2}
+      propertyPath: precisionGrab
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5527520ec6648a645a609d0bcdd4ecae, type: 2}
