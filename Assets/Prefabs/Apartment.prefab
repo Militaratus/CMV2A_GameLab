@@ -1790,8 +1790,9 @@ GameObject:
   - component: {fileID: 4193770501443694}
   - component: {fileID: 33881162897143586}
   - component: {fileID: 23915703165151866}
-  - component: {fileID: 65966418621384608}
-  - component: {fileID: 114279243340803304}
+  - component: {fileID: 65934273142736200}
+  - component: {fileID: 114391422427159474}
+  - component: {fileID: 114001171592493086}
   m_Layer: 0
   m_Name: BathroomDoor
   m_TagString: Untagged
@@ -2190,8 +2191,9 @@ GameObject:
   - component: {fileID: 4305642402621670}
   - component: {fileID: 33337780181258250}
   - component: {fileID: 23699168489419080}
-  - component: {fileID: 65474965032298572}
-  - component: {fileID: 114120336747647092}
+  - component: {fileID: 65063184534857106}
+  - component: {fileID: 114667962919685002}
+  - component: {fileID: 114956442427080210}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -16862,6 +16864,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65063184534857106
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515526465439072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013913029, y: 0.02, z: 0.038484275}
+  m_Center: {x: -0.008036496, y: 0.000000007450581, z: 0.009242139}
 --- !u!65 &65432238274840568
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -16874,19 +16888,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.039665543, y: 0.016569255, z: 0.0015393437}
   m_Center: {x: 0.011189486, y: -0.0017153625, z: 0.0064752693}
---- !u!65 &65474965032298572
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515526465439072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0013913029, y: 0.02, z: 0.038484275}
-  m_Center: {x: -0.008036496, y: 0.000000007450581, z: 0.009242139}
---- !u!65 &65966418621384608
+--- !u!65 &65934273142736200
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -16898,7 +16900,76 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00911475, y: 0.001424457, z: 0.023200803}
   m_Center: {x: 0.004557429, y: -0.0002556695, z: 0.00030280734}
---- !u!114 &114120336747647092
+--- !u!114 &114001171592493086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437471603850294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 0.5
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
+--- !u!114 &114391422427159474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437471603850294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cbdb4c7f114a9a448b8f44d4d67802c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 0
+  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 1
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
+  flipped: 0
+  rotated: 0
+  unlocked: 1
+  doorLocked: {fileID: 0}
+  doorOpening: {fileID: 0}
+--- !u!114 &114667962919685002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515526465439072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 0.5
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
+--- !u!114 &114956442427080210
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -16922,42 +16993,7 @@ MonoBehaviour:
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
-  flipped: 0
-  rotated: 0
-  unlocked: 1
-  doorLocked: {fileID: 0}
-  doorOpening: {fileID: 0}
---- !u!114 &114279243340803304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437471603850294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cbdb4c7f114a9a448b8f44d4d67802c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
-  secondaryGrabActionScript: {fileID: 0}
-  isUsable: 1
-  holdButtonToUse: 1
+  holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
