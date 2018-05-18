@@ -379,7 +379,7 @@ public class DialogSystem : MonoBehaviour
 		if (inConversation)
         {
             canvasHead.LookAt(player.position);
-            if (npcHead)
+            if (npcHead && !talkingPaused)
             {
                 npcHead.LookAt(player.position);
             }

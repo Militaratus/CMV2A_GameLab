@@ -178,13 +178,13 @@ public class BleepBloop : VRTK_InteractableObject
                 int myCount = i;
                 evidenceContent[i].GetComponent<Button>().onClick.AddListener(delegate { UseEvidence(myCount); });
             }
-        }
 
-        // Adjust ContainerSize
-        RectTransform evidenceContainerRect = evidenceContainer.GetComponent<RectTransform>();
-        float evidenceContainerWidth = evidenceContainerRect.sizeDelta.x;
-        float evidenceContainerHeight = foundEvidence.Count * buttonHeight;
-        evidenceContainerRect.sizeDelta = new Vector2(evidenceContainerWidth, evidenceContainerHeight);
+            // Adjust ContainerSize
+            RectTransform evidenceContainerRect = evidenceContainer.GetComponent<RectTransform>();
+            float evidenceContainerWidth = evidenceContainerRect.sizeDelta.x;
+            float evidenceContainerHeight = foundEvidence.Count * buttonHeight;
+            evidenceContainerRect.sizeDelta = new Vector2(evidenceContainerWidth, evidenceContainerHeight);
+        }
     }
 
     void UpdateSuspects()
@@ -303,7 +303,6 @@ public class BleepBloop : VRTK_InteractableObject
         // Fix for Unable to look at thing when selecting the menu button of the same menu
         if (oldMenu == menu)
         {
-            audioPlayer.Play();
             return;
         }
         oldMenu = menu;
