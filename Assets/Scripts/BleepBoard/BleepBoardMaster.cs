@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class BleepBoardMaster : MonoBehaviour
 {
+
+    public static bool placedClue = false;
+    public static bool connectedClue = false;
+    public static bool deletedClue = false;
+
     public BBLink sLinkA;
     public BBLink sLinkB;
     public Transform linkA;
@@ -105,7 +110,7 @@ public class BleepBoardMaster : MonoBehaviour
         if (!linkObject.GetComponent<BBLink>().inUse)
         {
             linkObject.GetComponent<BBLink>().PopulateLink(addEvidence);
-
+            placedClue = true;
             UnprepareNewEvidence();
             //CleanUp();
             return;
@@ -156,6 +161,7 @@ public class BleepBoardMaster : MonoBehaviour
 
                 if (linkedEvidence)
                 {
+                    connectedClue = true;
                     // Great success
                     sLinkA.AddLink(linkB);
                 }
@@ -183,6 +189,7 @@ public class BleepBoardMaster : MonoBehaviour
         // Clean Evidence
         for (int i = 0; i < evidenceSlots.Length; i++)
         {
+            deletedClue = true;
             evidenceSlots[i].GetComponent<BBLink>().HasLink(linkObject);
         }
 
