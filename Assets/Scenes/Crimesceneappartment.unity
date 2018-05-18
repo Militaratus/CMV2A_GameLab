@@ -330,6 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bcc2c6c46298434a9ef7ccce3a31b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bleepBloopCanvas: {fileID: 1269985441}
+  evidenceCanvas: {fileID: 1577975638}
+  clueBotCanvas: {fileID: 1059695224}
 --- !u!1 &85487526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2906,16 @@ Prefab:
     - target: {fileID: 4296849391472794, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224523406718697816, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224523406718697816, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
