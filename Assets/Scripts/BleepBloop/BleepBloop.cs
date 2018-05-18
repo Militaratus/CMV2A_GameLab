@@ -11,6 +11,9 @@ public class BleepBloop : VRTK_InteractableObject
     public enum Mode { View, Accuse, Projector };
     internal Mode myMode = Mode.View;
 
+    public static bool bleepBloopActive = false;
+    public static bool evidenceChecked = false;
+    public static bool clueBotSpawned = false;
 
     public List<Evidence> foundEvidence;
     GameObject evidencePrefab;
@@ -218,6 +221,7 @@ public class BleepBloop : VRTK_InteractableObject
 
     public override void StartUsing(VRTK_InteractUse usingObject)
     {
+        bleepBloopActive = true;
         base.StartUsing(usingObject);
         Debug.Log("Start Clicking");
 
@@ -305,6 +309,7 @@ public class BleepBloop : VRTK_InteractableObject
         }
         if (menu == "evidence")
         {
+            evidenceChecked = true;
             evidenceCanvas.SetActive(true);
         }
         if (menu == "scanning")
@@ -327,6 +332,7 @@ public class BleepBloop : VRTK_InteractableObject
         }
         if (menu == "cluebot")
         {
+            clueBotSpawned = true;
             cluebotCanvas.SetActive(true);
         }
 

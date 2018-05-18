@@ -22,7 +22,7 @@ public class ButtonManager : MonoBehaviour
 
     void Start()
     {
-        LineUp1Canvas = GameObject.Find("Lineup1");
+        /*LineUp1Canvas = GameObject.Find("Lineup1");
         LineUp2Canvas = GameObject.Find("Lineup2");
         LineUp3Canvas = GameObject.Find("Lineup3");
         Dropdown1Canvas = GameObject.Find("Dropdown1");
@@ -32,7 +32,7 @@ public class ButtonManager : MonoBehaviour
         Dropdown1Canvas.SetActive(false);
         Dropdown2Canvas.SetActive(false);
         Dropdown3Canvas.SetActive(false);
-        BackButton.SetActive(false);
+        BackButton.SetActive(false);*/
     }
 
     //If button is pressed load scene.
