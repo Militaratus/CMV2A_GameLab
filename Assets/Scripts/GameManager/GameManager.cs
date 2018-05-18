@@ -178,6 +178,10 @@ public class GameManager : MonoBehaviour
 
     public void AutoLoad()
     {
+        gameData = new GameData();
+
+        /*
+        //[JARED] FIX THIS SHIT!
         string filePath = Application.dataPath + gameDataProjectFilePath;
 
         if (File.Exists (filePath))
@@ -189,5 +193,6 @@ public class GameManager : MonoBehaviour
         {
             gameData = new GameData();
         }
+        */
     }
 }

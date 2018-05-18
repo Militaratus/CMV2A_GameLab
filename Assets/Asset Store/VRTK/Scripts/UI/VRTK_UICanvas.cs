@@ -196,7 +196,11 @@ namespace VRTK
                 Destroy(canvasRigidBody);
             }
 
-            StopCoroutine(draggablePanelCreation);
+            // Do I even exist?
+            if (draggablePanelCreation != null)
+            {
+                StopCoroutine(draggablePanelCreation);
+            }
             var draggablePanel = canvas.transform.Find(CANVAS_DRAGGABLE_PANEL);
             if (draggablePanel)
             {

@@ -315,7 +315,7 @@ public class DialogSystem : MonoBehaviour
     public void AccuseAttempt(Evidence chosenEvidence)
     {
         DialogAccuse activeResponse = myConversation.availableTopics[activeTopic].accuseCop;
-        if (chosenEvidence.evidenceName == activeResponse.requiredEvidence.evidenceName)
+        if (activeResponse.requiredEvidence!= null && chosenEvidence.evidenceName == activeResponse.requiredEvidence.evidenceName)
         {
             Accuse = false;
             AccuseSuccess();

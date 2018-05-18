@@ -42,8 +42,7 @@ public class BleepBloop : VRTK_InteractableObject
     Transform suspectContainer;
 
     int activeScanID = -1;
-    Scrollbar scanningSlider;
-    Text scanningText;
+    public Slider scanningSlider;
 
     Text viewText;
 
@@ -60,6 +59,9 @@ public class BleepBloop : VRTK_InteractableObject
 
     IEnumerator cluebotCoroutine;
     IEnumerator scanningRoutine;
+
+    // Fallback protection
+    string oldMenu = "";
 
     protected override void Awake()
     {
@@ -100,7 +102,7 @@ public class BleepBloop : VRTK_InteractableObject
 
         playerHead = GameObject.FindGameObjectWithTag("Player").transform;
         displayHead = transform.GetChild(1);
-        cluebot = transform.GetChild(1).gameObject;
+        cluebot = transform.GetChild(2).gameObject;
         cluebot.SetActive(false);
 
         displayLight = displayHead.GetComponent<Light>();
@@ -115,10 +117,9 @@ public class BleepBloop : VRTK_InteractableObject
         mapCanvas = displayHead.GetChild(7).gameObject;
         cluebotCanvas = displayHead.GetChild(8).gameObject;
 
-        viewText = viewCanvas.transform.GetChild(2).GetComponent<Text>();
+        viewText = viewCanvas.transform.GetChild(1).GetChild(1).GetComponent<Text>();
 
-        scanningSlider = scanningCanvas.transform.GetChild(3).GetComponent<Scrollbar>();
-        scanningText = scanningSlider.transform.GetChild(1).GetComponent<Text>();
+        scanningSlider = scanningCanvas.transform.GetChild(1).GetChild(2).GetComponent<Slider>();
         cluebotButton = cluebotCanvas.transform.GetChild(1).GetComponent<Button>();
         cluebotText = cluebotButton.transform.GetChild(0).GetComponent<Text>();
 
@@ -144,6 +145,8 @@ public class BleepBloop : VRTK_InteractableObject
             }
         }
 
+
+        int buttonHeight = 480;
         foundEvidence = managerGame.GetNewEvidence();
         if (foundEvidence != null && foundEvidence.Count > 0)    // Only spawn if there is something to spawn
         {
@@ -152,7 +155,7 @@ public class BleepBloop : VRTK_InteractableObject
             {
                 // Spawn button
                 evidenceContent[i] = Instantiate(evidencePrefab, evidenceContainer);
-                evidenceContent[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -30 + (i * -60));
+                evidenceContent[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(0, (-buttonHeight / 2)  + (i * -buttonHeight));
 
                 // Populate Children
                 if (foundEvidence[i] != null)
@@ -176,6 +179,12 @@ public class BleepBloop : VRTK_InteractableObject
                 evidenceContent[i].GetComponent<Button>().onClick.AddListener(delegate { UseEvidence(myCount); });
             }
         }
+
+        // Adjust ContainerSize
+        RectTransform evidenceContainerRect = evidenceContainer.GetComponent<RectTransform>();
+        float evidenceContainerWidth = evidenceContainerRect.sizeDelta.x;
+        float evidenceContainerHeight = foundEvidence.Count * buttonHeight;
+        evidenceContainerRect.sizeDelta = new Vector2(evidenceContainerWidth, evidenceContainerHeight);
     }
 
     void UpdateSuspects()
@@ -223,17 +232,25 @@ public class BleepBloop : VRTK_InteractableObject
     {
         bleepBloopActive = true;
         base.StartUsing(usingObject);
-        Debug.Log("Start Clicking");
-
+        
         if (!canvasActive)
         {
-            canvasActive = true;
-            SwitchMenu("loading");
-            displayHead.gameObject.SetActive(canvasActive);
-            displayLight.enabled = canvasActive;
-            UpdateContent();
+            OpenDisplay();
+        }
+        else
+        {
+            CloseDisplay();
         }
         StopUsing();    // Prevents Coroutine crash when hammering the use button
+    }
+
+    void OpenDisplay()
+    {
+        canvasActive = true;
+        SwitchMenu("loading");
+        displayHead.gameObject.SetActive(canvasActive);
+        displayLight.enabled = canvasActive;
+        UpdateContent();
     }
 
     public void CloseDisplay()
@@ -283,6 +300,14 @@ public class BleepBloop : VRTK_InteractableObject
 
     public void SwitchMenu(string menu)
     {
+        // Fix for Unable to look at thing when selecting the menu button of the same menu
+        if (oldMenu == menu)
+        {
+            audioPlayer.Play();
+            return;
+        }
+        oldMenu = menu;
+
         // Turn off everything
         TurnOff();
 
@@ -387,7 +412,6 @@ public class BleepBloop : VRTK_InteractableObject
 
     public void CheckEvidence(int evidenceID)
     {
-        Debug.Log("EvidenceID" + evidenceID);
         activeScanID = evidenceID;
         viewText.text = foundEvidence[activeScanID].evidenceInformation;
 
@@ -453,19 +477,13 @@ public class BleepBloop : VRTK_InteractableObject
     IEnumerator ScanningCoroutine()
     {
         scanningProgress = 0;
-        scanningSlider.size = scanningProgress / 100;
-        scanningText.text = scanningProgress + "%";
+        scanningSlider.value = scanningProgress / 100;
 
         while (scanningProgress < 100)
         {
-            scanningProgress += Random.Range(10, 25);
-            if (scanningProgress >= 100)
-            {
-                scanningProgress = 100;
-            }
-            scanningSlider.size = scanningProgress / 100;
-            scanningText.text = scanningProgress + "%";
-            yield return new WaitForSeconds(1.0f);
+            scanningProgress += 10;
+            scanningSlider.value = scanningProgress / 100;
+            yield return new WaitForSeconds(0.1f);
         }
 
         foundEvidence[activeScanID].amScanned = true;
