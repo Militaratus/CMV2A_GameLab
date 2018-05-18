@@ -11,6 +11,8 @@ public class LoadingManager : MonoBehaviour
     public GameObject destinationPanel;
     public GameObject travelingPanel;
 
+    public static bool destinationChosen = false;
+
     string sceneToLoad = "";
 
     // Use this for initialization
@@ -39,6 +41,7 @@ public class LoadingManager : MonoBehaviour
 
     public void SelectDestination(string destination)
     {
+        destinationChosen = true;
         destinationPanel.SetActive(false);
         travelingPanel.SetActive(true);
 
