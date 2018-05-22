@@ -3206,6 +3206,7 @@ GameObject:
   - component: {fileID: 114063509803501512}
   - component: {fileID: 114043879758082742}
   - component: {fileID: 114562204242274136}
+  - component: {fileID: 114800616924666714}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -3349,6 +3350,7 @@ GameObject:
   - component: {fileID: 114723576411220706}
   - component: {fileID: 114768860290282400}
   - component: {fileID: 114932188685522858}
+  - component: {fileID: 114584731054934164}
   m_Layer: 0
   m_Name: RightController
   m_TagString: Untagged
@@ -4009,8 +4011,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201720458932050}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.869, y: 0.684, z: 1.043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4100212331916986}
@@ -4459,8 +4461,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5472547, y: 0.2617184, z: 0.41310704}
-  m_Center: {x: 0.034958124, y: 0.3691408, z: -0.29344648}
+  m_Size: {x: 0.34378457, y: 0.12318933, z: 0.041700184}
+  m_Center: {x: -0.00034862757, y: 0.29987627, z: -0.4791499}
 --- !u!65 &65550337244129732
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -11354,6 +11356,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114584731054934164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859619656827964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a537dcd25de0d4da321bb1019780ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerEvents: {fileID: 114768276303114358}
+  menu: {fileID: 0}
 --- !u!114 &114588384053813084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11727,7 +11742,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114531295582655562}
   m_HandleRect: {fileID: 224523406718697816}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13800,6 +13815,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: '*'
+--- !u!114 &114800616924666714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839037068415112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a537dcd25de0d4da321bb1019780ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerEvents: {fileID: 114705955437638800}
+  menu: {fileID: 0}
 --- !u!114 &114801043817975718
 MonoBehaviour:
   m_ObjectHideFlags: 1
