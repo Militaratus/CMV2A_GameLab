@@ -23,7 +23,7 @@ namespace HTC.UnityPlugin.StereoRendering
                         type = HmdType.SteamVR;
                 }
             #else
-                string deviceName = UnityEngine.XR.XRSettings.loadedDeviceName;
+                string deviceName = VRSettings.loadedDeviceName;
 
                 if (deviceName == "OpenVR")
                 {

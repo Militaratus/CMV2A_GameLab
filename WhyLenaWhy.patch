@@ -1,0 +1,312 @@
+Index: Assets/Asset Store/SteamVR/Scripts/SteamVR.cs
+===================================================================
+--- Assets/Asset Store/SteamVR/Scripts/SteamVR.cs	(revision 250)
++++ Assets/Asset Store/SteamVR/Scripts/SteamVR.cs	(working copy)
+@@ -19,7 +19,7 @@
+ 	{
+ 		get
+ 		{
+-			if (!UnityEngine.XR.XRSettings.enabled)
++			if (!UnityEngine.VR.VRSettings.enabled)
+ 				enabled = false;
+ 			return _enabled;
+ 		}
+@@ -58,7 +58,7 @@
+ 
+ 	public static bool usingNativeSupport
+ 	{
+-		get { return UnityEngine.XR.XRDevice.GetNativePtr() != System.IntPtr.Zero; }
++		get { return UnityEngine.VR.VRDevice.GetNativePtr() != System.IntPtr.Zero; }
+ 	}
+ 
+ 	static SteamVR CreateInstance()
+Index: Assets/Asset Store/SteamVR/Scripts/SteamVR_Camera.cs
+===================================================================
+--- Assets/Asset Store/SteamVR/Scripts/SteamVR_Camera.cs	(revision 250)
++++ Assets/Asset Store/SteamVR/Scripts/SteamVR_Camera.cs	(working copy)
+@@ -33,8 +33,8 @@
+ 
+ 	static public float sceneResolutionScale
+ 	{
+-		get { return UnityEngine.XR.XRSettings.eyeTextureResolutionScale; }
+-		set { UnityEngine.XR.XRSettings.eyeTextureResolutionScale = value; }
++		get { return UnityEngine.VR.VRSettings.renderScale; }
++		set { UnityEngine.VR.VRSettings.renderScale = value; }
+ 	}
+ 
+ 	#region Enable / Disable
+Index: Assets/Asset Store/VRTK/Scripts/Utilities/SDK/VRTK_SDKManager.cs
+===================================================================
+--- Assets/Asset Store/VRTK/Scripts/Utilities/SDK/VRTK_SDKManager.cs	(revision 250)
++++ Assets/Asset Store/VRTK/Scripts/Utilities/SDK/VRTK_SDKManager.cs	(working copy)
+@@ -407,13 +407,13 @@
+                         })
+                 );
+             }
+-            else if (UnityEngine.XR.XRSettings.enabled)
++            else if (VRSettings.enabled)
+             {
+                 // Use the SDK Setup for the current VR Device if it's working already
+                 // (may be due to command line argument '-vrmode')
+                 index = Array.FindIndex(
+                     setups,
+-                    setup => setup.usedVRDeviceNames.Contains(UnityEngine.XR.XRSettings.loadedDeviceName)
++                    setup => setup.usedVRDeviceNames.Contains(VRSettings.loadedDeviceName)
+                 );
+             }
+             else
+@@ -421,7 +421,7 @@
+                 // If '-vrmode none' was used try to load the respective SDK Setup
+                 string[] commandLineArgs = Environment.GetCommandLineArgs();
+                 int commandLineArgIndex = Array.IndexOf(commandLineArgs, "-vrmode", 1);
+-                if (UnityEngine.XR.XRSettings.loadedDeviceName == "None"
++                if (VRSettings.loadedDeviceName == "None"
+                     || (commandLineArgIndex != -1
+                         && commandLineArgIndex + 1 < commandLineArgs.Length
+                         && commandLineArgs[commandLineArgIndex + 1].ToLowerInvariant() == "none"))
+@@ -483,18 +483,18 @@
+                 previousLoadedSetup.OnUnloaded(this);
+             }
+ 
+-            bool isDeviceAlreadyLoaded = UnityEngine.XR.XRSettings.enabled
+-                                         && sdkSetups[0].usedVRDeviceNames.Contains(UnityEngine.XR.XRSettings.loadedDeviceName);
++            bool isDeviceAlreadyLoaded = VRSettings.enabled
++                                         && sdkSetups[0].usedVRDeviceNames.Contains(VRSettings.loadedDeviceName);
+             if (!isDeviceAlreadyLoaded)
+             {
+-                if (!tryToReinitialize && !UnityEngine.XR.XRSettings.enabled && !string.IsNullOrEmpty(UnityEngine.XR.XRSettings.loadedDeviceName))
++                if (!tryToReinitialize && !VRSettings.enabled && !string.IsNullOrEmpty(VRSettings.loadedDeviceName))
+                 {
+-                    sdkSetups = sdkSetups.Where(setup => !setup.usedVRDeviceNames.Contains(UnityEngine.XR.XRSettings.loadedDeviceName))
++                    sdkSetups = sdkSetups.Where(setup => !setup.usedVRDeviceNames.Contains(VRSettings.loadedDeviceName))
+                                          .ToArray();
+                 }
+ 
+                 VRTK_SDKSetup[] missingVRDeviceSetups = sdkSetups
+-                    .Where(setup => setup.usedVRDeviceNames.Except(UnityEngine.XR.XRSettings.supportedDevices).Any())
++                    .Where(setup => setup.usedVRDeviceNames.Except(VRSettings.supportedDevices).Any())
+                     .ToArray();
+                 foreach (VRTK_SDKSetup missingVRDeviceSetup in missingVRDeviceSetups)
+                 {
+@@ -501,7 +501,7 @@
+                     string missingVRDevicesText = string.Join(
+                         ", ",
+                         missingVRDeviceSetup.usedVRDeviceNames
+-                                            .Except(UnityEngine.XR.XRSettings.supportedDevices)
++                                            .Except(VRSettings.supportedDevices)
+                                             .ToArray()
+                     );
+                     VRTK_Logger.Warn(string.Format("Ignoring SDK Setup '{0}' because the following VR device names are missing from the PlayerSettings:\n{1}",
+@@ -515,7 +515,7 @@
+                     .Distinct()
+                     .Concat(new[] { "None" }) // Add "None" to the end to fall back to
+                     .ToArray();
+-                UnityEngine.XR.XRSettings.LoadDeviceByName(vrDeviceNames);
++                VRSettings.LoadDeviceByName(vrDeviceNames);
+             }
+ 
+             StartCoroutine(FinishSDKSetupLoading(sdkSetups, previousLoadedSetup));
+@@ -562,8 +562,8 @@
+ 
+             if (disableVR)
+             {
+-                UnityEngine.XR.XRSettings.LoadDeviceByName("None");
+-                UnityEngine.XR.XRSettings.enabled = false;
++                VRSettings.LoadDeviceByName("None");
++                VRSettings.enabled = false;
+             }
+ 
+             if (previousLoadedSetup != null)
+@@ -652,7 +652,7 @@
+         {
+             yield return null;
+ 
+-            string loadedDeviceName = string.IsNullOrEmpty(UnityEngine.XR.XRSettings.loadedDeviceName) ? "None" : UnityEngine.XR.XRSettings.loadedDeviceName;
++            string loadedDeviceName = string.IsNullOrEmpty(VRSettings.loadedDeviceName) ? "None" : VRSettings.loadedDeviceName;
+             loadedSetup = sdkSetups.FirstOrDefault(setup => setup.usedVRDeviceNames.Contains(loadedDeviceName));
+ 
+             if (loadedSetup == null)
+@@ -670,9 +670,9 @@
+             if (loadedSetup.usedVRDeviceNames.Except(new[] { "None" }).Any())
+             {
+                 // The loaded VR Device is actually a VR Device
+-                UnityEngine.XR.XRSettings.enabled = true;
++                VRSettings.enabled = true;
+ 
+-                if (!UnityEngine.XR.XRDevice.isPresent)
++                if (!VRDevice.isPresent)
+                 {
+                     // Despite being loaded, the loaded VR Device isn't working correctly
+                     int nextSetupIndex = Array.IndexOf(sdkSetups, loadedSetup) + 1;
+Index: Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_AdaptiveQuality.cs
+===================================================================
+--- Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_AdaptiveQuality.cs	(revision 250)
++++ Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_AdaptiveQuality.cs	(working copy)
+@@ -145,7 +145,7 @@
+         /// </remarks>
+         public static float CurrentRenderScale
+         {
+-            get { return UnityEngine.XR.XRSettings.eyeTextureResolutionScale * UnityEngine.XR.XRSettings.renderViewportScale; }
++            get { return VRSettings.renderScale * VRSettings.renderViewportScale; }
+         }
+ 
+         /// <summary>
+@@ -210,8 +210,8 @@
+         /// </returns>
+         public static Vector2 RenderTargetResolutionForRenderScale(float renderScale)
+         {
+-            return new Vector2((int)(UnityEngine.XR.XRSettings.eyeTextureWidth / UnityEngine.XR.XRSettings.eyeTextureResolutionScale * renderScale),
+-                               (int)(UnityEngine.XR.XRSettings.eyeTextureHeight / UnityEngine.XR.XRSettings.eyeTextureResolutionScale * renderScale));
++            return new Vector2((int)(VRSettings.eyeTextureWidth / VRSettings.renderScale * renderScale),
++                               (int)(VRSettings.eyeTextureHeight / VRSettings.renderScale * renderScale));
+         }
+ 
+         /// <summary>
+@@ -223,15 +223,15 @@
+         /// </returns>
+         public float BiggestAllowedMaximumRenderScale()
+         {
+-            if (UnityEngine.XR.XRSettings.eyeTextureWidth == 0 || UnityEngine.XR.XRSettings.eyeTextureHeight == 0)
++            if (VRSettings.eyeTextureWidth == 0 || VRSettings.eyeTextureHeight == 0)
+             {
+                 return maximumRenderScale;
+             }
+ 
+-            float maximumHorizontalRenderScale = maximumRenderTargetDimension * UnityEngine.XR.XRSettings.eyeTextureResolutionScale
+-                                                 / UnityEngine.XR.XRSettings.eyeTextureWidth;
+-            float maximumVerticalRenderScale = maximumRenderTargetDimension * UnityEngine.XR.XRSettings.eyeTextureResolutionScale
+-                                               / UnityEngine.XR.XRSettings.eyeTextureHeight;
++            float maximumHorizontalRenderScale = maximumRenderTargetDimension * VRSettings.renderScale
++                                                 / VRSettings.eyeTextureWidth;
++            float maximumVerticalRenderScale = maximumRenderTargetDimension * VRSettings.renderScale
++                                               / VRSettings.eyeTextureHeight;
+             return Mathf.Min(maximumHorizontalRenderScale, maximumVerticalRenderScale);
+         }
+ 
+@@ -300,8 +300,8 @@
+             Camera.onPreCull += OnCameraPreCull;
+ 
+             hmdDisplayIsOnDesktop = VRTK_SDK_Bridge.IsDisplayOnDesktop();
+-            singleFrameDurationInMilliseconds = UnityEngine.XR.XRDevice.refreshRate > 0.0f
+-                                                ? 1000.0f / UnityEngine.XR.XRDevice.refreshRate
++            singleFrameDurationInMilliseconds = VRDevice.refreshRate > 0.0f
++                                                ? 1000.0f / VRDevice.refreshRate
+                                                 : DefaultFrameDurationInMilliseconds;
+ 
+             HandleCommandLineArguments();
+@@ -644,13 +644,13 @@
+ 
+         private static void SetRenderScale(float renderScale, float renderViewportScale)
+         {
+-            if (Mathf.Abs(UnityEngine.XR.XRSettings.eyeTextureResolutionScale - renderScale) > float.Epsilon)
++            if (Mathf.Abs(VRSettings.renderScale - renderScale) > float.Epsilon)
+             {
+-                UnityEngine.XR.XRSettings.eyeTextureResolutionScale = renderScale;
++                VRSettings.renderScale = renderScale;
+             }
+-            if (Mathf.Abs(UnityEngine.XR.XRSettings.renderViewportScale - renderViewportScale) > float.Epsilon)
++            if (Mathf.Abs(VRSettings.renderViewportScale - renderViewportScale) > float.Epsilon)
+             {
+-                UnityEngine.XR.XRSettings.renderViewportScale = renderViewportScale;
++                VRSettings.renderViewportScale = renderViewportScale;
+             }
+         }
+ 
+Index: Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_DeviceFinder.cs
+===================================================================
+--- Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_DeviceFinder.cs	(revision 250)
++++ Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_DeviceFinder.cs	(working copy)
+@@ -382,7 +382,7 @@
+         public static Headsets GetHeadsetType(bool summary = false)
+         {
+             Headsets returnValue = Headsets.Unknown;
+-            cachedHeadsetType = (cachedHeadsetType == "" ? UnityEngine.XR.XRDevice.model.Replace(" ", "").Replace(".", "").ToLowerInvariant() : cachedHeadsetType);
++            cachedHeadsetType = (cachedHeadsetType == "" ? VRDevice.model.Replace(" ", "").Replace(".", "").ToLowerInvariant() : cachedHeadsetType);
+             switch (cachedHeadsetType)
+             {
+                 case "oculusriftcv1":
+Index: Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_SharedMethods.cs
+===================================================================
+--- Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_SharedMethods.cs	(revision 250)
++++ Assets/Asset Store/VRTK/Scripts/Utilities/VRTK_SharedMethods.cs	(working copy)
+@@ -409,7 +409,7 @@
+         {
+ #if UNITY_5_6_OR_NEWER
+             float gpuTimeLastFrame;
+-            if (UnityEngine.XR.XRStats.TryGetGPUTimeLastFrame(out gpuTimeLastFrame))
++            if (VRStats.TryGetGPUTimeLastFrame(out gpuTimeLastFrame))
+             {
+                 return gpuTimeLastFrame;
+             }
+Index: Assets/Plugins/HxVolumetricLighting/Scripts/HxVolumetricCamera.cs
+===================================================================
+--- Assets/Plugins/HxVolumetricLighting/Scripts/HxVolumetricCamera.cs	(revision 250)
++++ Assets/Plugins/HxVolumetricLighting/Scripts/HxVolumetricCamera.cs	(working copy)
+@@ -224,7 +224,7 @@
+     {
+ 
+ #if HXVR
+-        if (Mycamera.stereoTargetEye == StereoTargetEyeMask.Both && Application.isPlaying && UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent)
++        if (Mycamera.stereoTargetEye == StereoTargetEyeMask.Both && Application.isPlaying && VRSettings.enabled && VRDevice.isPresent)
+         {
+             return true;
+         }
+@@ -1148,9 +1148,9 @@
+     int GetCamPixelHeight()
+     {
+ #if HXVR
+-        if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent)
++        if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && VRSettings.enabled && VRDevice.isPresent)
+         {
+-            return UnityEngine.XR.XRSettings.eyeTextureHeight;
++            return VRSettings.eyeTextureHeight;
+         }
+ #endif
+ 
+@@ -1160,9 +1160,9 @@
+     int GetCamPixelWidth()
+     {
+ #if HXVR
+-        if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent)
++        if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && VRSettings.enabled && VRDevice.isPresent)
+         {
+-            return UnityEngine.XR.XRSettings.eyeTextureWidth + (Mycamera.stereoTargetEye == StereoTargetEyeMask.Both ? UnityEngine.XR.XRSettings.eyeTextureWidth +  Mathf.CeilToInt(48 * UnityEngine.XR.XRSettings.eyeTextureResolutionScale) : 0);
++            return VRSettings.eyeTextureWidth + (Mycamera.stereoTargetEye == StereoTargetEyeMask.Both ? VRSettings.eyeTextureWidth +  Mathf.CeilToInt(48 * VRSettings.renderScale) : 0);
+         }
+ #endif
+ 
+@@ -2068,7 +2068,7 @@
+ 
+ #if HXVR
+ 
+-            if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && UnityEngine.XR.XRSettings.enabled && UnityEngine.XR.XRDevice.isPresent) 
++            if (Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && VRSettings.enabled && VRDevice.isPresent) 
+             {
+ 
+                 Camera.StereoscopicEye currentEye = Camera.StereoscopicEye.Right;
+Index: Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/DeviceType.cs
+===================================================================
+--- Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/DeviceType.cs	(revision 250)
++++ Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/DeviceType.cs	(working copy)
+@@ -23,7 +23,7 @@
+                         type = HmdType.SteamVR;
+                 }
+             #else
+-                string deviceName = UnityEngine.XR.XRSettings.loadedDeviceName;
++                string deviceName = VRSettings.loadedDeviceName;
+ 
+                 if (deviceName == "OpenVR")
+                 {
+Index: Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/StereoRenderManager.cs
+===================================================================
+--- Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/StereoRenderManager.cs	(revision 250)
++++ Assets/Prefabs/HTC.UnityPlugin/StereoRendering/Scripts/StereoRenderManager.cs	(working copy)
+@@ -64,7 +64,7 @@
+ 
+             // pop warning if no VR device detected
+             #if UNITY_5_4_OR_NEWER
+-                if (!UnityEngine.XR.XRSettings.enabled) { Debug.LogError("VR is not enabled for this application."); }
++                if (!VRSettings.enabled) { Debug.LogError("VR is not enabled for this application."); }
+             #endif
+ 
+             // try to get HMD camera
