@@ -7,6 +7,7 @@ public class MenuToggle : MonoBehaviour {
 
     public VRTK_ControllerEvents controllerEvents;
     public GameObject menu;
+    public GameObject menuFollower;
 
     bool menuState = true;
 
@@ -22,11 +23,13 @@ public class MenuToggle : MonoBehaviour {
     void OnEnable()
     {
         controllerEvents.ButtonTwoReleased += ControllerEvents_ButtonTwoReleased;
+        menuFollower.GetComponent<VRTK_TransformFollow>().enabled = false;
     }
 
     void OnDisable()
     {
         controllerEvents.ButtonTwoReleased -= ControllerEvents_ButtonTwoReleased;
+        menuFollower.GetComponent<VRTK_TransformFollow>().enabled = false;
     }
 
     private void ControllerEvents_ButtonTwoReleased(object sender, ControllerInteractionEventArgs e)
