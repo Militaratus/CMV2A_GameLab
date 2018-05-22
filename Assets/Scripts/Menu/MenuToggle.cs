@@ -29,7 +29,7 @@ public class MenuToggle : MonoBehaviour {
     void OnDisable()
     {
         controllerEvents.ButtonTwoReleased -= ControllerEvents_ButtonTwoReleased;
-        menuFollower.GetComponent<VRTK_TransformFollow>().enabled = false;
+        menuFollower.GetComponent<VRTK_TransformFollow>().enabled = true;
     }
 
     private void ControllerEvents_ButtonTwoReleased(object sender, ControllerInteractionEventArgs e)
