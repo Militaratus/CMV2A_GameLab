@@ -31,11 +31,11 @@ public class LevelManager : MonoBehaviour {
     {
         if(lastLevel == "Loading")
         {
-            SDKManager.transform.position = new Vector3(2.12f, 0f, -8.17f);
+            SDKManager.transform.position = new Vector3(0f, 0.33f, 0.742f);
         }
         if(lastLevel == "Crimesceneappartment")
         {
-            SDKManager.transform.position = new Vector3(2.12f, 0f, 0.6f);
+            SDKManager.transform.position = new Vector3(4.7f, 0.33f, 15.11f);
         }
     }
 }
