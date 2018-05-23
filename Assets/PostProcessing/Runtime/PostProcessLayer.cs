@@ -306,10 +306,7 @@ namespace UnityEngine.Rendering.PostProcessing
         void BuildCommandBuffers()
         {
             var context = m_CurrentContext;
-            var sourceFormat = m_Camera.allowHDR ? RuntimeUtilities.defaultHDRRenderTextureFormat : RenderTextureFormat.Default;
-
-            if (!RuntimeUtilities.isFloatingPointFormat(sourceFormat))
-                m_NaNKilled = true;
+            var sourceFormat = m_Camera.allowHDR ? RenderTextureFormat.DefaultHDR : RenderTextureFormat.Default;
 
             context.Reset();
             context.camera = m_Camera;
@@ -324,7 +321,6 @@ namespace UnityEngine.Rendering.PostProcessing
             SetupContext(context);
 
             context.command = m_LegacyCmdBufferOpaque;
-            TextureLerper.instance.BeginFrame(context);
             UpdateSettingsIfNeeded(context);
 
             // Lighting & opaque-only effects
@@ -379,8 +375,8 @@ namespace UnityEngine.Rendering.PostProcessing
                 // We need to use the internal Blit method to copy the camera target or it'll fail
                 // on tiled GPU as it won't be able to resolve
                 int tempTarget0 = m_TargetPool.Get();
-                context.GetScreenSpaceTemporaryRT(cmd, tempTarget0, 0, sourceFormat);
-                cmd.BuiltinBlit(cameraTarget, tempTarget0, RuntimeUtilities.copyStdMaterial, stopNaNPropagation ? 1 : 0);
+                context.GetScreenSpaceTemporaryRT(cmd, tempTarget0, 24, sourceFormat);
+                cmd.Blit(cameraTarget, tempTarget0);
                 context.source = tempTarget0;
 
                 int tempTarget1 = -1;
@@ -388,7 +384,7 @@ namespace UnityEngine.Rendering.PostProcessing
                 if (opaqueOnlyEffects > 1)
                 {
                     tempTarget1 = m_TargetPool.Get();
-                    context.GetScreenSpaceTemporaryRT(cmd, tempTarget1, 0, sourceFormat);
+                    context.GetScreenSpaceTemporaryRT(cmd, tempTarget1, 24, sourceFormat);
                     context.destination = tempTarget1;
                 }
                 else context.destination = cameraTarget;
@@ -424,10 +420,9 @@ namespace UnityEngine.Rendering.PostProcessing
             // Same as before, first blit needs to use the builtin Blit command to properly handle
             // tiled GPUs
             int tempRt = m_TargetPool.Get();
-            context.GetScreenSpaceTemporaryRT(m_LegacyCmdBuffer, tempRt, 0, sourceFormat, RenderTextureReadWrite.sRGB);
-            m_LegacyCmdBuffer.BuiltinBlit(cameraTarget, tempRt, RuntimeUtilities.copyStdMaterial, stopNaNPropagation ? 1 : 0);
-            if (!m_NaNKilled)
-                m_NaNKilled = stopNaNPropagation;
+            context.GetScreenSpaceTemporaryRT(m_LegacyCmdBuffer, tempRt, 24, sourceFormat, RenderTextureReadWrite.sRGB);
+            m_LegacyCmdBuffer.Blit(cameraTarget, tempRt, RuntimeUtilities.copyStdMaterial, stopNaNPropagation ? 1 : 0);
+            m_NaNKilled = stopNaNPropagation;
 
             context.command = m_LegacyCmdBuffer;
             context.source = tempRt;
@@ -582,7 +577,7 @@ namespace UnityEngine.Rendering.PostProcessing
             if (m_SettingsUpdateNeeded)
             {
                 context.command.BeginSample("VolumeBlending");
-                PostProcessManager.instance.UpdateSettings(this, context.camera);
+                PostProcessManager.instance.UpdateSettings(this);
                 context.command.EndSample("VolumeBlending");
                 m_TargetPool.Reset();
 
@@ -638,7 +633,7 @@ namespace UnityEngine.Rendering.PostProcessing
             if (stopNaNPropagation && !m_NaNKilled)
             {
                 lastTarget = m_TargetPool.Get();
-                context.GetScreenSpaceTemporaryRT(cmd, lastTarget, 0, context.sourceFormat);
+                context.GetScreenSpaceTemporaryRT(cmd, lastTarget, 24, context.sourceFormat);
                 cmd.BlitFullscreenTriangle(context.source, lastTarget, RuntimeUtilities.copySheet, 1);
                 context.source = lastTarget;
                 m_NaNKilled = true;
@@ -663,7 +658,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
                 var taaTarget = m_TargetPool.Get();
                 var finalDestination = context.destination;
-                context.GetScreenSpaceTemporaryRT(cmd, taaTarget, 0, context.sourceFormat);
+                context.GetScreenSpaceTemporaryRT(cmd, taaTarget, 24, context.sourceFormat);
                 context.destination = taaTarget;
                 temporalAntialiasing.Render(context);
                 context.source = taaTarget;
@@ -713,7 +708,7 @@ namespace UnityEngine.Rendering.PostProcessing
             var finalDestination = context.destination;
 
             var cmd = context.command;
-            context.GetScreenSpaceTemporaryRT(cmd, tempTarget, 0, context.sourceFormat);
+            context.GetScreenSpaceTemporaryRT(cmd, tempTarget, 24, context.sourceFormat);
             context.destination = tempTarget;
             RenderList(sortedBundles[evt], context, marker);
             context.source = tempTarget;
@@ -764,9 +759,9 @@ namespace UnityEngine.Rendering.PostProcessing
                 m_Targets.Add(context.destination); // Last target is always destination
 
                 // Render
-                context.GetScreenSpaceTemporaryRT(cmd, tempTarget1, 0, context.sourceFormat);
+                context.GetScreenSpaceTemporaryRT(cmd, tempTarget1, 24, context.sourceFormat);
                 if (count > 2)
-                    context.GetScreenSpaceTemporaryRT(cmd, tempTarget2, 0, context.sourceFormat);
+                    context.GetScreenSpaceTemporaryRT(cmd, tempTarget2, 24, context.sourceFormat);
 
                 for (int i = 0; i < count; i++)
                 {
@@ -781,19 +776,6 @@ namespace UnityEngine.Rendering.PostProcessing
             }
 
             cmd.EndSample(marker);
-        }
-
-        void ApplyFlip(PostProcessRenderContext context, MaterialPropertyBlock properties)
-        {
-            if (context.flip && !context.isSceneView)
-                properties.SetVector(ShaderIDs.UVTransform, new Vector4(1.0f, 1.0f, 0.0f, 0.0f));
-            else
-                ApplyDefaultFlip(properties);
-        }
-
-        void ApplyDefaultFlip(MaterialPropertyBlock properties)
-        {
-            properties.SetVector(ShaderIDs.UVTransform, SystemInfo.graphicsUVStartsAtTop ? new Vector4(1.0f, -1.0f, 0.0f, 1.0f) : new Vector4(1.0f, 1.0f, 0.0f, 0.0f));
         }
 
         int RenderBuiltins(PostProcessRenderContext context, bool isFinalPass, int releaseTargetAfterUse = -1)
@@ -815,7 +797,7 @@ namespace UnityEngine.Rendering.PostProcessing
             {
                 // Render to an intermediate target as this won't be the final pass
                 tempTarget = m_TargetPool.Get();
-                context.GetScreenSpaceTemporaryRT(cmd, tempTarget, 0, context.sourceFormat);
+                context.GetScreenSpaceTemporaryRT(cmd, tempTarget, 24, context.sourceFormat);
                 context.destination = tempTarget;
 
                 // Handle FXAA's keep alpha mode
@@ -840,7 +822,6 @@ namespace UnityEngine.Rendering.PostProcessing
             RenderEffect<AutoExposure>(context);
             uberSheet.properties.SetTexture(ShaderIDs.AutoExposureTex, context.autoExposureTexture);
 
-            RenderEffect<LensDistortion>(context);
             RenderEffect<ChromaticAberration>(context);
             RenderEffect<Bloom>(context);
             RenderEffect<Vignette>(context);
@@ -849,25 +830,25 @@ namespace UnityEngine.Rendering.PostProcessing
             if (!breakBeforeColorGrading)
                 RenderEffect<ColorGrading>(context);
 
+            int pass = 0;
+
             if (isFinalPass)
             {
                 uberSheet.EnableKeyword("FINALPASS");
                 dithering.Render(context);
-                ApplyFlip(context, uberSheet.properties);
-            }
-            else
-            {
-                ApplyDefaultFlip(uberSheet.properties);
+
+                if (context.flip && !context.isSceneView)
+                    pass = 1;
             }
 
-            cmd.BlitFullscreenTriangle(context.source, context.destination, uberSheet, 0);
+            cmd.BlitFullscreenTriangle(context.source, context.destination, uberSheet, pass);
 
             context.source = context.destination;
             context.destination = finalDestination;
 
             if (releaseTargetAfterUse > -1) cmd.ReleaseTemporaryRT(releaseTargetAfterUse);
             if (motionBlurTarget > -1) cmd.ReleaseTemporaryRT(motionBlurTarget);
-            if (depthOfFieldTarget > -1) cmd.ReleaseTemporaryRT(depthOfFieldTarget);
+            if (depthOfFieldTarget > -1) cmd.ReleaseTemporaryRT(motionBlurTarget);
             if (context.bloomBufferNameID > -1) cmd.ReleaseTemporaryRT(context.bloomBufferNameID);
 
             cmd.EndSample("BuiltinStack");
@@ -908,7 +889,7 @@ namespace UnityEngine.Rendering.PostProcessing
                 {
                     tempTarget = m_TargetPool.Get();
                     var finalDestination = context.destination;
-                    context.GetScreenSpaceTemporaryRT(context.command, tempTarget, 0, context.sourceFormat);
+                    context.GetScreenSpaceTemporaryRT(context.command, tempTarget, 24, context.sourceFormat);
                     context.destination = tempTarget;
                     subpixelMorphologicalAntialiasing.Render(context);
                     context.source = tempTarget;
@@ -917,8 +898,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
                 dithering.Render(context);
 
-                ApplyFlip(context, uberSheet.properties);
-                cmd.BlitFullscreenTriangle(context.source, context.destination, uberSheet, 0);
+                cmd.BlitFullscreenTriangle(context.source, context.destination, uberSheet, (context.flip && !context.isSceneView) ? 1 : 0);
 
                 if (tempTarget > -1)
                     cmd.ReleaseTemporaryRT(tempTarget);
@@ -949,7 +929,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
             var finalDestination = context.destination;
             var tempTarget = m_TargetPool.Get();
-            context.GetScreenSpaceTemporaryRT(context.command, tempTarget, 0, context.sourceFormat);
+            context.GetScreenSpaceTemporaryRT(context.command, tempTarget, 24, context.sourceFormat);
             context.destination = tempTarget;
             effect.renderer.Render(context);
             context.source = tempTarget;
@@ -960,7 +940,7 @@ namespace UnityEngine.Rendering.PostProcessing
         bool ShouldGenerateLogHistogram(PostProcessRenderContext context)
         {
             bool autoExpo = GetBundle<AutoExposure>().settings.IsEnabledAndSupported(context);
-            bool lightMeter = debugLayer.lightMeter.IsRequestedAndSupported(context);
+            bool lightMeter = debugLayer.lightMeter.IsRequestedAndSupported();
             return autoExpo || lightMeter;
         }
     }

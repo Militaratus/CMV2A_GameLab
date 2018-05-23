@@ -22,11 +22,11 @@ namespace UnityEngine.Rendering.PostProcessing
                 && Application.isPlaying
             #endif
                 && SystemInfo.supportsMotionVectors
-                && RenderTextureFormat.RGHalf.IsSupported()
+                && SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.RGHalf)
                 && !RuntimeUtilities.isVREnabled;
         }
     }
-
+    
     public sealed class MotionBlurRenderer : PostProcessEffectRenderer<MotionBlur>
     {
         enum Pass
@@ -57,7 +57,7 @@ namespace UnityEngine.Rendering.PostProcessing
 
             const float kMaxBlurRadius = 5f;
             var vectorRTFormat = RenderTextureFormat.RGHalf;
-            var packedRTFormat = RenderTextureFormat.ARGB2101010.IsSupported()
+            var packedRTFormat = SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.ARGB2101010)
                 ? RenderTextureFormat.ARGB2101010
                 : RenderTextureFormat.ARGB32;
 

@@ -7,20 +7,10 @@ namespace UnityEngine.Rendering.PostProcessing
     {
         enum Pass
         {
-            EdgeDetection = 0,
-            BlendWeights = 3,
-            NeighborhoodBlending = 6
+            EdgeDetection,
+            BlendWeights,
+            NeighborhoodBlending
         }
-
-        public enum Quality
-        {
-            Low = 0,
-            Medium = 1,
-            High = 2
-        }
-
-        [Tooltip("Lower quality is faster at the expense of visual quality (Low = ~60%, Medium = ~80%).")]
-        public Quality quality = Quality.High;
 
         public bool IsSupported()
         {
@@ -39,8 +29,8 @@ namespace UnityEngine.Rendering.PostProcessing
             cmd.GetTemporaryRT(ShaderIDs.SMAA_Flip, context.width, context.height, 0, FilterMode.Bilinear, context.sourceFormat, RenderTextureReadWrite.Linear);
             cmd.GetTemporaryRT(ShaderIDs.SMAA_Flop, context.width, context.height, 0, FilterMode.Bilinear, context.sourceFormat, RenderTextureReadWrite.Linear);
 
-            cmd.BlitFullscreenTriangle(context.source, ShaderIDs.SMAA_Flip, sheet, (int)Pass.EdgeDetection + (int)quality, true);
-            cmd.BlitFullscreenTriangle(ShaderIDs.SMAA_Flip, ShaderIDs.SMAA_Flop, sheet, (int)Pass.BlendWeights + (int)quality);
+            cmd.BlitFullscreenTriangle(context.source, ShaderIDs.SMAA_Flip, sheet, (int)Pass.EdgeDetection, true);
+            cmd.BlitFullscreenTriangle(ShaderIDs.SMAA_Flip, ShaderIDs.SMAA_Flop, sheet, (int)Pass.BlendWeights);
             cmd.SetGlobalTexture("_BlendTex", ShaderIDs.SMAA_Flop);
             cmd.BlitFullscreenTriangle(context.source, context.destination, sheet, (int)Pass.NeighborhoodBlending);
 

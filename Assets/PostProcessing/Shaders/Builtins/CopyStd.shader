@@ -53,12 +53,20 @@ Shader "Hidden/PostProcessing/CopyStd"
         //>>> We don't want to include StdLib.hlsl in this file so let's copy/paste what we need
         bool IsNan(float x)
         {
-            return (x < 0.0 || x > 0.0 || x == 0.0) ? false : true;
+        #if !SHADER_API_GLES
+            return isnan(x) || isinf(x);
+        #else
+            return (x <= 0.0 || 0.0 <= x) ? false : true;
+        #endif
         }
 
         bool AnyIsNan(float4 x)
         {
+        #if !SHADER_API_GLES
+            return any(isnan(x)) || any(isinf(x));
+        #else
             return IsNan(x.x) || IsNan(x.y) || IsNan(x.z) || IsNan(x.w);
+        #endif
         }
         //<<<
 

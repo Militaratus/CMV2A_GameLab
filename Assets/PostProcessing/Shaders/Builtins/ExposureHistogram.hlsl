@@ -29,10 +29,12 @@ float GetBinValue(StructuredBuffer<uint> buffer, uint index, float maxHistogramV
     return float(buffer[index]) * maxHistogramValue;
 }
 
+// Done once in the vertex shader
 float FindMaxHistogramValue(StructuredBuffer<uint> buffer)
 {
     uint maxValue = 0u;
 
+    UNITY_UNROLL
     for (uint i = 0; i < HISTOGRAM_BINS; i++)
     {
         uint h = buffer[i];

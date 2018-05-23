@@ -19,7 +19,6 @@ MonoBehaviour:
   - {fileID: 114040730005794692}
   - {fileID: 114258977665878496}
   - {fileID: 114022955001312000}
-  - {fileID: 114153820916145922}
   - {fileID: 114693638428393816}
   - {fileID: 114891420115662800}
   - {fileID: 114380746700751222}
@@ -34,7 +33,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -71,7 +70,6 @@ MonoBehaviour:
   externalLut:
     overrideState: 0
     value: {fileID: 0}
-    defaultState: 1
   tonemapper:
     overrideState: 1
     value: 2
@@ -93,13 +91,12 @@ MonoBehaviour:
   toneCurveGamma:
     overrideState: 0
     value: 1
+  logLut:
+    overrideState: 0
+    value: {fileID: 0}
   ldrLut:
     overrideState: 0
     value: {fileID: 0}
-    defaultState: 4
-  ldrLutContribution:
-    overrideState: 0
-    value: 1
   temperature:
     overrideState: 1
     value: -7
@@ -355,7 +352,6 @@ MonoBehaviour:
   spectralLut:
     overrideState: 0
     value: {fileID: 0}
-    defaultState: 1
   intensity:
     overrideState: 1
     value: 0.15
@@ -373,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -400,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -476,7 +472,6 @@ MonoBehaviour:
   mask:
     overrideState: 0
     value: {fileID: 0}
-    defaultState: 1
   opacity:
     overrideState: 0
     value: 1
@@ -527,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
   m_Name: MotionBlur
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -576,7 +571,6 @@ MonoBehaviour:
   dirtTexture:
     overrideState: 0
     value: {fileID: 0}
-    defaultState: 1
   dirtIntensity:
     overrideState: 0
     value: 0
