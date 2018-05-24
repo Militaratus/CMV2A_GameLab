@@ -8,6 +8,8 @@ public class LoadingManager : MonoBehaviour
     // Managers
     //GameManager managerGame;
 
+    public AudioSource audio;
+
     public GameObject destinationPanel;
     public GameObject travelingPanel;
 
@@ -41,6 +43,7 @@ public class LoadingManager : MonoBehaviour
 
     public void SelectDestination(string destination)
     {
+        audio.Play();
         destinationChosen = true;
         destinationPanel.SetActive(false);
         travelingPanel.SetActive(true);

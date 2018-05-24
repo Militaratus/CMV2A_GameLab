@@ -19,6 +19,8 @@ public class ButtonManager : MonoBehaviour
     GameObject Dropdown3Canvas;
     GameObject BackButton;
 
+    public AudioSource audio;
+
 
     void Start()
     {
@@ -38,11 +40,14 @@ public class ButtonManager : MonoBehaviour
     //If button is pressed load scene.
     public void MenuButton(string MainMenu)
     {
+        audio.Play();
         Debug.Log("Pressed");
+    
     }
     //If button is pressed quit game.
     public void ExitButton()
     {
+        audio.Play();
         Application.Quit();
     }
 
@@ -96,21 +101,25 @@ public class ButtonManager : MonoBehaviour
 
     public void Quit()
     {
+        audio.Play();
         Application.Quit();
     }
 
     public void StartGame()
     {
+        audio.Play();
         SceneManager.LoadScene("Appartment");
     }
 
     public void Credits()
     {
+        audio.Play();
         SceneManager.LoadScene("Credits");
     }
 
     public void BackToStart()
     {
+        audio.Play();
         SceneManager.LoadScene("StartMenu");
     }
 }
