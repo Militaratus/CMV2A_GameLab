@@ -35,10 +35,10 @@ public class DialogSystem : MonoBehaviour
     // Private Components
     AudioSource audioPlayer;
     public GameObject[] topics;
-    GameObject topicPanel;
-    GameObject choicePanel;
-    GameObject dialogPanel;
-    GameObject evidencePanel;
+    public GameObject topicPanel;
+    public GameObject choicePanel;
+    public GameObject dialogPanel;
+    public GameObject evidencePanel;
 
     // Publics Scriptable Objects
     public Suspect mySuspect;
@@ -355,6 +355,11 @@ public class DialogSystem : MonoBehaviour
 
     void SwitchPanel(string newPanel)
     {
+        if (!topicPanel || !choicePanel || !evidencePanel)
+        {
+            GrabComponents();
+            Debug.Log("FUUUU");
+        }
         topicPanel.SetActive(false);
         choicePanel.SetActive(false);
         evidencePanel.SetActive(false);
