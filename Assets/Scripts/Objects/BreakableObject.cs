@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
+using UnityEngine.Analytics;
 
 public class BreakableObject : StandardObject
 {   
@@ -50,6 +51,7 @@ public class BreakableObject : StandardObject
             GetComponent<AudioSource>().Play();
             modelParent.SetActive(false);
             shardParent.gameObject.SetActive(true);
+			Analytics.CustomEvent("Broken");
             //resetCoroutine = ResetTimer();
            //StartCoroutine(resetCoroutine);
         }

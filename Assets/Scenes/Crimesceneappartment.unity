@@ -222,6 +222,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &29812993 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1005075093408878, guid: 777c8562d21ed9d41a2a69773890ea21,
+    type: 2}
+  m_PrefabInternal: {fileID: 853593201}
+--- !u!114 &29812999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 29812993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccdcf730d47e474ba108b40e44e686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &38481203
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +345,22 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 42154317}
   m_Mesh: {fileID: 4300000, guid: 95071d6e7c92d0f48a4a557372040590, type: 3}
+--- !u!1 &49339044 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1930540055434214, guid: 777c8562d21ed9d41a2a69773890ea21,
+    type: 2}
+  m_PrefabInternal: {fileID: 853593201}
+--- !u!114 &49339045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 49339044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ccdcf730d47e474ba108b40e44e686e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &51801078
 GameObject:
   m_ObjectHideFlags: 0
@@ -17382,6 +17414,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114584731054934164, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 190694410}
+    - target: {fileID: 114584731054934164, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: menuFollower
+      value: 
+      objectReference: {fileID: 190694409}
+    - target: {fileID: 114800616924666714, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 190694410}
+    - target: {fileID: 114800616924666714, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: menuFollower
+      value: 
+      objectReference: {fileID: 190694409}
     - target: {fileID: 224523406718697816, guid: d18a0780a5674ca4f98a98aac892ddd2,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -17392,48 +17444,7 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114800616924666714, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: menu
-      value: 
-      objectReference: {fileID: 190694410}
-    - target: {fileID: 114800616924666714, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: menuFollower
-      value: 
-      objectReference: {fileID: 190694409}
-    - target: {fileID: 114584731054934164, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: menu
-      value: 
-      objectReference: {fileID: 190694410}
-    - target: {fileID: 114584731054934164, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: menuFollower
-      value: 
-      objectReference: {fileID: 190694409}
-    - target: {fileID: 114562204242274136, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: playAreaCursorDimensions.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114562204242274136, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: playAreaCursorDimensions.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114723576411220706, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: pointerRenderer
-      value: 
-      objectReference: {fileID: 1687816076}
-    - target: {fileID: 114043879758082742, guid: d18a0780a5674ca4f98a98aac892ddd2,
-        type: 2}
-      propertyPath: maximumLength.x
-      value: 10
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114932188685522858, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1687816071 stripped
@@ -17452,69 +17463,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1687816070}
   m_Script: {fileID: 11500000, guid: d1189f9ea7900f844912f77adb51c717, type: 3}
---- !u!114 &1687816074 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114862425534423878, guid: d18a0780a5674ca4f98a98aac892ddd2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1687816070}
-  m_Script: {fileID: 11500000, guid: 2ed2aa1a29b92ca4f84a26a5f6e9218b, type: 3}
---- !u!114 &1687816075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1687816071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7236ea6e01c074ba249e564af997a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usePointerColor: 1
-  playAreaCursorDimensions: {x: 1, y: 1}
-  handlePlayAreaCursorCollisions: 1
-  headsetOutOfBoundsIsCollision: 0
-  displayOnInvalidLocation: 1
-  targetListPolicy: {fileID: 1687816074}
-  validLocationObject: {fileID: 0}
-  invalidLocationObject: {fileID: 0}
---- !u!114 &1687816076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1687816071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd904f4ca6767424eaf8e050bc174741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playareaCursor: {fileID: 1687816075}
-  directionIndicator: {fileID: 0}
-  customRaycast: {fileID: 0}
-  layersToIgnore:
-    serializedVersion: 2
-    m_Bits: 516
-  pointerOriginSmoothingSettings:
-    smoothsPosition: 0
-    maxAllowedPerFrameDistanceDifference: 0.003
-    smoothsRotation: 0
-    maxAllowedPerFrameAngleDifference: 1.5
-  validCollisionColor: {r: 0, g: 1, b: 0, a: 1}
-  invalidCollisionColor: {r: 1, g: 0, b: 0, a: 1}
-  tracerVisibility: 0
-  cursorVisibility: 0
-  maximumLength: {x: 10, y: Infinity}
-  tracerDensity: 10
-  cursorRadius: 0.5
-  heightLimitAngle: 100
-  curveOffset: 1
-  rescaleTracer: 0
-  cursorMatchTargetRotation: 0
-  collisionCheckFrequency: 0
-  customTracer: {fileID: 0}
-  customCursor: {fileID: 0}
-  validLocationObject: {fileID: 0}
-  invalidLocationObject: {fileID: 0}
 --- !u!1 &1701973361
 GameObject:
   m_ObjectHideFlags: 0
