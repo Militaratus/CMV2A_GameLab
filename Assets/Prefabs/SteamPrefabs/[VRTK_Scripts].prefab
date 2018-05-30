@@ -4013,7 +4013,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201720458932050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.487, y: 0, z: 0}
+  m_LocalPosition: {x: 0.869, y: 0.684, z: 1.043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4100212331916986}
@@ -5438,7 +5438,7 @@ MonoBehaviour:
   cursorVisibility: 0
   maximumLength: {x: 10, y: Infinity}
   tracerDensity: 10
-  cursorRadius: 0.12
+  cursorRadius: 0.2
   heightLimitAngle: 100
   curveOffset: 1
   rescaleTracer: 1
@@ -8603,8 +8603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usePointerColor: 1
-  playAreaCursorDimensions: {x: 0.25, y: 0.25}
-  handlePlayAreaCursorCollisions: 1
+  playAreaCursorDimensions: {x: 0.0001, y: 0.0001}
+  handlePlayAreaCursorCollisions: 0
   headsetOutOfBoundsIsCollision: 0
   displayOnInvalidLocation: 1
   targetListPolicy: {fileID: 114862425534423878}
@@ -11119,8 +11119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usePointerColor: 1
-  playAreaCursorDimensions: {x: 0.25, y: 0.25}
-  handlePlayAreaCursorCollisions: 1
+  playAreaCursorDimensions: {x: 0.0001, y: 0.0001}
+  handlePlayAreaCursorCollisions: 0
   headsetOutOfBoundsIsCollision: 0
   displayOnInvalidLocation: 1
   targetListPolicy: {fileID: 114862425534423878}
@@ -14964,7 +14964,7 @@ MonoBehaviour:
   blinkToColor: {r: 0, g: 0, b: 0, a: 1}
   blinkTransitionSpeed: 0.6
   distanceBlinkDelay: 0
-  headsetPositionCompensation: 0
+  headsetPositionCompensation: 1
   targetListPolicy: {fileID: 114711939059224996}
   navMeshLimitDistance: 0
   snapToNearestFloor: 1
@@ -15331,10 +15331,10 @@ MonoBehaviour:
   cursorVisibility: 0
   maximumLength: {x: 10, y: Infinity}
   tracerDensity: 10
-  cursorRadius: 0.12
+  cursorRadius: 0.2
   heightLimitAngle: 100
   curveOffset: 1
-  rescaleTracer: 0
+  rescaleTracer: 1
   cursorMatchTargetRotation: 0
   collisionCheckFrequency: 0
   customTracer: {fileID: 0}
