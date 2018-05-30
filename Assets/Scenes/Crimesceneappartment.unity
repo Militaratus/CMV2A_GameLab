@@ -4995,7 +4995,6 @@ GameObject:
   - component: {fileID: 497268888}
   - component: {fileID: 497268892}
   - component: {fileID: 497268891}
-  - component: {fileID: 497268890}
   m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
@@ -5009,26 +5008,14 @@ Transform:
   m_PrefabParentObject: {fileID: 400008, guid: efacd1100a65d6d43b4f278c956cd9be, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 497268887}
-  m_LocalRotation: {x: -0.63512003, y: -0.31084168, z: 0.31084168, w: 0.63512003}
-  m_LocalPosition: {x: 0.76682377, y: 0.7394071, z: -2.461113}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.000000119209275, y: -0.43959647, z: -0.000000059604638, w: 0.8981954}
+  m_LocalPosition: {x: 0.020290494, y: 0, z: 0.010071786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1919219779}
-  m_Father: {fileID: 1297115057}
-  m_RootOrder: 1
+  m_Father: {fileID: 1295456642}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &497268890
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 497268887}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019999998, y: 0.027862992, z: 0.00052237796}
-  m_Center: {x: -0.0000000038853343, y: 0, z: 0.0053701918}
 --- !u!23 &497268891
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13324,7 +13311,6 @@ GameObject:
   - component: {fileID: 1295456642}
   - component: {fileID: 1295456645}
   - component: {fileID: 1295456644}
-  - component: {fileID: 1295456643}
   m_Layer: 0
   m_Name: Laptop bottom
   m_TagString: Untagged
@@ -13344,21 +13330,10 @@ Transform:
   m_Children:
   - {fileID: 407131172}
   - {fileID: 1031677260}
+  - {fileID: 497268888}
   m_Father: {fileID: 1297115057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1295456643
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1295456641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019999998, y: 0.027862988, z: 0.00047415716}
-  m_Center: {x: -0.000000007450581, y: -0.000000029802322, z: 0.005346073}
 --- !u!23 &1295456644
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13414,6 +13389,7 @@ GameObject:
   - component: {fileID: 1297115060}
   - component: {fileID: 1297115059}
   - component: {fileID: 1297115058}
+  - component: {fileID: 1297115065}
   m_Layer: 0
   m_Name: Laptop NEW
   m_TagString: Untagged
@@ -13428,13 +13404,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297115056}
   m_LocalRotation: {x: -0, y: -0.66616446, z: -0, w: 0.74580497}
-  m_LocalPosition: {x: -0.442, y: -0.51637113, z: 3.517}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: -0.44200003, y: -0.51637113, z: 3.517}
+  m_LocalScale: {x: 0.15000015, y: 0.15, z: 0.15000015}
   m_Children:
   - {fileID: 1295456642}
-  - {fileID: 497268888}
   m_Father: {fileID: 1826346991}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -83.54301, z: 0}
 --- !u!114 &1297115058
 MonoBehaviour:
@@ -13550,6 +13525,18 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!65 &1297115065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297115056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.124837, y: 0.10875473, z: 2.9383023}
+  m_Center: {x: -1.217291, y: 0.28345034, z: -2.4482028}
 --- !u!1 &1308639838
 GameObject:
   m_ObjectHideFlags: 0
@@ -18347,8 +18334,8 @@ Transform:
   - {fileID: 148730240}
   - {fileID: 1441888731}
   - {fileID: 1619745477}
-  - {fileID: 1297115057}
   - {fileID: 1483942493}
+  - {fileID: 1297115057}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18494,7 +18481,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf82f780c406ea4488ea5d31e84f0496, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf82f780c406ea4488ea5d31e84f0496, type: 3}
       propertyPath: m_LocalScale.y
