@@ -1566,7 +1566,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94598395}
-  m_LocalRotation: {x: 0.8732109, y: -0.10253525, z: -0.20916092, w: -0.42806667}
+  m_LocalRotation: {x: 0.8732108, y: -0.10253523, z: -0.2091609, w: -0.4280666}
   m_LocalPosition: {x: -2.4259312, y: 0.7135961, z: -2.494285}
   m_LocalScale: {x: 56.53553, y: 28.267773, z: 28.267784}
   m_Children: []
@@ -2818,6 +2818,11 @@ Prefab:
     - target: {fileID: 4035075165141230, guid: 9c1a7c453d3f1c744b567601ee9ea08e, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -85.785
+      objectReference: {fileID: 0}
+    - target: {fileID: 114987815412734352, guid: 9c1a7c453d3f1c744b567601ee9ea08e,
+        type: 2}
+      propertyPath: precisionGrab
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c1a7c453d3f1c744b567601ee9ea08e, type: 2}
@@ -17582,6 +17587,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114741949615212004, guid: 47206e70133b1d44a814f2b9ee20fb1d,
+        type: 2}
+      propertyPath: precisionGrab
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47206e70133b1d44a814f2b9ee20fb1d, type: 2}
   m_IsPrefabParent: 0
@@ -17826,6 +17836,11 @@ Prefab:
     - target: {fileID: 4149447708975826, guid: 7c5cc6b2d13cbb84ba591a1d66fc24df, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534878059463432, guid: 7c5cc6b2d13cbb84ba591a1d66fc24df,
+        type: 2}
+      propertyPath: precisionGrab
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c5cc6b2d13cbb84ba591a1d66fc24df, type: 2}
@@ -28087,6 +28102,11 @@ Prefab:
     - target: {fileID: 4686692384524826, guid: 5527520ec6648a645a609d0bcdd4ecae, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.17499998
+      objectReference: {fileID: 0}
+    - target: {fileID: 114289283993323298, guid: 5527520ec6648a645a609d0bcdd4ecae,
+        type: 2}
+      propertyPath: precisionGrab
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5527520ec6648a645a609d0bcdd4ecae, type: 2}
