@@ -8,7 +8,7 @@ public class TutorialText : MonoBehaviour {
     public GameObject Teleport;
     public GameObject PickUP;
     public GameObject Intro;
-    float timer = 10f;
+    float timer = 1f;
     bool startTimer = true;
 
     // Use this for initialization
