@@ -63,7 +63,7 @@ public class Keypad : MonoBehaviour
     {
         if (!guiDisplay)
         {
-            guiDisplay = transform.GetChild(0).GetChild(0).GetComponent<Text>();
+            guiDisplay = transform.GetChild(1).GetChild(0).GetComponent<Text>();
         }
 
         guiDisplay.text = text;

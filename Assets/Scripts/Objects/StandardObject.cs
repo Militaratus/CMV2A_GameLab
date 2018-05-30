@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 using VRTK;
 
@@ -121,6 +122,9 @@ public class StandardObject : VRTK_InteractableObject
     public override void Grabbed(VRTK_InteractGrab currentGrabbingObject = null)
     {
         base.Grabbed(currentGrabbingObject);
+
+        Analytics.CustomEvent("GrabbedByPervert");
+        UnityAnalyticsHeatmap.HeatmapEvent.Send("ObjectGrabLocation", transform.position);
 
         // Reset Respawn
         if (resetCoroutine != null)
