@@ -22,7 +22,10 @@ public class Evidence : ScriptableObject
     {
         for (int i = 0; i < linkedEvidence.Count; i++)
         {
-            linkedEvidence[i].CheckLinks(this);
+            if (linkedEvidence[i])
+            {
+                linkedEvidence[i].CheckLinks(this);
+            }
         }
     }
 
