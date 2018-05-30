@@ -888,7 +888,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 105, y: 50}
-  m_SizeDelta: {x: 160, y: 70}
+  m_SizeDelta: {x: 160, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30488364
 MonoBehaviour:
@@ -17480,6 +17480,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1201720458932050, guid: d18a0780a5674ca4f98a98aac892ddd2, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562204242274136, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: playAreaCursorDimensions.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562204242274136, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: playAreaCursorDimensions.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317954529765206, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: playAreaCursorDimensions.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317954529765206, guid: d18a0780a5674ca4f98a98aac892ddd2,
+        type: 2}
+      propertyPath: playAreaCursorDimensions.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
