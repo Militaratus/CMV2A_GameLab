@@ -8,6 +8,8 @@ public class DestinationTutorial : MonoBehaviour {
 
     public GameObject destinationCanvas;
 
+	int tutorialDone = 0;
+
     // Use this for initialization
     void Start () {
 		AnalyticsEvent.TutorialStart("Loading");
@@ -15,10 +17,11 @@ public class DestinationTutorial : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (LoadingManager.destinationChosen == true)
+		if (LoadingManager.destinationChosen == true && tutorialDone == 0)
         {
             destinationCanvas.SetActive(false);
 			AnalyticsEvent.TutorialComplete("Loading");
+			tutorialDone = 1;
         }
 	}
 }

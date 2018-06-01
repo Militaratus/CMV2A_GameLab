@@ -12,6 +12,7 @@ public class TutorialText : MonoBehaviour {
     public GameObject Intro;
     float timer = 1f;
     bool startTimer = true;
+	int tutorialDone = 0;
 
     // Use this for initialization
     void Start () {
@@ -38,10 +39,11 @@ public class TutorialText : MonoBehaviour {
             Teleport.SetActive(false);
             PickUP.SetActive(true);
         }
-        if(StandardObject.PickUPActive == false && VRTK.VRTK_ControllerEvents.TeleportActive == false)
+        if(StandardObject.PickUPActive == false && VRTK.VRTK_ControllerEvents.TeleportActive == false && tutorialDone == 0)
         {
             PickUP.SetActive(false);
 			AnalyticsEvent.TutorialComplete("Appartment");
+			tutorialDone = 1;
         }
 	}
 }

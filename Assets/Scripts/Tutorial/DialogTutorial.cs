@@ -7,7 +7,7 @@ using UnityEngine.Analytics.Experimental;
 public class DialogTutorial : MonoBehaviour {
 
     public GameObject Dialog;
-
+	int tutorialDone = 0;
 
     // Use this for initialization
     void Start () {
@@ -16,10 +16,11 @@ public class DialogTutorial : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(DialogSystem.Dialog == false)
+		if(DialogSystem.Dialog == false && tutorialDone == 0)
         {
             Dialog.SetActive(false);
 			AnalyticsEvent.TutorialComplete("Alley");
+			tutorialDone = 1;
         }
 	}
 }
