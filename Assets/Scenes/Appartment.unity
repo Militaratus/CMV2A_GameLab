@@ -1550,7 +1550,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 94598395}
-  m_LocalRotation: {x: 0.8732108, y: -0.10253523, z: -0.2091609, w: -0.4280666}
+  m_LocalRotation: {x: 0.8732109, y: -0.10253525, z: -0.20916092, w: -0.42806667}
   m_LocalPosition: {x: -2.4259312, y: 0.7135961, z: -2.494285}
   m_LocalScale: {x: 56.53553, y: 28.267773, z: 28.267784}
   m_Children: []
@@ -6435,6 +6435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569153838}
   - component: {fileID: 569153839}
+  - component: {fileID: 569153840}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -6467,6 +6468,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPhone: {fileID: 1323768688}
+--- !u!114 &569153840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569153837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130f8a81704de44e803ba72d4352dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &575789639
 Prefab:
   m_ObjectHideFlags: 0

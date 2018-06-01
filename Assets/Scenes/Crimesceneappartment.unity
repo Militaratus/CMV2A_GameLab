@@ -1472,6 +1472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703362393}
   - component: {fileID: 703362394}
+  - component: {fileID: 703362395}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1509,6 +1510,17 @@ MonoBehaviour:
   emailTablet: {fileID: 11400000, guid: adfcb88ed6d24bf42a3800f0698a746d, type: 2}
   workTablet: {fileID: 11400000, guid: 70c8cc99e5204be41b305b75a3a79a42, type: 2}
   CrumbledEvidence: {fileID: 11400000, guid: a27e0cd9dd43e5f44bf662b5198cc148, type: 2}
+--- !u!114 &703362395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703362392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130f8a81704de44e803ba72d4352dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &711469579
 GameObject:
   m_ObjectHideFlags: 0

@@ -3898,6 +3898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 569153838}
   - component: {fileID: 569153839}
+  - component: {fileID: 569153840}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -3927,6 +3928,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 248ec9e35c5fdb24baba838c142191f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &569153840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569153837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7130f8a81704de44e803ba72d4352dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &574001726
@@ -9860,51 +9872,6 @@ Transform:
   m_Father: {fileID: 1308889832}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1138317318
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1138317319}
-  - component: {fileID: 1138317320}
-  m_Layer: 31
-  m_Name: PPFX
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1138317319
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1138317318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1459364080}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1138317320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1138317318}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 9151fca57ea15fa419b731d80ab4b5d4, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &1152773423
 GameObject:
   m_ObjectHideFlags: 0
@@ -12403,7 +12370,6 @@ Transform:
   m_Children:
   - {fileID: 2124731025}
   - {fileID: 569153838}
-  - {fileID: 1138317319}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
