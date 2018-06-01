@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics.Experimental;
+using UnityEngine.Events;
 
 public class TutorialText : MonoBehaviour {
 
@@ -13,7 +15,7 @@ public class TutorialText : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+		AnalyticsEvent.TutorialStart("Appartment");
     }
 	
 	// Update is called once per frame
@@ -26,7 +28,8 @@ public class TutorialText : MonoBehaviour {
         
         if(timer <= 0 && startTimer == true)
         {
-            Intro.SetActive(false);
+			
+			Intro.SetActive(false);
             Teleport.SetActive(true);
             startTimer = false;
         }
@@ -38,6 +41,7 @@ public class TutorialText : MonoBehaviour {
         if(StandardObject.PickUPActive == false && VRTK.VRTK_ControllerEvents.TeleportActive == false)
         {
             PickUP.SetActive(false);
+			AnalyticsEvent.TutorialComplete("Appartment");
         }
 	}
 }

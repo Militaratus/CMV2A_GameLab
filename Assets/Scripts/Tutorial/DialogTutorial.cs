@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics.Experimental;
 
 public class DialogTutorial : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class DialogTutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+		AnalyticsEvent.TutorialStart("Alley");
 	}
 	
 	// Update is called once per frame
@@ -18,6 +19,7 @@ public class DialogTutorial : MonoBehaviour {
 		if(DialogSystem.Dialog == false)
         {
             Dialog.SetActive(false);
+			AnalyticsEvent.TutorialComplete("Alley");
         }
 	}
 }
