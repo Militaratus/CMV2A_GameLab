@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class BleepBoardMaster : MonoBehaviour
@@ -109,6 +110,12 @@ public class BleepBoardMaster : MonoBehaviour
     {
         if (!linkObject.GetComponent<BBLink>().inUse)
         {
+            // Evidence Used Analytics
+            Analytics.CustomEvent("BoardAddEvidence", new Dictionary<string, object>
+            {
+                { "EvidenceName", addEvidence.evidenceName }
+            });
+
             linkObject.GetComponent<BBLink>().PopulateLink(addEvidence);
             placedClue = true;
             UnprepareNewEvidence();
@@ -149,6 +156,13 @@ public class BleepBoardMaster : MonoBehaviour
                 Evidence eLinkA = sLinkA.myEvidence;
                 Evidence eLinkB = sLinkB.myEvidence;
 
+                // Evidence Linked Analytics
+                Analytics.CustomEvent("BoardLinkAttempt", new Dictionary<string, object>
+                {
+                    { "EvidenceA", eLinkA.evidenceName },
+                    { "EvidenceB", eLinkB.evidenceName }
+                });
+
                 //Evidence linkEvidence = newLink.GetComponent<BBLink>().myEvidence;
                 for (int i = 0; i < eLinkA.linkedEvidence.Count; i++)
                 {
@@ -161,6 +175,13 @@ public class BleepBoardMaster : MonoBehaviour
 
                 if (linkedEvidence)
                 {
+                    // Evidence Linked Analytics
+                    Analytics.CustomEvent("BoardLinkMade", new Dictionary<string, object>
+                    {
+                        { "EvidenceA", eLinkA.evidenceName },
+                        { "EvidenceB", eLinkB.evidenceName }
+                    });
+
                     connectedClue = true;
                     // Great success
                     sLinkA.AddLink(linkB);

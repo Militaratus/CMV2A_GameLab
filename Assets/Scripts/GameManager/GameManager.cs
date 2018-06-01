@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -83,6 +84,13 @@ public class GameManager : MonoBehaviour
                 gatheredEvidence = new List<Evidence>();
             }
 
+            // 
+            Analytics.CustomEvent("FoundEvidence", new Dictionary<string, object>
+            {
+                { "EvidenceName", newEvidence.evidenceName }
+            });
+
+
             newEvidence.amScanned = false; // Reset the Scriptable Object
             gatheredEvidence.Add(newEvidence);
             gameData.gatheredEvidence = gatheredEvidence;
@@ -133,6 +141,13 @@ public class GameManager : MonoBehaviour
         {
             foundSuspects.Add(newSuspect);
             gameData.foundSuspects = foundSuspects;
+
+            // Suspect Analytics
+            Analytics.CustomEvent("FoundSuspect", new Dictionary<string, object>
+            {
+                { "SuspectName", newSuspect.suspectName }
+            });
+
             AutoSave();
             RefreshBleepBloop();
         }

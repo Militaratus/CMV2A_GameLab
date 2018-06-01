@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour
@@ -276,6 +277,13 @@ public class DialogSystem : MonoBehaviour
 
     public void ChoiceBelieve()
     {
+        // Dialog Analytics
+        Analytics.CustomEvent("DialogOption", new Dictionary<string, object>
+        {
+            { "TopicName", myConversation.availableTopics[activeTopic].topicName },
+            { "Response", "Believe" }
+        });
+
         DialogChoice activeResponse = myConversation.availableTopics[activeTopic].goodCop;
         currentDialog = activeResponse.choiceResponse;
         dialogStage = 0;
@@ -290,6 +298,13 @@ public class DialogSystem : MonoBehaviour
 
     public void ChoicePressure()
     {
+        // Dialog Analytics
+        Analytics.CustomEvent("DialogOption", new Dictionary<string, object>
+        {
+            { "TopicName", myConversation.availableTopics[activeTopic].topicName },
+            { "Response", "Pressure" }
+        });
+
         DialogChoice activeResponse = myConversation.availableTopics[activeTopic].badCop;
         currentDialog = activeResponse.choiceResponse;
         dialogStage = 0;
@@ -303,6 +318,13 @@ public class DialogSystem : MonoBehaviour
 
     public void ChoiceAccuse()
     {
+        // Dialog Analytics
+        Analytics.CustomEvent("DialogOption", new Dictionary<string, object>
+        {
+            { "TopicName", myConversation.availableTopics[activeTopic].topicName },
+            { "Response", "Accuse" }
+        });
+
         DialogAccuse activeResponse = myConversation.availableTopics[activeTopic].accuseCop;
         currentDialog = activeResponse.choiceResponse;
         dialogStage = 0;
@@ -317,11 +339,25 @@ public class DialogSystem : MonoBehaviour
         DialogAccuse activeResponse = myConversation.availableTopics[activeTopic].accuseCop;
         if (activeResponse.requiredEvidence!= null && chosenEvidence.evidenceName == activeResponse.requiredEvidence.evidenceName)
         {
+            // Dialog Analytics
+            Analytics.CustomEvent("DialogOption", new Dictionary<string, object>
+            {
+                { "TopicName", myConversation.availableTopics[activeTopic].topicName },
+                { "Response", "AccuseSucceed" }
+            });
+
             Accuse = false;
             AccuseSuccess();
         }
         else
         {
+            // Dialog Analytics
+            Analytics.CustomEvent("DialogOption", new Dictionary<string, object>
+            {
+                { "TopicName", myConversation.availableTopics[activeTopic].topicName },
+                { "Response", "AccuseFail" }
+            });
+
             Accuse = false;
             AccuseFail();
         }
