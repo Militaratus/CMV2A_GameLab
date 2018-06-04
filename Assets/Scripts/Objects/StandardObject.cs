@@ -123,7 +123,6 @@ public class StandardObject : VRTK_InteractableObject
     {
         base.Grabbed(currentGrabbingObject);
 
-        Analytics.CustomEvent("GrabbedByPervert");
         //UnityAnalyticsHeatmap.HeatmapEvent.Send("ObjectGrabLocation", transform.position);
 
         // Reset Respawn
