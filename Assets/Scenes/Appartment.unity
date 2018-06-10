@@ -5878,6 +5878,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1786611234214700, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
+      propertyPath: m_Name
+      value: Dirty Mug NEW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
   m_IsPrefabParent: 0
@@ -15482,6 +15486,8 @@ GameObject:
   - component: {fileID: 1157240485}
   - component: {fileID: 1157240484}
   - component: {fileID: 1157240483}
+  - component: {fileID: 1157240487}
+  - component: {fileID: 1157240486}
   m_Layer: 13
   m_Name: ShowerWater
   m_TagString: Untagged
@@ -15604,6 +15610,30 @@ EllipsoidParticleEmitter:
   m_OneShot: 0
   m_Ellipsoid: {x: 0.01, y: 0.01, z: 0.01}
   m_MinEmitterRange: 0
+--- !u!114 &1157240486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157240481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf186554d70b1c34fbdf2e5e0185e6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materialClean: {fileID: 2100000, guid: 5fdc866d985ee0147b12d0017a3045b0, type: 2}
+--- !u!65 &1157240487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157240481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53677917, y: 0.64358276, z: 0.4779594}
+  m_Center: {x: -0.010958817, y: -0.3361516, z: -0.10339925}
 --- !u!1 &1166622116
 GameObject:
   m_ObjectHideFlags: 0
@@ -22493,6 +22523,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1786611234214700, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
+      propertyPath: m_Name
+      value: Dirty Mug NEW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
   m_IsPrefabParent: 0
@@ -22915,6 +22949,10 @@ Prefab:
     - target: {fileID: 4900869138812158, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1786611234214700, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
+      propertyPath: m_Name
+      value: Dirty Mug NEW
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
@@ -23779,6 +23817,10 @@ Prefab:
       propertyPath: secondaryGrabActionScript
       value: 
       objectReference: {fileID: 2071156957}
+    - target: {fileID: 1786611234214700, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
+      propertyPath: m_Name
+      value: Dirty Mug NEW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1648ce2cc27051e478f69d4da12348f1, type: 2}
   m_IsPrefabParent: 0
@@ -26874,7 +26916,7 @@ GameObject:
   - component: {fileID: 2000070757}
   - component: {fileID: 2000070756}
   m_Layer: 13
-  m_Name: Plate dirtyNEW (1)
+  m_Name: Plate dirtyNEW
   m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
