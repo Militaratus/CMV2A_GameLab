@@ -11326,7 +11326,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4642156255323928, guid: 777c8562d21ed9d41a2a69773890ea21, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.424
+      value: -0.943
       objectReference: {fileID: 0}
     - target: {fileID: 4642156255323928, guid: 777c8562d21ed9d41a2a69773890ea21, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11334,7 +11334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4642156255323928, guid: 777c8562d21ed9d41a2a69773890ea21, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.12
+      value: 2.219
       objectReference: {fileID: 0}
     - target: {fileID: 4642156255323928, guid: 777c8562d21ed9d41a2a69773890ea21, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17721,9 +17721,36 @@ Prefab:
       propertyPath: precisionGrab
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1601976878193266, guid: 47206e70133b1d44a814f2b9ee20fb1d, type: 2}
+      propertyPath: m_Name
+      value: Plate dirtyNEW
+      objectReference: {fileID: 0}
+    - target: {fileID: 82701015302590284, guid: 47206e70133b1d44a814f2b9ee20fb1d,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 65796880817300718, guid: 47206e70133b1d44a814f2b9ee20fb1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 47206e70133b1d44a814f2b9ee20fb1d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1324988099 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1601976878193266, guid: 47206e70133b1d44a814f2b9ee20fb1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1324988098}
+--- !u!65 &1324988100
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1324988099}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.026926873, y: 0.02692688, z: 0.00024951383}
+  m_Center: {x: -0.000000007450581, y: 1.4183211e-17, z: 0.00012475639}
 --- !u!1001 &1327388088
 Prefab:
   m_ObjectHideFlags: 0
