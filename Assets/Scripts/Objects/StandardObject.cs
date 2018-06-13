@@ -9,111 +9,71 @@ public class StandardObject : VRTK_InteractableObject
 {
     public static bool PickUPActive = true;
 
-    [Header("Evidence", order = 1)]
+    [Header("Salty Puppies", order = 1)]
+    public bool canRespawn;
     public Evidence evidence;
+    internal bool amAnalyzed;
 
     // GameManager Reference
     internal GameManager managerGame;
 
-    internal Transform playerHead;
-    internal Transform tooltipHead;
-
-    internal bool amAnalyzed;
-    internal int analyzePercentage = 0;
-    internal float analyzeCooldown = 0;
-    internal GameObject objectCanvas;
-    internal Text objectName;
-    internal Text objectText;
-
+    // Respawn Variables
     internal Vector3 resetPosition;
     internal Quaternion resetRotation;
-
     internal IEnumerator resetCoroutine;
+
+    // Gravity Variables
+    private float cooldownSwitchGravity;
 
     protected override void Awake()
     {
         base.Awake();
-        SetReset();
-    
 
-        // Set up
-        if (GameObject.Find("GameManager"))
+        // Only trigger on respawnable objects
+        if (canRespawn)
         {
-            managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+            SetReset();
         }
-        else
+
+        // Only trigger when evidence was added
+        if (AmEvidence())
         {
-            GameObject managerGamePrefab = Resources.Load("GameManager") as GameObject;
-            GameObject managerGameInstant = Instantiate(managerGamePrefab);
-            managerGameInstant.name = "GameManager";
-            managerGame = managerGameInstant.GetComponent<GameManager>();
-        }
-        amAnalyzed = managerGame.CheckAddedEvidence(evidence);
+            // Set up
+            if (GameObject.Find("GameManager"))
+            {
+                managerGame = GameObject.Find("GameManager").GetComponent<GameManager>();
+            }
+            else
+            {
+                Debug.LogError("ERROR: Game Manager was not found.");
+                GameObject managerGamePrefab = Resources.Load("GameManager") as GameObject;
+                GameObject managerGameInstant = Instantiate(managerGamePrefab);
+                managerGameInstant.name = "GameManager";
+                managerGame = managerGameInstant.GetComponent<GameManager>();
+            }
 
-        playerHead = GameObject.FindGameObjectWithTag("Player").transform;
-        tooltipHead = transform.GetChild(0);
-
-        objectCanvas = tooltipHead.GetChild(0).gameObject;
-        objectCanvas.SetActive(false);
-
-        if (evidence)
-        {
-            objectName = objectCanvas.transform.GetChild(1).GetComponent<Text>();
-            objectName.text = evidence.evidenceName;
-
-            objectText = objectCanvas.transform.GetChild(2).GetComponent<Text>();
-            objectText.text = evidence.evidenceDescription;
-
+            amAnalyzed = false;
             gameObject.tag = "Evidence";
         }
+
+        // Disable Gravity on spawn to allow artists to place what they want, where they want
+        UseGravity(false);
+
+        // Allows item collision be at the model level and not the VRTK Usable Area
+        gameObject.layer = 8;
+
+        // Do we need to take care of anything else?
+        ExtraAwake();
     }
 
-    protected override void Update()
+    // An overridable class just in case for inheritent classes 
+    internal virtual void ExtraAwake()
     {
-        base.Update();
 
-        if (evidence)
-        {
-            if (IsGrabbed())
-            {
-                amAnalyzed = true;
-                managerGame.AddEvidence(evidence);
-                /*if (amAnalyzed)
-                {
-                    objectName.text = evidence.evidenceName;
-                    objectText.text = evidence.evidenceDescription;
-                }
-                else
-                {
-                    analyzePercentage = analyzePercentage + Random.Range(1, 25);
-                    if (analyzePercentage > 100.00f)
-                    {
-                        amAnalyzed = true;
-                        analyzePercentage = 100;
-                        managerGame.AddEvidence(evidence);
-                    }
-
-                    objectName.text = "Analyzing...";
-                    objectText.text = analyzePercentage + "%";
-                }
-
-                if (!objectCanvas.activeSelf)
-                {
-                    //objectCanvas.SetActive(true);
-                }*/
-
-                //analyzeCooldown = Time.time + 1;
-            }
-
-            if (!IsGrabbed() && objectCanvas.activeSelf)
-            {
-                objectCanvas.SetActive(false);
-            }
-        }
     }
 
     // Apply the key text to the GUI of the button
-    public virtual void SetReset()
+    internal virtual void SetReset()
     {
         resetPosition = transform.position;
         resetRotation = transform.rotation;
@@ -123,31 +83,69 @@ public class StandardObject : VRTK_InteractableObject
     {
         base.Grabbed(currentGrabbingObject);
 
-        //UnityAnalyticsHeatmap.HeatmapEvent.Send("ObjectGrabLocation", transform.position);
-
         // Reset Respawn
-        if (resetCoroutine != null)
+        if (canRespawn)
         {
-            StopCoroutine(resetCoroutine);
-            resetCoroutine = null;
+            if (resetCoroutine != null)
+            {
+                StopCoroutine(resetCoroutine);
+                resetCoroutine = null;
+            }
         }
 
-        // Aim the Display to the player
-        tooltipHead.position = transform.position + (Vector3.up * 0.5f);
-        tooltipHead.LookAt(playerHead.position);
+        if (AmEvidence())
+        {
+            amAnalyzed = true;
+            managerGame.AddEvidence(evidence);
+        }
     }
 
     public override void Ungrabbed(VRTK_InteractGrab previousGrabbingObject = null)
     {
+        // Enable Gravity on release, allow emergent gameplay.
+        UseGravity();
+
         base.Ungrabbed(previousGrabbingObject);
 
         PickUPActive = false;
 
-        //resetCoroutine = ResetTimer();
-        //StartCoroutine(resetCoroutine);
+        if (canRespawn)
+        {
+            resetCoroutine = ResetTimer();
+            StartCoroutine(resetCoroutine);
+        }
     }
 
-    public virtual void ResetObject()
+    bool AmEvidence()
+    {
+        bool bEvidence = false;
+        if (evidence != null)
+        {
+            bEvidence = true;
+        }
+        return bEvidence;
+    }
+
+    internal void UseGravity(bool bUseGravity = true)
+    {
+        if (cooldownSwitchGravity > Time.time)
+        {
+            return;
+        }
+
+        if (bUseGravity == true)
+        {
+            interactableRigidbody.constraints = RigidbodyConstraints.None;
+        }
+        else
+        {
+            interactableRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
+        cooldownSwitchGravity = Time.time + 0.1f;
+    }
+
+    internal virtual void ResetObject()
     {
         if (resetCoroutine != null)
         {
@@ -159,9 +157,9 @@ public class StandardObject : VRTK_InteractableObject
         transform.rotation = resetRotation;
     }
 
-    public IEnumerator ResetTimer()
+    internal IEnumerator ResetTimer()
     {
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(30.0f);
         ResetObject();
     }
 }

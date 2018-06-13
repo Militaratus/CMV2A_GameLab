@@ -10,38 +10,57 @@ public class BreakableObject : StandardObject
     // Breakable variables
     internal GameObject modelParent;
     internal Transform shardParent;
-    internal int shardCount;
+    internal Transform[] shardPopulation;
     internal Vector3[] shardPositions;
     internal Quaternion[] shardRotations;
 
-    // Apply the key text to the GUI of the button
-    public override void SetReset()
+    internal override void ExtraAwake()
     {
-        base.SetReset();
-        modelParent = transform.GetChild(1).gameObject;
-        shardParent = transform.GetChild(2);
-        shardCount = shardParent.childCount;
-        shardPositions = new Vector3[shardCount];
-        shardRotations = new Quaternion[shardCount];
-        for (int i = 0; i < shardCount; i++)
+        base.ExtraAwake();
+
+        // Get Variables
+        modelParent = transform.GetChild(0).gameObject;
+        shardParent = transform.GetChild(1);
+
+        // Get the local population in line
+        shardPopulation = new Transform[shardParent.childCount];
+        for (int i = 0; i < shardPopulation.Length; i++)
         {
-            shardPositions[i] = shardParent.GetChild(i).localPosition;
-            shardRotations[i] = shardParent.GetChild(i).localRotation;
+            shardPopulation[i] = shardParent.GetChild(i);
         }
-        modelParent.SetActive(true);
-        shardParent.gameObject.SetActive(false);
+
+        // Hide Shards
+        ShowShards(false);
     }
 
-    public override void ResetObject()
+    // Apply the key text to the GUI of the button
+    internal override void SetReset()
+    {
+        base.SetReset();
+
+        // Get Variables
+        shardParent = transform.GetChild(1);
+        shardPositions = new Vector3[shardPopulation.Length];
+        shardRotations = new Quaternion[shardPopulation.Length];
+
+        // Populate Respawn list
+        for (int i = 0; i < shardPopulation.Length; i++)
+        {
+            shardPositions[i] = shardPopulation[i].localPosition;
+            shardRotations[i] = shardPopulation[i].localRotation;
+        }
+    }
+
+    internal override void ResetObject()
     {
         base.ResetObject();
-        for (int i = 0; i < shardCount; i++)
+        for (int i = 0; i < shardPopulation.Length; i++)
         {
-            shardParent.GetChild(i).localPosition = shardPositions[i];
-            shardParent.GetChild(i).localRotation = shardRotations[i];
+            shardPopulation[i].parent = shardParent;
+            shardPopulation[i].localPosition = shardPositions[i];
+            shardPopulation[i].localRotation = shardRotations[i];
         }
-        modelParent.SetActive(true);
-        shardParent.gameObject.SetActive(false);
+        ShowShards(false);
     }
 
     void OnCollisionEnter(Collision collision)
@@ -49,12 +68,38 @@ public class BreakableObject : StandardObject
         if (collision.relativeVelocity.magnitude > 4)
         {
             GetComponent<AudioSource>().Play();
-            modelParent.SetActive(false);
-            shardParent.gameObject.SetActive(true);
-			Analytics.CustomEvent("Broken");
-            //resetCoroutine = ResetTimer();
-           //StartCoroutine(resetCoroutine);
+            ShowShards();
+            Analytics.CustomEvent("Broken");
+
+            if (canRespawn)
+            {
+                resetCoroutine = ResetTimer();
+                StartCoroutine(resetCoroutine);
+            }
         }
 
+    }
+
+    void ShowShards(bool bShow = true)
+    {
+        BoxCollider grabCollider = GetComponent<BoxCollider>();
+        if (bShow)
+        {
+            grabCollider.enabled = false;
+            modelParent.SetActive(false);
+            shardParent.gameObject.SetActive(true);
+
+            // Unleash the horde!
+            for (int i = 0; i < shardPopulation.Length; i++)
+            {
+                shardPopulation[i].parent = null;
+            }
+        }
+        else
+        {
+            grabCollider.enabled = true;
+            modelParent.SetActive(true);
+            shardParent.gameObject.SetActive(false);
+        }
     }
 }
