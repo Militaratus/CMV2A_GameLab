@@ -12,7 +12,8 @@ public class IKControl : MonoBehaviour {
     public Transform headObj = null;
     public Transform hipsObj = null;
 
-    void Start() {
+    void Start()
+    {
         animator = GetComponent<Animator>();
     }
 
@@ -32,6 +33,8 @@ public class IKControl : MonoBehaviour {
 
             // offset to avoid showing mouth parts in view
             gameObject.transform.position += gameObject.transform.forward * -0.1f;
+
+            OnAnimatorIK();
         }
     }
 
