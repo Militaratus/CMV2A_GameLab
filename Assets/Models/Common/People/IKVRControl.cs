@@ -33,6 +33,10 @@ public class IKVRControl : MonoBehaviour
                 // Set the look target position, if one has been assigned
                 if (lookObj != null)
                 {
+                    // Face the direction of the camera
+                    float yRotation = lookObj.eulerAngles.y;
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, yRotation, transform.eulerAngles.z);
+
                     animator.SetLookAtWeight(1);
                     animator.SetLookAtPosition(lookObj.position + lookObj.transform.forward);
                 }
