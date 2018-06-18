@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Analytics.Experimental;
 
 public class DestinationTutorial : MonoBehaviour {
 
@@ -12,7 +11,7 @@ public class DestinationTutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		AnalyticsEvent.TutorialStart("Loading");
+		//AnalyticsEvent.TutorialStart("Loading");
 	}
 	
 	// Update is called once per frame
@@ -20,7 +19,7 @@ public class DestinationTutorial : MonoBehaviour {
 		if (LoadingManager.destinationChosen == true && tutorialDone == 0)
         {
             destinationCanvas.SetActive(false);
-			AnalyticsEvent.TutorialComplete("Loading");
+			//AnalyticsEvent.TutorialComplete("Loading");
 			tutorialDone = 1;
         }
 	}

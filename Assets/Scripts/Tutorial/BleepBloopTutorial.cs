@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Analytics.Experimental;
 
 public class BleepBloopTutorial : MonoBehaviour {
 
@@ -13,7 +12,7 @@ public class BleepBloopTutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		AnalyticsEvent.TutorialStart("CrimesceneAppartment");
+		//AnalyticsEvent.TutorialStart("CrimesceneAppartment");
 	}
 	
 	// Update is called once per frame
@@ -31,7 +30,7 @@ public class BleepBloopTutorial : MonoBehaviour {
         if(BleepBloop.evidenceChecked == true && BleepBloop.clueBotSpawned == true && BleepBloop.bleepBloopActive == true && tutorialDone == 0)
         {
             evidenceCanvas.SetActive(false);
-			AnalyticsEvent.TutorialComplete("CrimesceneAppartment");
+			//AnalyticsEvent.TutorialComplete("CrimesceneAppartment");
 			tutorialDone = 1;
         }
 

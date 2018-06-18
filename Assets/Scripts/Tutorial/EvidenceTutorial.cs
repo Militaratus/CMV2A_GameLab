@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Analytics.Experimental;
 
 public class EvidenceTutorial : MonoBehaviour {
 
@@ -11,7 +10,7 @@ public class EvidenceTutorial : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		AnalyticsEvent.TutorialStart("Policedepartment");
+		//AnalyticsEvent.TutorialStart("Policedepartment");
 	}
 	
 	// Update is called once per frame
@@ -19,7 +18,7 @@ public class EvidenceTutorial : MonoBehaviour {
 		if(DialogSystem.Accuse == false && tutorialDone == 0)
         {
             Evidence.SetActive(false);
-			AnalyticsEvent.TutorialComplete("Policedepartment");
+			//AnalyticsEvent.TutorialComplete("Policedepartment");
 			tutorialDone = 1;
         }
 	}
