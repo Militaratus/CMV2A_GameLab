@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 114068452821859990}
   - component: {fileID: 114008174771879836}
   - component: {fileID: 114908920086665616}
-  - component: {fileID: 114348364754035606}
+  - component: {fileID: 114243269205173674}
   m_Layer: 13
   m_Name: RightForeArm
   m_TagString: ExcludeTeleport
@@ -264,7 +264,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4423008320510004}
-  - component: {fileID: 95396085610144056}
   m_Layer: 13
   m_Name: Steve
   m_TagString: ExcludeTeleport
@@ -427,6 +426,7 @@ GameObject:
   - component: {fileID: 135944761939743028}
   - component: {fileID: 114994063155937942}
   - component: {fileID: 114015236886421890}
+  - component: {fileID: 82731779652408890}
   m_Layer: 13
   m_Name: Head
   m_TagString: ExcludeTeleport
@@ -703,8 +703,8 @@ GameObject:
   - component: {fileID: 114786635664686618}
   - component: {fileID: 114122295671024018}
   - component: {fileID: 114929488766558324}
-  - component: {fileID: 114115830390569648}
   - component: {fileID: 114517613577126012}
+  - component: {fileID: 114480935721842148}
   m_Layer: 13
   m_Name: LeftForeArm
   m_TagString: ExcludeTeleport
@@ -962,7 +962,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308452740294982}
   m_LocalRotation: {x: 0.05713793, y: -0.7137241, z: -0.6956267, w: -0.058624458}
-  m_LocalPosition: {x: -6.557, y: -2.062, z: 45.559}
+  m_LocalPosition: {x: -6.555, y: -1.602, z: 45.547}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4610501438630168}
@@ -1540,23 +1540,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.37975824, y: 0.23899879, z: 0.2346178}
   m_Center: {x: 0.00000017881393, y: 0.109064676, z: 0.09597692}
---- !u!95 &95396085610144056
-Animator:
-  serializedVersion: 3
+--- !u!82 &82731779652408890
+AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1308452740294982}
+  m_GameObject: {fileID: 1529083324606930}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 94b592843193bf547bc2b65dc6e706e1, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114008174771879836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1608,36 +1671,6 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114115830390569648
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1974302976232464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableWhenIdle: 1
-  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
-  allowedTouchControllers: 0
-  ignoredColliders: []
-  isGrabbable: 1
-  holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 1
-  validDrop: 1
-  grabOverrideButton: 0
-  allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 114929488766558324}
-  secondaryGrabActionScript: {fileID: 114122295671024018}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
-  pointerActivatesUseAction: 0
-  useOverrideButton: 0
-  allowedUseControllers: 0
-  usingState: 0
 --- !u!114 &114122295671024018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1700,7 +1733,7 @@ MonoBehaviour:
     WWWWWWWWWWWWWWWWWWWWW
 
     WWWWWWWWWWWWWWWWWWWWW'
---- !u!114 &114348364754035606
+--- !u!114 &114243269205173674
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1708,7 +1741,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1245043872054508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Script: {fileID: 11500000, guid: b91196d6b9370194ab2a46aa797a81d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
@@ -1721,15 +1754,53 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 114908920086665616}
-  secondaryGrabActionScript: {fileID: 114008174771879836}
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
-  holdButtonToUse: 1
+  holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+  canRespawn: 0
+  evidence: {fileID: 11400000, guid: c7b2a8d2cc09fc346ae7340a76b17323, type: 2}
+  audioPlayer: {fileID: 82731779652408890}
+  audioc: {fileID: 8300000, guid: 3a731e707da8f714199c6e968333a2d9, type: 3}
+--- !u!114 &114480935721842148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974302976232464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91196d6b9370194ab2a46aa797a81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 1
+  holdButtonToGrab: 1
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 0
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
+  canRespawn: 0
+  evidence: {fileID: 11400000, guid: c7b2a8d2cc09fc346ae7340a76b17323, type: 2}
+  audioPlayer: {fileID: 82731779652408890}
+  audioc: {fileID: 8300000, guid: 3a731e707da8f714199c6e968333a2d9, type: 3}
 --- !u!114 &114517613577126012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1935,7 +2006,10 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+  canRespawn: 0
   evidence: {fileID: 11400000, guid: c7b2a8d2cc09fc346ae7340a76b17323, type: 2}
+  audioPlayer: {fileID: 82731779652408890}
+  audioc: {fileID: 8300000, guid: 3a731e707da8f714199c6e968333a2d9, type: 3}
 --- !u!135 &135944761939743028
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2827,7 +2901,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000003848282, y: 0.26603246, z: -0.00000019207367}
+  m_ConnectedAnchor: {x: 0.0000003848282, y: 0.26603228, z: -0.00000019207367}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
