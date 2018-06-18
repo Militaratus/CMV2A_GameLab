@@ -18,7 +18,7 @@ public class AddItemToBed : MonoBehaviour
             }
 
             // Set the neccessary settings
-            so.UseGravity(false);
+            //so.UseGravity(false);
             other.transform.parent = transform;
         }
     }

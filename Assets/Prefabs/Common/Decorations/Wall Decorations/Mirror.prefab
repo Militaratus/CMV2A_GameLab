@@ -88,8 +88,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1531863671432994}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -2.521, y: 1.55, z: -1.9629502}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4852614320121476}
@@ -153,7 +153,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.05
+  near clip plane: 0.01
   far clip plane: 10
   field of view: 60
   orthographic: 0
@@ -162,12 +162,12 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 27136
-  m_RenderingPath: -1
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 8400000, guid: 0c8a82c27ea1e844885e97b9b9ae0ab5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
+  m_HDR: 1
+  m_AllowMSAA: 1
   m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -346,39 +346,39 @@ MonoBehaviour:
   MapToLDR: 0
   RemoveColorBanding: 1
   MatrixVP:
-    e00: 1.7320508
+    e00: -0.00000020647654
     e01: 0
-    e02: 0
-    e03: 0
-    e10: -0
+    e02: -1.732051
+    e03: -3.3999305
+    e10: 0
     e11: -1.7320508
     e12: 0
-    e13: 0
-    e20: 0
+    e13: 2.6846786
+    e20: -0.0010010005
     e21: 0
-    e22: -0.0050251484
-    e23: 0.046821583
-    e30: 0
+    e22: 1.1932855e-10
+    e23: 0.006803303
+    e30: 1.0000001
     e31: 0
-    e32: 1
-    e33: 0.68250185
+    e32: -0.00000011920929
+    e33: 3.203502
   LastMatrixVP:
-    e00: 1.7320508
+    e00: -0.00000020647654
     e01: 0
-    e02: 0
-    e03: 0
+    e02: -1.732051
+    e03: -3.3999305
     e10: 0
     e11: 1.7320508
     e12: 0
-    e13: 0
-    e20: 0
+    e13: -2.6846786
+    e20: -0.0010010005
     e21: 0
-    e22: -0.0050251484
-    e23: 0.046821583
-    e30: 0
+    e22: 1.1932855e-10
+    e23: 0.006803303
+    e30: 1.0000001
     e31: 0
-    e32: 1
-    e33: 0.68250185
+    e32: -0.00000011920929
+    e33: 3.203502
   LastMatrixVPInv:
     e00: 0
     e01: 0
@@ -431,18 +431,18 @@ MonoBehaviour:
     e32: 0
     e33: 0
   MatrixV:
-    e00: 1
+    e00: -0.00000011920929
     e01: 0
-    e02: 0
-    e03: 0
+    e02: -1.0000001
+    e03: -1.9629508
     e10: 0
     e11: 1
     e12: 0
-    e13: 0
-    e20: 0
+    e13: -1.55
+    e20: -1.0000001
     e21: 0
-    e22: -1
-    e23: -0.68250185
+    e22: 0.00000011920929
+    e23: -3.203502
     e30: 0
     e31: 0
     e32: 0
