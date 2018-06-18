@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4053337868449618}
   - component: {fileID: 33707379601658398}
   - component: {fileID: 23515283104812298}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Crumbled Paper 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 223170982111438744}
   - component: {fileID: 114371512782956412}
   - component: {fileID: 114954270427984542}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 224344370630463586}
   - component: {fileID: 222051140873378352}
   - component: {fileID: 114983184651923110}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 224613150797526128}
   - component: {fileID: 222958620589527200}
   - component: {fileID: 114233682960602044}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,8 @@ GameObject:
   - component: {fileID: 114170773765985370}
   - component: {fileID: 114205815641337788}
   - component: {fileID: 114957584245819038}
-  m_Layer: 0
+  - component: {fileID: 82002647085761516}
+  m_Layer: 13
   m_Name: CrumbledEvidence
   m_TagString: Evidence
   m_Icon: {fileID: 0}
@@ -110,7 +111,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4748251653205934}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +128,7 @@ GameObject:
   - component: {fileID: 4617943129800846}
   - component: {fileID: 33185888225471454}
   - component: {fileID: 23229958297405338}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Crumbled Paper 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +143,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4792836240494266}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Crumbled Paper Brown NEW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +158,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4557481676763704}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +175,7 @@ GameObject:
   - component: {fileID: 224011819882670178}
   - component: {fileID: 222090971860320626}
   - component: {fileID: 114670866807350696}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,8 +201,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443956286779398}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.101, y: 1.525, z: 0.8716}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.591, y: -1.253, z: 3.152}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4748251653205934}
@@ -370,6 +371,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82002647085761516
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443956286779398}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114003132401904616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,7 +481,10 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+  canRespawn: 0
   evidence: {fileID: 11400000, guid: a27e0cd9dd43e5f44bf662b5198cc148, type: 2}
+  audioPlayer: {fileID: 82002647085761516}
+  audioc: {fileID: 8300000, guid: 32edebaaf6402b449ab8e39854474763, type: 3}
 --- !u!114 &114170773765985370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
+  precisionGrab: 1
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0

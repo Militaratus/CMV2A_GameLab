@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4095939713541788}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Post Its
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 114366623022994560}
   - component: {fileID: 114335634318142054}
   - component: {fileID: 114221650216208268}
-  m_Layer: 0
+  - component: {fileID: 82887842329208550}
+  m_Layer: 13
   m_Name: PostItEvividence
   m_TagString: Evidence
   m_Icon: {fileID: 0}
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 223228428979159224}
   - component: {fileID: 114615045459250642}
   - component: {fileID: 114690961458886598}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +77,7 @@ GameObject:
   - component: {fileID: 4443921642572138}
   - component: {fileID: 33901849917506422}
   - component: {fileID: 23661796644895662}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plane004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +95,7 @@ GameObject:
   - component: {fileID: 223582252553363202}
   - component: {fileID: 114356665184089102}
   - component: {fileID: 114220933179952332}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +112,7 @@ GameObject:
   - component: {fileID: 224344939261983444}
   - component: {fileID: 222245774682148878}
   - component: {fileID: 114542284428910840}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +129,7 @@ GameObject:
   - component: {fileID: 224272561356256124}
   - component: {fileID: 222086116087725456}
   - component: {fileID: 114290686553935368}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   - component: {fileID: 4113541027543602}
   - component: {fileID: 33322747015404348}
   - component: {fileID: 23156210716195146}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plane005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +161,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4487914302225802}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Notes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 4644055715487360}
   - component: {fileID: 33581094669204740}
   - component: {fileID: 23976965266897852}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Plane003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +195,7 @@ GameObject:
   - component: {fileID: 224457632688161914}
   - component: {fileID: 222075639532096430}
   - component: {fileID: 114032987444283888}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 224946796929058770}
   - component: {fileID: 222420658545251908}
   - component: {fileID: 114930928647329304}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +227,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4499145357048080}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +242,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4604549069424864}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tooltip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,15 +283,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100831754821406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.101, y: 1.525, z: 0.3146919}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.17390189, y: 0.68538904, z: 0.68538904, w: -0.17390189}
+  m_LocalPosition: {x: 0.722, y: -0.5021, z: 3.4569983}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children:
   - {fileID: 4604549069424864}
   - {fileID: 4499145357048080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 208.474}
 --- !u!4 &4443921642572138
 Transform:
   m_ObjectHideFlags: 1
@@ -504,8 +505,88 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.05}
+  m_Size: {x: 0.11, y: 0.11, z: 0.04}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82887842329208550
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100831754821406}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114032987444283888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -638,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
+  precisionGrab: 1
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
@@ -729,7 +810,10 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+  canRespawn: 0
   evidence: {fileID: 11400000, guid: da0d2a7acbd1f114fbab5bce1cf3e7ec, type: 2}
+  audioPlayer: {fileID: 82887842329208550}
+  audioc: {fileID: 8300000, guid: cc709c0b544d2bf4391f0c1b0c06065a, type: 3}
 --- !u!114 &114542284428910840
 MonoBehaviour:
   m_ObjectHideFlags: 1
