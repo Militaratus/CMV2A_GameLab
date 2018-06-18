@@ -1,48 +1,21 @@
 fileFormatVersion: 2
-guid: 6e4e314ffe91fea4b9b4c308daed5c88
-timeCreated: 1523710089
+guid: 78bab7ab8057459418f281ddc1efdf9d
+timeCreated: 1529329916
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: BackgroundBuilding1
-    100002: BackgroundBuilding2
-    100004: Building 22
-    100006: Building 55
-    100008: Camera
-    100010: Lamp
-    100012: //RootNode
-    100014: Plaza
-    100016: Street
-    400000: BackgroundBuilding1
-    400002: BackgroundBuilding2
-    400004: Building 22
-    400006: Building 55
-    400008: Camera
-    400010: Lamp
-    400012: //RootNode
-    400014: Plaza
-    400016: Street
-    2000000: Camera
-    2300000: BackgroundBuilding1
-    2300002: BackgroundBuilding2
-    2300004: Building 22
-    2300006: Building 55
-    2300008: Plaza
-    2300010: Street
-    3300000: BackgroundBuilding1
-    3300002: BackgroundBuilding2
-    3300004: Building 22
-    3300006: Building 55
-    3300008: Plaza
-    3300010: Street
-    4300000: Building 22
-    4300002: Building 55
-    4300004: Plaza
-    4300006: BackgroundBuilding2
-    4300008: BackgroundBuilding1
-    4300010: Street
-    10800000: Lamp
+    100000: Cardboard Box
+    100002: //RootNode
+    100004: Hemi
+    400000: Cardboard Box
+    400002: //RootNode
+    400004: Hemi
+    2300000: Cardboard Box
+    3300000: Cardboard Box
+    4300000: Cardboard Box
+    6400000: Cardboard Box
+    10800000: Hemi
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,13 +45,13 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    addColliders: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -93,7 +66,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

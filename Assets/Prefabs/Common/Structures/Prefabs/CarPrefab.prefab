@@ -37,9 +37,9 @@ GameObject:
   - component: {fileID: 33548881399788270}
   - component: {fileID: 23248901752222876}
   - component: {fileID: 64168426432389948}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 33630857371116704}
   - component: {fileID: 23869418385816428}
   - component: {fileID: 64794207822888532}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wheels.002
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -152,9 +152,9 @@ GameObject:
   - component: {fileID: 33958506740200618}
   - component: {fileID: 23357270231481326}
   - component: {fileID: 64008039814625716}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -170,9 +170,9 @@ GameObject:
   - component: {fileID: 33595337905691054}
   - component: {fileID: 23134171698017738}
   - component: {fileID: 64083179093750898}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -205,9 +205,9 @@ GameObject:
   - component: {fileID: 33662586712921994}
   - component: {fileID: 23666424444498596}
   - component: {fileID: 64778557891724928}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -238,9 +238,9 @@ GameObject:
   - component: {fileID: 33925385077215614}
   - component: {fileID: 23764878856758620}
   - component: {fileID: 64905773077000248}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wheels.000
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -270,6 +270,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4360856211870734}
+  - component: {fileID: 65468652563668088}
+  - component: {fileID: 114158977983677278}
+  - component: {fileID: 114363948308140500}
   m_Layer: 0
   m_Name: CarPrefab
   m_TagString: Untagged
@@ -305,9 +308,9 @@ GameObject:
   - component: {fileID: 33871072263378428}
   - component: {fileID: 23753623008724238}
   - component: {fileID: 64857247032103256}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wheels.003
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -323,9 +326,9 @@ GameObject:
   - component: {fileID: 33829259484903604}
   - component: {fileID: 23826823926423114}
   - component: {fileID: 64260286543233220}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Wheels.001
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -358,9 +361,9 @@ GameObject:
   - component: {fileID: 33999332963584664}
   - component: {fileID: 23105199074356794}
   - component: {fileID: 64530714656150926}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -376,9 +379,9 @@ GameObject:
   - component: {fileID: 33314780759785042}
   - component: {fileID: 23787048582234048}
   - component: {fileID: 64189853332926298}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder.003
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -394,9 +397,9 @@ GameObject:
   - component: {fileID: 33488512196106350}
   - component: {fileID: 23408280473506416}
   - component: {fileID: 64495339864161598}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cylinder.002
-  m_TagString: Untagged
+  m_TagString: ExcludeTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -543,13 +546,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1733025528255696}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -13.5, y: 0.05, z: 5.2}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4343524029285618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 100.04001, z: 0}
 --- !u!4 &4452067440056554
 Transform:
   m_ObjectHideFlags: 1
@@ -745,7 +748,6 @@ MeshRenderer:
   - {fileID: 2100000, guid: b7b0c83dd98cd744bb4aea71d7f1fe1a, type: 2}
   - {fileID: 2100000, guid: ffac0dd4c581a154296e7a4b8809f7d0, type: 2}
   - {fileID: 2100000, guid: cfd9322f517a2354ca468303b50263ae, type: 2}
-  - {fileID: 2100000, guid: a9383c230cd7c6e4ab56232feb4f83a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1325,6 +1327,18 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 3b943763d0e136842aa092050b2473c5, type: 3}
+--- !u!65 &65468652563668088
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733025528255696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.4, y: 2, z: 6.5}
+  m_Center: {x: 0.16, y: 0.9, z: -0.19}
 --- !u!108 &108263470348247186
 Light:
   m_ObjectHideFlags: 1
@@ -1739,6 +1753,23 @@ MonoBehaviour:
   MaxLightDistance: 128
   AboveFogPercent: 0.1
   Offset: {x: 263.99033, y: 263.99033, z: 0}
+--- !u!114 &114158977983677278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733025528255696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 0.5
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
 --- !u!114 &114194986203916434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1871,6 +1902,36 @@ MonoBehaviour:
   MaxLightDistance: 128
   AboveFogPercent: 0.1
   Offset: {x: 263.99033, y: 263.99033, z: 0}
+--- !u!114 &114363948308140500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733025528255696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3127d670636323e4d800961fc2c21d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  touchHighlightColor: {r: 1, g: 0, b: 0, a: 0}
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 0
+  holdButtonToGrab: 0
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
+  isUsable: 1
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  usingState: 0
 --- !u!114 &114527737362941436
 MonoBehaviour:
   m_ObjectHideFlags: 1

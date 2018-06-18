@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568094594374182}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -8.89, y: -1.94, z: 47.9}
+  m_LocalPosition: {x: -1.9446875, y: 0, z: 10.478125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4610429870901840}
@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 1982133371949320}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 49.99997, z: 49.99997}
+  m_LocalScale: {x: 10.9375, y: 10.937496, z: 10.937496}
   m_Children: []
   m_Father: {fileID: 4610429870901840}
   m_RootOrder: 0
@@ -186,8 +186,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65, y: 0.515, z: 0.9}
-  m_Center: {x: 0.185, y: 0.645, z: 0.16}
+  m_Size: {x: 0.14, y: 0.11, z: 0.19}
+  m_Center: {x: 0.04, y: 0.14, z: 0.036}
 --- !u!82 &82593325284006064
 AudioSource:
   m_ObjectHideFlags: 1
@@ -347,6 +347,8 @@ MonoBehaviour:
   usingState: 0
   canRespawn: 0
   evidence: {fileID: 0}
+  audioPlayer: {fileID: 0}
+  audioc: {fileID: 0}
 --- !u!114 &114733574502397762
 MonoBehaviour:
   m_ObjectHideFlags: 1
