@@ -47,6 +47,8 @@ public class DialogSystem : MonoBehaviour
 
     // Public Components
     public Transform npcHead;
+    public IKNPCControl npcControl;
+
 
     // Game Manager References
     GameManager managerGame;
@@ -104,6 +106,9 @@ public class DialogSystem : MonoBehaviour
         }
 
         dialogSubtitles = GameObject.FindGameObjectWithTag("HeadCanvas").GetComponent<DialogSubtitles>();
+
+        npcHead = GameObject.FindGameObjectWithTag("Player").transform;
+        npcControl = transform.GetComponentInChildren<IKNPCControl>();
     }
 
     void UpdateTopics()
@@ -192,30 +197,39 @@ public class DialogSystem : MonoBehaviour
             }
             else
             {
-                // Have we already made a choice about a topic, if not show choices
-                if (!talkingChoice && !talkingAccuse)
+                // Do we even have further dialog?
+                if (myConversation.availableTopics[activeTopic].goodCop.choiceResponse.Length > 0)
                 {
-                    SwitchPanel("choice");
-                    return;
+                    // Have we already made a choice about a topic, if not show choices
+                    if (!talkingChoice && !talkingAccuse)
+                    {
+                        SwitchPanel("choice");
+                        return;
+                    }
+                    else
+                    {
+                        if (talkingAccuse && !talkingFinished)
+                        {
+                            if (managerGame.gatheredEvidence != null && managerGame.gatheredEvidence.Count > 0)
+                            {
+                                SwitchPanel("evidence");
+                                managerGame.SetBleepBloopMode(BleepBloop.Mode.Accuse);
+                                return;
+                            }
+                            else
+                            {
+                                AccuseFail();
+                                return;
+                            }
+
+                        }
+                    }
                 }
                 else
                 {
-                    if (talkingAccuse && !talkingFinished)
-                    {
-                        if (managerGame.gatheredEvidence != null && managerGame.gatheredEvidence.Count > 0)
-                        {
-                            SwitchPanel("evidence");
-                            managerGame.SetBleepBloopMode(BleepBloop.Mode.Accuse);
-                            return;
-                        }
-                        else
-                        {
-                            AccuseFail();
-                            return;
-                        }
-
-                    }
+                    talkingFinished = true;
                 }
+                
             }
 
             // Have we exhausted the topic?
@@ -420,11 +434,16 @@ public class DialogSystem : MonoBehaviour
 		if (inConversation)
         {
             canvasHead.LookAt(player.position);
-            if (npcHead && !talkingPaused)
+            /*if (npcHead && !talkingPaused)
             {
                 npcHead.LookAt(player.position);
+            }*/
+
+            if (npcControl && !talkingPaused)
+            {
+                npcControl.ikActive = true;
             }
-            
+
 
             if (inDialog && Time.time > conversationCooldown)
             {

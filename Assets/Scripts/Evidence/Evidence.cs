@@ -14,6 +14,7 @@ public class Evidence : ScriptableObject
     public string evidenceInformation;
     public Evidence scannedEvidence;
     public List<Evidence> linkedEvidence;
+    public Topic unlocksTopic;
     internal bool amScanned = false;
 
 #if UNITY_EDITOR

@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712a68b39ee5c4b42a439c0c37c725fc, type: 3}
+  m_Name: PT_FR_KilledBefore
+  m_EditorClassIdentifier: 
+  topicAvailable: 0
+  topicName: Killed Before
+  topicResponse:
+  - text: 
+    voice: {fileID: 8300000, guid: 63cb9dee738cac64d89471a6b62ded26, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: f0cdcab4ca9007a4ebeac5719bc29491, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 9baba5d828422224c942bc723ec56929, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 7cca00f4c9613e34f867f87a6730d722, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: e916947d6625e674581b26d2a157140d, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 48e56e12dcb93294ea530d9b82a51fdb, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 55decce0afd01ec41a6fb21c426aa753, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 883e180d037a935438fa4de84fb2ed82, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: badcf14d1d28da547ae7f46f12ceb677, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: 
+    voice: {fileID: 8300000, guid: 84daed22455c1e8499f8bad9c4d6e5c1, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 11400000, guid: efa07c3dcddd8aa4f8ed591754d28c9f, type: 2}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  goodCop:
+    choiceResponse: []
+  badCop:
+    choiceResponse: []
+  accuseCop:
+    choiceResponse: []
+    requiredEvidence: {fileID: 0}
+    choiceSuccess: []
+    choiceFail: []
+  topicCompleted: 0

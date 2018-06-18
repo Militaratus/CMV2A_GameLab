@@ -105,6 +105,10 @@ public class StandardObject : VRTK_InteractableObject
         if (AmEvidence())
         {
             amAnalyzed = true;
+            if (evidence.unlocksTopic != null)
+            {
+                evidence.unlocksTopic.topicAvailable = true;
+            }
             managerGame.AddEvidence(evidence);
         }
     }

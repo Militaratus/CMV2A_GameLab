@@ -15,92 +15,39 @@ MonoBehaviour:
   topicName: Victim
   topicResponse:
   - text: Any idea who the victim is?
-    voice: {fileID: 0}
+    voice: {fileID: 8300000, guid: 089f2f76c16d42c48903b04f47954a0b, type: 3}
     playerIsTalking: 1
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
     newSuspect: {fileID: 0}
   - text: No, sorry. I didn't really look for anything on him. I just called it in
       and kept the alley clear until the Wadsworth recorded the whole scene.
-    voice: {fileID: 0}
+    voice: {fileID: 8300000, guid: 3a47686838aaff84bae518aaab8e728a, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: No, sorry. I didn't really look for anything on him. I just called it in
+      and kept the alley clear until the Wadsworth recorded the whole scene.
+    voice: {fileID: 8300000, guid: ef9bfa3f6bf172148956de703003ebd9, type: 3}
+    playerIsTalking: 0
+    newTopic: {fileID: 0}
+    newEvidence: {fileID: 0}
+    newSuspect: {fileID: 0}
+  - text: No, sorry. I didn't really look for anything on him. I just called it in
+      and kept the alley clear until the Wadsworth recorded the whole scene.
+    voice: {fileID: 8300000, guid: 1bbb8f83350769e48bd196ee155bd8b0, type: 3}
     playerIsTalking: 0
     newTopic: {fileID: 0}
     newEvidence: {fileID: 0}
     newSuspect: {fileID: 0}
   goodCop:
-    choiceResponse:
-    - text: Good, good. You think it's done by now?
-      voice: {fileID: 0}
-      playerIsTalking: 1
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: Wadsworth finished his scans just before you got here. I reckon you're
-        free to move about the scene now.
-      voice: {fileID: 0}
-      playerIsTalking: 0
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
+    choiceResponse: []
   badCop:
-    choiceResponse:
-    - text: Did you even check the body yourself? Anything that stood out?
-      voice: {fileID: 0}
-      playerIsTalking: 1
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: Ehh no, nothing that was really weird. I did notice something on him,
-        though.
-      voice: {fileID: 0}
-      playerIsTalking: 0
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: Probably his wallet. It's still with him, over there. But otherwise, nothing
-        weird.
-      voice: {fileID: 0}
-      playerIsTalking: 0
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
+    choiceResponse: []
   accuseCop:
-    choiceResponse:
-    - text: So you really did the very least you could do, then? No inititative or
-        anything. Kids these days...
-      voice: {fileID: 0}
-      playerIsTalking: 1
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: Well I wouldn't want to contaminate the scene, though, right?
-      voice: {fileID: 0}
-      playerIsTalking: 0
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: 'No, sure. You wouldn''t want to know who you''re dealing with, or if
-        there''s a culprit nearby or something. '
-      voice: {fileID: 0}
-      playerIsTalking: 1
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
-    - text: I just did what I was supposed to do, though. I don't know what's wrong
-        about that.
-      voice: {fileID: 0}
-      playerIsTalking: 0
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
+    choiceResponse: []
     requiredEvidence: {fileID: 0}
     choiceSuccess: []
-    choiceFail:
-    - text: 'No, nothing''s wrong about that. Don''t worry yourself. You did exactly
-        what was required of you. '
-      voice: {fileID: 0}
-      playerIsTalking: 1
-      newTopic: {fileID: 0}
-      newEvidence: {fileID: 0}
-      newSuspect: {fileID: 0}
+    choiceFail: []
   topicCompleted: 0
