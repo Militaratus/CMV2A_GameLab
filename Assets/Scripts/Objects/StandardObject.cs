@@ -25,6 +25,10 @@ public class StandardObject : VRTK_InteractableObject
     // Gravity Variables
     private float cooldownSwitchGravity;
 
+    public AudioSource audioPlayer;
+    public AudioClip audioc;
+    int pickedUp = 0;
+
     protected override void Awake()
     {
         base.Awake();
@@ -82,6 +86,11 @@ public class StandardObject : VRTK_InteractableObject
     public override void Grabbed(VRTK_InteractGrab currentGrabbingObject = null)
     {
         base.Grabbed(currentGrabbingObject);
+        if (pickedUp == 0)
+        {
+            PlaySound(audioc);
+            pickedUp = 1;
+        }
 
         // Reset Respawn
         if (canRespawn)
@@ -114,6 +123,12 @@ public class StandardObject : VRTK_InteractableObject
             resetCoroutine = ResetTimer();
             StartCoroutine(resetCoroutine);
         }
+    }
+
+    void start()
+    {
+        int pickedUp = 0;
+        audioPlayer = GetComponent<AudioSource>();
     }
 
     bool AmEvidence()
@@ -161,5 +176,16 @@ public class StandardObject : VRTK_InteractableObject
     {
         yield return new WaitForSeconds(30.0f);
         ResetObject();
+    }
+
+    void PlaySound(AudioClip chosenAudio)
+    {
+        if (!chosenAudio)
+        {
+            return;
+        }
+
+        audioPlayer.clip = chosenAudio;
+        audioPlayer.Play();
     }
 }
