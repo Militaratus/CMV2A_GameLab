@@ -108,7 +108,7 @@ public class ButtonManager : MonoBehaviour
     public void StartGame()
     {
         audio.Play();
-        SceneManager.LoadScene("Appartment");
+        SceneManager.LoadScene("FinalApartment");
     }
 
     public void Credits()
