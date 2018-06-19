@@ -86,6 +86,8 @@ public class StandardObject : VRTK_InteractableObject
     public override void Grabbed(VRTK_InteractGrab currentGrabbingObject = null)
     {
         base.Grabbed(currentGrabbingObject);
+
+        UseGravity();
         if (pickedUp == 0)
         {
             PlaySound(audioc);
