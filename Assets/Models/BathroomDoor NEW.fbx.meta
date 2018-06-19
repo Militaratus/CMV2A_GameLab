@@ -27,6 +27,10 @@ ModelImporter:
     4300002: Handle
     4300004: Handle.001
     4300006: BathroomDoor
+    6400000: BathroomDoor
+    6400002: Glass
+    6400004: Handle
+    6400006: Handle.001
   materials:
     importMaterials: 1
     materialName: 0
@@ -56,13 +60,13 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
-    importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    addColliders: 1
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
