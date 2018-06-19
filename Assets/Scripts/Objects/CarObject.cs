@@ -17,7 +17,7 @@ public class CarObject : VRTK_InteractableObject
     IEnumerator LoadNewScene()
     {
         // Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Loading");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("FinalLoading");
 
         // While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
         while (!asyncLoad.isDone)
