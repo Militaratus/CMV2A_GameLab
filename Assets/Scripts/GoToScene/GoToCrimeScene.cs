@@ -34,7 +34,7 @@ public class GoToCrimeScene : VRTK_InteractableObject
             SetRotation();
             open = !open;
             PlaySound(doorOpening);
-            SceneManager.LoadScene("AlleywayCase1V2");
+            SceneManager.LoadScene("FinalLoading");
 
         }
         else
